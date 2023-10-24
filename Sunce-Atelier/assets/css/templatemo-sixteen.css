@@ -5,8 +5,23 @@ TemplateMo 546 Sixteen Clothing
 https://templatemo.com/tm-546-sixteen-clothing
 
 */
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('../fonts/Chi-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'Sans';
+    src: url('../fonts/Quickremarksdemo.ttf');
+}
+
+.roboto {
+    font-family: 'Roboto', sans-serif;
+}
+
 body {
-  font-family: 'Poppins', sans-serif;
+font-family: 'Roboto', sans-serif;
   overflow-x: hidden;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -330,7 +345,7 @@ header .navbar {
 
 .banner-item-02 {
 	padding: 300px 0px;
-	background-image: url(../images/slide_02.jpg);
+	background-image: url(../images/Banner1.png);
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: center center;
@@ -338,7 +353,7 @@ header .navbar {
 
 .banner-item-03 {
 	padding: 300px 0px;
-	background-image: url(../images/slide_03.jpg);
+	background-image: url(../images/Banner3.png);
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: center center;
@@ -366,9 +381,9 @@ header .navbar {
 }
 
 .banner .text-content h2 {
+	font-family: 'Sans', sans-serif;
 	color: #1B203E;
-	-webkit-text-stroke-width: 0.007em;
-  	-webkit-text-stroke-color: #EDACCC;
+
 	font-size: 62px;
 	text-transform: uppercase;
 	letter-spacing: 5px;
