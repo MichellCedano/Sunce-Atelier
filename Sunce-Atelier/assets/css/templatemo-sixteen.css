@@ -11,10 +11,6 @@ https://templatemo.com/tm-546-sixteen-clothing
     src: url('../fonts/Chi-Regular.ttf');
 }
 
-@font-face {
-    font-family: 'Sans';
-    src: url('../fonts/Quickremarksdemo.ttf');
-}
 
 .roboto {
     font-family: 'Roboto', sans-serif;
@@ -219,11 +215,19 @@ a.filled-button:hover {
 
 
 /* Header Style */
+
+.logo{
+	width: 7.5em;
+	margin-top: 10px;
+	margin-bottom: 20px;
+}
+
 header {
 	position: absolute;
 	z-index: 99999;
 	width: 100%;
 	height: 80px;
+	height: 170px;
 	background-color: #7DA9CC;
 	-webkit-transition: all 0.3s ease-in-out 0s;
     -moz-transition: all 0.3s ease-in-out 0s;
@@ -243,6 +247,7 @@ header .navbar {
 	box-shadow: 0px 1px 10px #7DA9CC;
 }
 .background-header .navbar-brand h2 {
+	
 	color: #121212!important;
 }
 .background-header .navbar-nav a.nav-link {
@@ -281,11 +286,12 @@ header .navbar {
 	text-align: center;
 }
 .navbar .navbar-nav .nav-item {
+	
 	margin: 0px 15px;
 }
 .navbar .navbar-nav a.nav-link {
 	text-transform: capitalize;
-	font-size: 15px;
+	font-size: 20px;
 	font-weight: 500;
 	letter-spacing: 0.5px;
 	color: #fff;
@@ -345,8 +351,7 @@ header .navbar {
 
 .banner-item-02 {
 	padding: 300px 0px;
-	-webkit-text-stroke-width: .07em;
-  	-webkit-text-stroke-color: #D27398;
+	
 	background-image: url(../images/Banner2.png);
 	background-size: cover;
 	background-repeat: no-repeat;
@@ -383,8 +388,9 @@ header .navbar {
 }
 
 .banner .text-content h2 {
-	font-family: 'Sans', sans-serif;
-	color: #1B203E;
+	-webkit-text-stroke-width: .07em;
+  	-webkit-text-stroke-color: #D27398;
+	color: white;
 	font-size: 62px;
 	text-transform: uppercase;
 	letter-spacing: 5px;
