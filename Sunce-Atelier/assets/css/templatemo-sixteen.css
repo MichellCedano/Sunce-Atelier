@@ -345,7 +345,9 @@ header .navbar {
 
 .banner-item-02 {
 	padding: 300px 0px;
-	background-image: url(../images/Banner1.png);
+	-webkit-text-stroke-width: .07em;
+  	-webkit-text-stroke-color: #D27398;
+	background-image: url(../images/Banner2.png);
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: center center;
@@ -383,7 +385,6 @@ header .navbar {
 .banner .text-content h2 {
 	font-family: 'Sans', sans-serif;
 	color: #1B203E;
-
 	font-size: 62px;
 	text-transform: uppercase;
 	letter-spacing: 5px;
