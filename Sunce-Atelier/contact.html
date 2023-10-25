@@ -44,7 +44,7 @@ https://templatemo.com/tm-546-sixteen-clothing
     <header class="">
       <nav class="navbar navbar-expand-lg">
         <div class="container">
-          <a class="navbar-brand" href="index.html"><h2>Sixteen <em>Clothing</em></h2></a>
+          <a class="navbar-brand logo" href="index.html"><img class="logo" src="assets/images/logooo.png"></a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -64,6 +64,48 @@ https://templatemo.com/tm-546-sixteen-clothing
               <li class="nav-item active">
                 <a class="nav-link" href="contact.html">Contact Us</a>
               </li>
+              <li class="nav-item">
+                <!--Formulario emergente de inicio de sesion-->
+                <div class="w3-container">
+                  <button class="nav-link" id="loginButton" onclick="toggleCloseState()" style="font-size: 20px;">Iniciar
+                    Sesion</button>
+                  <div id="id01" class="w3-modal" style="display:none">
+                    <div class="w3-modal-content">
+                      <div class="w3-container">
+                        <!-- Modal body -->
+                        <form action="index.html" method="post">
+                          <h2>Inicio de sesion</h2>
+                          <br>
+                          <div class="input-group">
+                            <span class="input-group-text"><i class="fa fa-envelope-o" aria-hidden="true"></i></span>
+                            <input type="email" class="form-control" placeholder="Ingrese su email" required>
+                          </div>
+                          <div class="input-group">
+                            <span class="input-group-text"><i class="fa fa-key" aria-hidden="true"></i></span>
+                            <input type="password" class="form-control" placeholder="Ingrese su password" required>
+                          </div>
+                          <div class="mb-3">
+                            <label class="form-check-label mb-3">
+                              <input class="form-check-input" type="checkbox" name="remember"> Recordarme
+                            </label>
+                          </div>
+                          <button type="submit" class="modalIniciar botonInicio" onclick="toggleLoginState()"><i
+                              class="fa fa-user-circle botonInicio" aria-hidden="true"></i>Iniciar Sesion</button>
+                        </form>
+                        <br>
+                        <p>No tienes una cuenta? </p>
+                        <a class="nav-link" href="registro.html">Haz click aquí para registrarte</a>
+                        <!-- Modal footer -->
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-danger"
+                            onclick="document.getElementById('id01').style.display='none'"
+                            class="w3-button w3-display-topright"">Cerrar</button>
+                                </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                </li>
             </ul>
           </div>
         </div>

@@ -23,6 +23,7 @@ font-family: 'Roboto', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
 p {
 	margin-bottom: 0px;
 	font-size: 14px;
@@ -67,6 +68,23 @@ ul.social-icons li a {
 ul.social-icons li a:hover {
 	background-color: #F1A9CE;
 	color: #fff;
+}
+
+button:hover {
+	background-color: #F1A9CE;
+}
+
+.boton{
+	border-radius: 10px;
+	background-color: #7DA9CC;
+	color: white;
+	border-color: white;
+}
+
+.botonInicio{
+	border-radius: 10px;
+	background-color: #5E83A1;
+	border-color: #5E83A1;
 }
 
 a.filled-button {
@@ -1112,7 +1130,7 @@ footer .inner-content p a {
 
 /* Estilo para el botón "Iniciar Sesión" */
 #loginButton {
-    background-color: transparent;
+    background-color: #7DA9CC;
     color: #fff;
     border: none; /* Elimina el borde del botón */
     outline: none; /* Elimina el borde de enfoque (cuando se hace clic) */
@@ -1163,9 +1181,4 @@ footer .inner-content p a {
 	right: 0;
 	z-index: 1;
 	padding: 1rem; /* Ajusta el espacio alrededor del botón "X" según tus necesidades */
-  }
-
-  #productImg {
-	width: 350px;
-	height: 350px;
   }
