@@ -1112,7 +1112,7 @@ footer .inner-content p a {
 
 /* Estilo para el botón "Iniciar Sesión" */
 #loginButton {
-    background-color: #7DA9CC;
+    background-color: transparent;
     color: #fff;
     border: none; /* Elimina el borde del botón */
     outline: none; /* Elimina el borde de enfoque (cuando se hace clic) */
@@ -1163,4 +1163,9 @@ footer .inner-content p a {
 	right: 0;
 	z-index: 1;
 	padding: 1rem; /* Ajusta el espacio alrededor del botón "X" según tus necesidades */
+  }
+
+  #productImg {
+	width: 350px;
+	height: 350px;
   }

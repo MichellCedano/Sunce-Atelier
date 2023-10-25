@@ -43,73 +43,77 @@ https://templatemo.com/tm-546-sixteen-clothing
   <!-- ***** Preloader End ***** -->
 
   <!-- Header -->
-<header class="">
-  <nav class="navbar navbar-expand-lg">
-    <div class="container">
-      <a class="navbar-brand logo" href="index.html"><img class="logo" src="assets/images/logooo.png"></a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-      <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="index.html">Home
-            </a>
-          </li> 
-          <li class="nav-item active">
-            <a class="nav-link" href="products.html">Our Products</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="about.html">About Us</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="contact.html">Contact Us</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" id="userInfoLink" href="informacion_usuario.html" style="display: none">Ver información del usuario</a>
-          </li>
-        </ul>
-        <!--Formulario emergente de inicio de sesion-->
-        <div class="w3-container">
-          <button id="loginButton" onclick="toggleCloseState()">Iniciar Sesion</button>
-        
-          <div id="id01" class="w3-modal" style="display:none">
-            <div class="w3-modal-content">
-              <div class="w3-container">
-                <!-- Modal body -->
-                <form action="index.html" method="post">
-                  <h2>Inicio de sesion</h2>
-                  <br>
-                  <div class="input-group">
-                      <span class="input-group-text"><i class="fa fa-envelope-o" aria-hidden="true"></i></span>
-                      <input type="email" class="form-control" placeholder="Ingrese su email" required>
-                  </div>
-                  <div class="input-group">
-                      <span class="input-group-text"><i class="fa fa-key" aria-hidden="true"></i></span>
-                      <input type="password" class="form-control" placeholder="Ingrese su password" required>
-                  </div>
-                  <div class="mb-3">
-                      <label class="form-check-label mb-3">
-                          <input class="form-check-input" type="checkbox" name="remember"> Recordarme
-                      </label>
-                  </div>
-                  <button type="submit" class="modalIniciar" onclick="toggleLoginState()"><i class="fa fa-user-circle" aria-hidden="true"></i>Iniciar Sesion</button>
-              </form>
-              <br>
-              <p>No tienes una cuenta? </p>
-              <a class="nav-link" href="registro.html">Haz click aquí para registrarte</a>
-              <!-- Modal footer -->
-              <div class="modal-footer">
-                <button type="button" class="btn btn-danger" onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-display-topright"">Cerrar</button>
-              </div>
+  <header class="">
+    <nav class="navbar navbar-expand-lg">
+      <div class="container">
+      <!--  <a class="navbar-brand" href="index.html"><h2>Sixteen <em>Clothing</em></h2></a> -->
+        <a class="navbar-brand logo" href="index.html"><img class="logo" src="assets/images/logooo.png"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home
+                <span class="sr-only">(current)</span>
+              </a>
+            </li> 
+            <li class="nav-item active">
+              <a class="nav-link" href="products.html">Our Products</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="about.html">About Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html">Contact Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="userInfoLink" href="informacion_usuario.html" style="display: none">Ver información del usuario</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="loginButton" href="#" onclick="toggleCloseState()">Iniciar Sesion</a>
+            </li>
+          </ul>
+          <!--Formulario emergente de inicio de sesion-->
+          <div class="w3-container">
+          
+            <div id="id01" class="w3-modal" style="display:none">
+              <div class="w3-modal-content">
+                <div class="w3-container">
+                  <!-- Modal body -->
+                  <form action="index.html" method="post">
+                    <h2>Inicio de sesion</h2>
+                    <br>
+                    <div class="input-group">
+                        <span class="input-group-text"><i class="fa fa-envelope-o" aria-hidden="true"></i></span>
+                        <input type="email" class="form-control" placeholder="Ingrese su email" required>
+                    </div>
+                    <div class="input-group">
+                        <span class="input-group-text"><i class="fa fa-key" aria-hidden="true"></i></span>
+                        <input type="password" class="form-control" placeholder="Ingrese su password" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-check-label mb-3">
+                            <input class="form-check-input" type="checkbox" name="remember"> Recordarme
+                        </label>
+                    </div>
+                    <button type="submit" class="modalIniciar" onclick="toggleLoginState()"><i class="fa fa-user-circle" aria-hidden="true"></i>Iniciar Sesion</button>
+                </form>
+                <br>
+                <p>No tienes una cuenta? </p>
+                <a class="nav-link" href="registro.html">Haz click aquí para registrarte</a>
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-danger" onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-display-topright"">Cerrar</button>
+                </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </nav>
-</header>
+    </nav>
+  </header>
 
   <!-- Page Content -->
   <div class="page-heading products-heading header-text">
@@ -148,7 +152,7 @@ https://templatemo.com/tm-546-sixteen-clothing
                     data-nombre="Stickers de animales" data-precio="18.25"
                     data-descripcion="Colección de stickers muy lindos de animales comunes como gatitos y perritos"
                     data-imagen="assets/images/IMG-20231022-WA0000.jpg">
-                    <img src="assets/images/IMG-20231022-WA0000.jpg" alt="">
+                    <img src="assets/images/IMG-20231022-WA0000.jpg" alt="" id="productImg">
                   </a>
                   <div class="down-content">
                     <a href="#" class="product-link">
@@ -156,6 +160,13 @@ https://templatemo.com/tm-546-sixteen-clothing
                     </a>
                     <h6>$18.25</h6>
                     <p>Colección de stickers muy lindos de animales comunes como gatitos y perritos.</p>
+                    <ul class="stars">
+                      <li><i class="fa fa-star"></i></li>
+                      <li><i class="fa fa-star"></i></li>
+                      <li><i class="fa fa-star"></i></li>
+                      <li><i class="fa fa-star"></i></li>
+                      <li><i class="fa fa-star"></i></li>
+                    </ul>
                   </div>
                 </div>
               </div>
@@ -165,13 +176,14 @@ https://templatemo.com/tm-546-sixteen-clothing
                   data-nombre="Stickers de anime" data-precio="20.00"
                   data-descripcion="Colección de stickers de personajes de anime sonriendo"
                   data-imagen="assets/images/IMG-20231022-WA0001.jpg">
-                  <img src="assets/images/IMG-20231022-WA0001.jpg" alt=""></a>
+                  <img src="assets/images/IMG-20231022-WA0001.jpg" alt="" id="productImg"></a>
                   <div class="down-content">
                     <a href="#" class="product-link">
                       <h4>Stickers de anime</h4>
                     </a>
                     <h6>$20.00</h6>
                     <p>Colección de stickers de personajes de anime sonriendo.</p>
+                    <br>
                     <ul class="stars">
                       <li><i class="fa fa-star"></i></li>
                       <li><i class="fa fa-star"></i></li>
@@ -188,13 +200,15 @@ https://templatemo.com/tm-546-sixteen-clothing
                   data-nombre="Libretas coloridas" data-precio="26.00"
                   data-descripcion="Libretas chicas de anime muy lindas"
                   data-imagen="assets/images/IMG-20231022-WA0002.jpg">
-                  <img src="assets/images/IMG-20231022-WA0002.jpg" alt=""></a>
+                  <img src="assets/images/IMG-20231022-WA0002.jpg" alt="" id="productImg"></a>
                   <div class="down-content">
                     <a href="#" class="product-link">
                       <h4>Libretas coloridas</h4>
                     </a>
                     <h6>$26.00</h6>
                     <p>Libretas chicas de anime muy lindas.</p>
+                    <br>
+                    <br>
                     <ul class="stars">
                       <li><i class="fa fa-star"></i></li>
                       <li><i class="fa fa-star"></i></li>
@@ -211,7 +225,7 @@ https://templatemo.com/tm-546-sixteen-clothing
                   data-nombre="Pins de animales" data-precio="32.50"
                   data-descripcion="Pins de pequeños animales con un poco de esencia humana"
                   data-imagen="assets/images/IMG-20231022-WA0003.jpg">
-                  <img src="assets/images/IMG-20231022-WA0003.jpg" alt=""></a>
+                  <img src="assets/images/IMG-20231022-WA0003.jpg" alt="" id="productImg"></a>
                   <div class="down-content">
                     <a href="#" class="product-link">
                       <h4>Pins de animales</h4>
@@ -234,7 +248,7 @@ https://templatemo.com/tm-546-sixteen-clothing
                   data-nombre="Pins de Hoshii desu" data-precio="24.60"
                   data-descripcion="Pins de una chica anime muy linda que expresa que lo desea"
                   data-imagen="assets/images/IMG-20231022-WA0004.jpg">
-                  <img src="assets/images/IMG-20231022-WA0004.jpg" alt=""></a>
+                  <img src="assets/images/IMG-20231022-WA0004.jpg" alt="" id="productImg"></a>
                   <div class="down-content">
                     <a href="#" class="product-link">
                       <h4>Pins de Hoshii desu</h4>
@@ -257,7 +271,7 @@ https://templatemo.com/tm-546-sixteen-clothing
                   data-nombre="Pins de chicas anime" data-precio="22.60"
                   data-descripcion="Pins de chicas anime muy tiernas y lindas"
                   data-imagen="assets/images/IMG-20231022-WA0005.jpg">
-                  <img src="assets/images/IMG-20231022-WA0005.jpg" alt=""></a>
+                  <img src="assets/images/IMG-20231022-WA0005.jpg" alt="" id="productImg"></a>
                   <div class="down-content">
                     <a href="#" class="product-link">
                       <h4>Pins de chicas anime</h4>
@@ -280,10 +294,10 @@ https://templatemo.com/tm-546-sixteen-clothing
                   data-nombre="Libretas de chicas sonrientes" data-precio="29.00"
                   data-descripcion="Libretas de chicas lindas sonriendo para levantarte el animo"
                   data-imagen="assets/images/IMG-20231022-WA0006.jpg">
-                  <img src="assets/images/IMG-20231022-WA0006.jpg" alt=""></a>
+                  <img src="assets/images/IMG-20231022-WA0006.jpg" alt="" id="productImg"></a>
                   <div class="down-content">
                     <a href="#" class="product-link">
-                      <h4>Libretas de chicas sonrientes</h4>
+                      <h4>Libretas de chicas</h4>
                     </a>
                     <h6>$29.00</h6>
                     <p>Libretas de chicas lindas sonriendo para levantarte el animo.</p>
@@ -303,7 +317,7 @@ https://templatemo.com/tm-546-sixteen-clothing
                   data-nombre="Stickers de terror" data-precio="18.25"
                   data-descripcion="Colección de stickers de terror para halloween o dia de muertos"
                   data-imagen="assets/images/IMG-20231022-WA0007.jpg">
-                  <img src="assets/images/IMG-20231022-WA0007.jpg" alt=""></a>
+                  <img src="assets/images/IMG-20231022-WA0007.jpg" alt="" id="productImg"></a>
                   <div class="down-content">
                     <a href="#" class="product-link">
                       <h4>Stickers de terror</h4>
