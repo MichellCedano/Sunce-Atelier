@@ -1164,7 +1164,7 @@ footer .inner-content p a {
 
 #productModal {
 	text-align: center; /* Centra el contenido del modal horizontalmente */
-	top: 25%;
+	top: 28%;
   }
   
   .modal-dialog {
@@ -1184,6 +1184,8 @@ footer .inner-content p a {
   }
 
   #productImg {
-	width: 350px;
-	height: 350px;
-  }
+    width: 350px;
+    height: 350px;
+    object-fit: cover;
+    overflow: hidden;
+}

@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap"
+    rel="stylesheet">
+
+  <script src="assets/js/botones.js" type="text/javascript"></script>
+  <title>Sixteen Clothing HTML Template</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <!--
+
+TemplateMo 546 Sixteen Clothing
+
+https://templatemo.com/tm-546-sixteen-clothing
+
+-->
+
+  <!-- Additional CSS Files -->
+  <link rel="stylesheet" href="assets/css/fontawesome.css">
+  <link rel="stylesheet" href="assets/css/templatemo-sixteen.css">
+  <link rel="stylesheet" href="assets/css/owl.css">
+
+</head>
+
+<body>
+
+  <!-- ***** Preloader Start ***** -->
+  <div id="preloader">
+    <div class="jumper">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </div>
+  <!-- ***** Preloader End ***** -->
+
+  <!-- Header -->
+<header class="">
+  <nav class="navbar navbar-expand-lg">
+    <div class="container">
+      <a class="navbar-brand logo" href="index2.html"><img class="logo" src="assets/images/logooo.png"></a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index2.html">Home
+                <span class="sr-only">(current)</span>
+              </a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="products2.html">Our Products</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="about2.html">About Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact2.html">Contact Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="informacion_usuario.html"">Ver
+                información del usuario</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Cerrar Sesion</a>
+            </li>
+            </ul>
+        <!--Formulario emergente de inicio de sesion-->
+        <div class="w3-container">
+          
+          <div id="id01" class="w3-modal" style="display:none">
+            <div class="w3-modal-content">
+              <div class="w3-container">
+                <!-- Modal body -->
+                <form action="index2.html" method="post">
+                  <h2>Inicio de sesion</h2>
+                  <br>
+                  <div class="input-group">
+                      <span class="input-group-text"><i class="fa fa-envelope-o" aria-hidden="true"></i></span>
+                      <input type="email" class="form-control" placeholder="Ingrese su email" required>
+                  </div>
+                  <div class="input-group">
+                      <span class="input-group-text"><i class="fa fa-key" aria-hidden="true"></i></span>
+                      <input type="password" class="form-control" placeholder="Ingrese su password" required>
+                  </div>
+                  <div class="mb-3">
+                      <label class="form-check-label mb-3">
+                          <input class="form-check-input" type="checkbox" name="remember"> Recordarme
+                      </label>
+                  </div>
+                  <button type="submit" class="modalIniciar"><i class="fa fa-user-circle" aria-hidden="true"></i>Iniciar Sesion</button>
+              </form>
+              <br>
+              <p>No tienes una cuenta? </p>
+              <a class="nav-link" href="registro.html">Haz click aquí para registrarte</a>
+              <!-- Modal footer -->
+              <div class="modal-footer">
+                <button type="button" class="btn btn-danger" onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-display-topright"">Cerrar</button>
+              </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+
+  <!-- Page Content -->
+  <div class="page-heading products-heading header-text">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="text-content">
+            <h4>new arrivals</h4>
+            <h2>sixteen products</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="products">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="filters">
+            <ul>
+              <li class="active" data-filter="*">Todos</li>
+              <li data-filter=".des">Libretas</li>
+              <li data-filter=".dev">Stickers</li>
+              <li data-filter=".gra">Pins</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div class="filters-content">
+            <div class="row grid">
+              <!--
+              <div class="col-lg-4 col-md-4 all dev">
+                <div class="product-item">
+                  <a href="#" class="product-link" data-toggle="modal" data-target="#productModal"
+                    data-nombre="Stickers de animales" data-precio="18.25"
+                    data-descripcion="Colección de stickers muy lindos de animales comunes como gatitos y perritos"
+                    data-imagen="assets/images/IMG-20231022-WA0000.jpg">
+                    <img src="assets/images/IMG-20231022-WA0000.jpg" alt="" id="productImg">
+                  </a>
+                  <div class="down-content">
+                    <a href="#" class="product-link">
+                      <h4>Stickers de animales</h4>
+                    </a>
+                    <h6>$18.25</h6>
+                    <p>Colección de stickers muy lindos de animales comunes como gatitos y perritos.</p>
+                    <ul class="stars">
+                      <li><i class="fa fa-star"></i></li>
+                      <li><i class="fa fa-star"></i></li>
+                      <li><i class="fa fa-star"></i></li>
+                      <li><i class="fa fa-star"></i></li>
+                      <li><i class="fa fa-star"></i></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              -->
+              <div class="col-lg-4 col-md-4 all dev">
+                <div class="product-item">
+                  <a href="#" class="product-link" data-toggle="modal" data-target="#productModal"
+                  data-nombre="Stickers de anime" data-precio="20.00"
+                  data-descripcion="Colección de stickers de personajes de anime sonriendo"
+                  data-imagen="assets/images/IMG-20231022-WA0001.jpg">
+                  <img src="assets/images/IMG-20231022-WA0001.jpg" alt="" id="productImg"></a>
+                  <div class="down-content">
+                    <a href="#" class="product-link" data-toggle="modal" data-target="#productModal"
+                    data-nombre="Stickers de anime" data-precio="20.00"
+                    data-descripcion="Colección de stickers de personajes de anime sonriendo"
+                    data-imagen="assets/images/IMG-20231022-WA0001.jpg">
+                      <h4>Stickers de anime</h4>
+                    </a>
+                    <h6>$20.00</h6>
+                    <p>Colección de stickers de personajes de anime sonriendo.</p>
+                    <ul class="stars">
+                      <li><i class="fa fa-star"></i></li>
+                      <li><i class="fa fa-star"></i></li>
+                      <li><i class="fa fa-star"></i></li>
+                      <li><i class="fa fa-star"></i></li>
+                      <li><i class="fa fa-star"></i></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <!--
+              <div class="col-lg-4 col-md-4 all des">
+                <div class="product-item">
+                  <a href="#" class="product-link" data-toggle="modal" data-target="#productModal"
+                  data-nombre="Libretas coloridas" data-precio="26.00"
+                  data-descripcion="Libretas chicas de anime muy lindas"
+                  data-imagen="assets/images/IMG-20231022-WA0002.jpg">
+                  <img src="assets/images/IMG-20231022-WA0002.jpg" alt="" id="productImg"></a>
+                  <div class="down-content">
+                    <a href="#" class="product-link">
+                      <h4>Libretas coloridas</h4>
+                    </a>
+                    <h6>$26.00</h6>
+                    <p>Libretas chicas de anime muy lindas.</p>
+                    <br>
+                    <br>
+                    <ul class="stars">
+                      <li><i class="fa fa-star"></i></li>
+                      <li><i class="fa fa-star"></i></li>
+                      <li><i class="fa fa-star"></i></li>
+                      <li><i class="fa fa-star"></i></li>
+                      <li><i class="fa fa-star"></i></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              -->
+              <!--
+              <div class="col-lg-4 col-md-4 all gra">
+                <div class="product-item">
+                  <a href="#" class="product-link" data-toggle="modal" data-target="#productModal"
+                  data-nombre="Pins de animales" data-precio="32.50"
+                  data-descripcion="Pins de pequeños animales con un poco de esencia humana"
+                  data-imagen="assets/images/IMG-20231022-WA0003.jpg">
+                  <img src="assets/images/IMG-20231022-WA0003.jpg" alt="" id="productImg"></a>
+                  <div class="down-content">
+                    <a href="#" class="product-link">
+                      <h4>Pins de animales</h4>
+                    </a>
+                    <h6>$32.50</h6>
+                    <p>Pins de pequeños animales con un poco de esencia humana.</p>
+                    <ul class="stars">
+                      <li><i class="fa fa-star"></i></li>
+                      <li><i class="fa fa-star"></i></li>
+                      <li><i class="fa fa-star"></i></li>
+                      <li><i class="fa fa-star"></i></li>
+                      <li><i class="fa fa-star"></i></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              -->
+              <!--
+              <div class="col-lg-4 col-md-4 all gra">
+                <div class="product-item">
+                  <a href="#" class="product-link" data-toggle="modal" data-target="#productModal"
+                  data-nombre="Pins de Hoshii desu" data-precio="24.60"
+                  data-descripcion="Pins de una chica anime muy linda que expresa que lo desea"
+                  data-imagen="assets/images/IMG-20231022-WA0004.jpg">
+                  <img src="assets/images/IMG-20231022-WA0004.jpg" alt="" id="productImg"></a>
+                  <div class="down-content">
+                    <a href="#" class="product-link">
+                      <h4>Pins de Hoshii desu</h4>
+                    </a>
+                    <h6>$24.60</h6>
+                    <p>Pins de una chica anime muy linda que expresa que lo desea.</p>
+                    <ul class="stars">
+                      <li><i class="fa fa-star"></i></li>
+                      <li><i class="fa fa-star"></i></li>
+                      <li><i class="fa fa-star"></i></li>
+                      <li><i class="fa fa-star"></i></li>
+                      <li><i class="fa fa-star"></i></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              -->
+              <div class="col-lg-4 col-md-4 all gra">
+                <div class="product-item">
+                  <a href="#" class="product-link" data-toggle="modal" data-target="#productModal"
+                  data-nombre="Pins de chicas anime" data-precio="22.60"
+                  data-descripcion="Pins de chicas anime muy tiernas y lindas"
+                  data-imagen="assets/images/IMG-20231022-WA0005.jpg">
+                  <img src="assets/images/IMG-20231022-WA0005.jpg" alt="" id="productImg"></a>
+                  <div class="down-content">
+                    <a href="#" class="product-link" data-toggle="modal" data-target="#productModal"
+                    data-nombre="Pins de chicas anime" data-precio="22.60"
+                    data-descripcion="Pins de chicas anime muy tiernas y lindas"
+                    data-imagen="assets/images/IMG-20231022-WA0005.jpg">
+                      <h4>Pins de chicas anime</h4>
+                    </a>
+                    <h6>$22.60</h6>
+                    <p>Pins de chicas anime muy tiernas y lindas.</p>
+                    <ul class="stars">
+                      <li><i class="fa fa-star"></i></li>
+                      <li><i class="fa fa-star"></i></li>
+                      <li><i class="fa fa-star"></i></li>
+                      <li><i class="fa fa-star"></i></li>
+                      <li><i class="fa fa-star"></i></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-4 col-md-4 all des">
+                <div class="product-item">
+                  <a href="#" class="product-link" data-toggle="modal" data-target="#productModal"
+                  data-nombre="Libretas de chicas sonrientes" data-precio="29.00"
+                  data-descripcion="Libretas de chicas lindas sonriendo para levantarte el animo"
+                  data-imagen="assets/images/IMG-20231022-WA0006.jpg">
+                  <img src="assets/images/IMG-20231022-WA0006.jpg" alt="" id="productImg"></a>
+                  <div class="down-content">
+                    <a href="#" class="product-link" data-toggle="modal" data-target="#productModal"
+                    data-nombre="Libretas de chicas sonrientes" data-precio="29.00"
+                    data-descripcion="Libretas de chicas lindas sonriendo para levantarte el animo"
+                    data-imagen="assets/images/IMG-20231022-WA0006.jpg">
+                      <h4>Libretas de chicas</h4>
+                    </a>
+                    <h6>$29.00</h6>
+                    <p>Libretas de chicas lindas sonriendo para levantarte el animo.</p>
+                    <ul class="stars">
+                      <li><i class="fa fa-star"></i></li>
+                      <li><i class="fa fa-star"></i></li>
+                      <li><i class="fa fa-star"></i></li>
+                      <li><i class="fa fa-star"></i></li>
+                      <li><i class="fa fa-star"></i></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-4 col-md-4 all dev">
+                <div class="product-item">
+                  <a href="#" class="product-link" data-toggle="modal" data-target="#productModal"
+                  data-nombre="Stickers de terror" data-precio="18.25"
+                  data-descripcion="Colección de stickers de terror para halloween o dia de muertos"
+                  data-imagen="assets/images/IMG-20231022-WA0007.jpg">
+                  <img src="assets/images/IMG-20231022-WA0007.jpg" alt="" id="productImg"></a>
+                  <div class="down-content">
+                    <a href="#" class="product-link" data-toggle="modal" data-target="#productModal"
+                    data-nombre="Stickers de terror" data-precio="18.25"
+                    data-descripcion="Colección de stickers de terror para halloween o dia de muertos"
+                    data-imagen="assets/images/IMG-20231022-WA0007.jpg">
+                      <h4>Stickers de terror</h4>
+                    </a>
+                    <h6>$18.25</h6>
+                    <p>Colección de stickers de terror para halloween o dia de muertos.</p>
+                    <ul class="stars">
+                      <li><i class="fa fa-star"></i></li>
+                      <li><i class="fa fa-star"></i></li>
+                      <li><i class="fa fa-star"></i></li>
+                      <li><i class="fa fa-star"></i></li>
+                      <li><i class="fa fa-star"></i></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-12">
+          <ul class="pages">
+            <li><a href="#">1</a></li>
+            <li class="active"><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">4</a></li>
+            <li><a href="#"><i class="fa fa-angle-double-right"></i></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="inner-content">
+            <p>Copyright &copy; 2020 Sixteen Clothing Co., Ltd.
+
+              - Design: <a rel="nofollow noopener" href="https://templatemo.com" target="_blank">TemplateMo</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+
+  <!-- Additional Scripts -->
+  <script src="assets/js/custom.js"></script>
+  <script src="assets/js/owl.js"></script>
+  <script src="assets/js/slick.js"></script>
+  <script src="assets/js/isotope.js"></script>
+  <script src="assets/js/accordions.js"></script>
+
+
+  <script language="text/Javascript">
+    cleared[0] = cleared[1] = cleared[2] = 0; //set a cleared flag for each field
+    function clearField(t) {                   //declaring the array outside of the
+      if (!cleared[t.id]) {                      // function makes it static and global
+        cleared[t.id] = 1;  // you could use true and false, but that's more typing
+        t.value = '';         // with more chance of typos
+        t.style.color = '#fff';
+      }
+    }
+  </script>
+
+  <div class="modal fade" id="productModal" tabindex="-1" role="dialog" aria-labelledby="productModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title" id="productModalLabel"></h2>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <img id="productImage" src="" alt="">
+          <h3 id="productDescription"></h3>
+          <h3 id="productPrice"></h3>
+          <button id="addToCartButton" class="btn btn-primary">Agregar al carrito</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>

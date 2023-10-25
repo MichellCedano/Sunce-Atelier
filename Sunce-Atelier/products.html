@@ -66,10 +66,7 @@ https://templatemo.com/tm-546-sixteen-clothing
             <a class="nav-link" href="contact.html">Contact Us</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" id="userInfoLink" href="informacion_usuario.html" style="display: none">Ver información del usuario</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" id="loginButton" href="#" onclick="toggleCloseState()">Iniciar Sesion</a>
+            <a class="nav-link" id="loginButton" href="#" onclick="openLoginForm()">Iniciar Sesion</a>
           </li>
         </ul>
         <!--Formulario emergente de inicio de sesion-->
@@ -79,7 +76,7 @@ https://templatemo.com/tm-546-sixteen-clothing
             <div class="w3-modal-content">
               <div class="w3-container">
                 <!-- Modal body -->
-                <form action="index.html" method="post">
+                <form action="index2.html" method="post">
                   <h2>Inicio de sesion</h2>
                   <br>
                   <div class="input-group">
@@ -95,7 +92,7 @@ https://templatemo.com/tm-546-sixteen-clothing
                           <input class="form-check-input" type="checkbox" name="remember"> Recordarme
                       </label>
                   </div>
-                  <button type="submit" class="modalIniciar" onclick="toggleLoginState()"><i class="fa fa-user-circle" aria-hidden="true"></i>Iniciar Sesion</button>
+                  <button type="submit" class="modalIniciar"><i class="fa fa-user-circle" aria-hidden="true"></i>Iniciar Sesion</button>
               </form>
               <br>
               <p>No tienes una cuenta? </p>
@@ -178,7 +175,10 @@ https://templatemo.com/tm-546-sixteen-clothing
                   data-imagen="assets/images/IMG-20231022-WA0001.jpg">
                   <img src="assets/images/IMG-20231022-WA0001.jpg" alt="" id="productImg"></a>
                   <div class="down-content">
-                    <a href="#" class="product-link">
+                    <a href="#" class="product-link" data-toggle="modal" data-target="#productModal"
+                    data-nombre="Stickers de anime" data-precio="20.00"
+                    data-descripcion="Colección de stickers de personajes de anime sonriendo"
+                    data-imagen="assets/images/IMG-20231022-WA0001.jpg">
                       <h4>Stickers de anime</h4>
                     </a>
                     <h6>$20.00</h6>
@@ -278,7 +278,10 @@ https://templatemo.com/tm-546-sixteen-clothing
                   data-imagen="assets/images/IMG-20231022-WA0005.jpg">
                   <img src="assets/images/IMG-20231022-WA0005.jpg" alt="" id="productImg"></a>
                   <div class="down-content">
-                    <a href="#" class="product-link">
+                    <a href="#" class="product-link" data-toggle="modal" data-target="#productModal"
+                    data-nombre="Pins de chicas anime" data-precio="22.60"
+                    data-descripcion="Pins de chicas anime muy tiernas y lindas"
+                    data-imagen="assets/images/IMG-20231022-WA0005.jpg">
                       <h4>Pins de chicas anime</h4>
                     </a>
                     <h6>$22.60</h6>
@@ -301,7 +304,10 @@ https://templatemo.com/tm-546-sixteen-clothing
                   data-imagen="assets/images/IMG-20231022-WA0006.jpg">
                   <img src="assets/images/IMG-20231022-WA0006.jpg" alt="" id="productImg"></a>
                   <div class="down-content">
-                    <a href="#" class="product-link">
+                    <a href="#" class="product-link" data-toggle="modal" data-target="#productModal"
+                    data-nombre="Libretas de chicas sonrientes" data-precio="29.00"
+                    data-descripcion="Libretas de chicas lindas sonriendo para levantarte el animo"
+                    data-imagen="assets/images/IMG-20231022-WA0006.jpg">
                       <h4>Libretas de chicas</h4>
                     </a>
                     <h6>$29.00</h6>
@@ -324,7 +330,10 @@ https://templatemo.com/tm-546-sixteen-clothing
                   data-imagen="assets/images/IMG-20231022-WA0007.jpg">
                   <img src="assets/images/IMG-20231022-WA0007.jpg" alt="" id="productImg"></a>
                   <div class="down-content">
-                    <a href="#" class="product-link">
+                    <a href="#" class="product-link" data-toggle="modal" data-target="#productModal"
+                    data-nombre="Stickers de terror" data-precio="18.25"
+                    data-descripcion="Colección de stickers de terror para halloween o dia de muertos"
+                    data-imagen="assets/images/IMG-20231022-WA0007.jpg">
                       <h4>Stickers de terror</h4>
                     </a>
                     <h6>$18.25</h6>
