@@ -1198,3 +1198,10 @@ footer .inner-content p a {
     object-fit: cover;
     overflow: hidden;
 }
+
+.productoVentana {
+	width: 500px;
+    height: 500px;
+    object-fit: cover;
+    overflow: hidden;
+}
