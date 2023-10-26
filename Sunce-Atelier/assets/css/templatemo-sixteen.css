@@ -1167,8 +1167,8 @@ footer .inner-content p a {
 }
 
 #productModal .modal-body img {
-    max-width: 25%; /* Ajusta el valor según el tamaño que desees, como 25% para un cuarto de la pantalla */
-    max-height: 25vh; /* Limita la altura al 25% de la altura de la ventana gráfica */
+    max-width: 50%; /* Ajusta el valor según el tamaño que desees, como 25% para un cuarto de la pantalla */
+    max-height: 50vh; /* Limita la altura al 25% de la altura de la ventana gráfica */
 }
 
 #productModal {
@@ -1186,22 +1186,24 @@ footer .inner-content p a {
   
   .close {
 	position: absolute;
-	top: 0;
-	right: 0;
+	top: 15px;
+	right: 15px;
 	z-index: 1;
 	padding: 1rem; /* Ajusta el espacio alrededor del botón "X" según tus necesidades */
   }
 
   #productImg {
-    width: 100%;
+    max-width: 100%;
     height: 350px;
     object-fit: cover;
     overflow: hidden;
 }
 
 .productoVentana {
-	width: 500px;
-    height: 500px;
-    object-fit: cover;
+    min-width: 100%;
+    min-height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain; /* Puedes usar 'contain' en lugar de 'cover' si prefieres ajustar la imagen para que quepa en su contenedor sin recortarla */
     overflow: hidden;
 }
