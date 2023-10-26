@@ -1138,6 +1138,15 @@ footer .inner-content p a {
     cursor: pointer; /* Cambia el cursor al puntero al pasar por encima */
 }
 
+/* Estilo para el boton Agregar al Carrito*/
+.agregarCarrito {
+	background-color: #7DA9CC;
+	color: #fff;
+	border: none; /* Elimina el borde del botón */
+    outline: none; /* Elimina el borde de enfoque (cuando se hace clic) */
+	font-size: 25px;
+}
+
 /* Estilo para los íconos en el formulario */
 .fa {
     color: #7DA9CC;
