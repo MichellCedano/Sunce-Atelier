@@ -113,7 +113,7 @@
                     <div class="col-md-12">
                         <div class="section-heading">
                             <h2>Productos Recientes</h2>
-                            <a href="products.jsp">ver todos <i class="fa fa-angle-right"></i></a>
+                            <a href="products2.jsp">ver todos <i class="fa fa-angle-right"></i></a>
                         </div>
                     </div>
                     <div class="col-md-4">
