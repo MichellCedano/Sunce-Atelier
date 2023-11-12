@@ -25,9 +25,9 @@ public class Consultas {
         PreparedStatement pst=null;
         ResultSet rs=null;
         try{
-            String consulta="select correo,pass from usuarios where correo=? and pass=?";
-            System.out.println("Consulta es: "+ consulta);
-            pst= con.getConexion().prepareStatement(consulta);   
+            String consulta="select * from usuarios where correo=? and pass=?";
+            System.out.println("Consulta es " + consulta);
+            pst=con.getConexion().prepareStatement(consulta);
             pst.setString(1, correo);
             pst.setString(2, clave);
             rs=pst.executeQuery();
@@ -116,7 +116,7 @@ public class Consultas {
         return false;
     }
     
-    public boolean registrar(String nombre, String clave, String correo, int telefono, String  calle, String colonia, String ciudad, String estado, String pais, int codigoP, String numCasa){
+    public boolean registrar(String nombre, String clave, String correo, String telefono, String  calle, String colonia, String ciudad, String estado, String pais, int codigoP, String numCasa){
         PreparedStatement pst=null;
         try{
             
@@ -126,7 +126,7 @@ public class Consultas {
             pst.setString(1, nombre);
             pst.setString(2, clave);
             pst.setString(3, correo);
-            pst.setInt(4, telefono);
+            pst.setString(4, telefono);
             pst.setString(5, "usuario");
             
             if(pst.executeUpdate()==1){

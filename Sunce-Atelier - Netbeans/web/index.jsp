@@ -83,11 +83,11 @@
                     <br>
                     <div class="input-group">
                       <span class="input-group-text"><i class="fa fa-envelope-o" aria-hidden="true"></i></span>
-                      <input type="email" class="form-control" placeholder="Ingrese su email" id="correo" required>
+                      <input type="email" class="form-control" placeholder="Ingrese su email" id="correo" name="correo" required>
                     </div>
                     <div class="input-group">
                       <span class="input-group-text"><i class="fa fa-key" aria-hidden="true"></i></span>
-                      <input type="password" class="form-control" placeholder="Ingrese su password" id="pass" required>
+                      <input type="password" class="form-control" placeholder="Ingrese su password" id="pass" name="pass" required>
                     </div>
                     <div class="mb-3">
                       <label class="form-check-label mb-3">

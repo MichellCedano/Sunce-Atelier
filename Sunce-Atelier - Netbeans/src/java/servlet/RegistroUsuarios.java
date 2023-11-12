@@ -48,10 +48,9 @@ public class RegistroUsuarios extends HttpServlet {
         String numeroCasa=request.getParameter("numero_casa");
         Consultas sql= new Consultas();
         
-        Integer telf = Integer.parseInt(telefono);
         Integer cp = Integer.parseInt(codigoP);
         
-        if(sql.registrar(nombre, clave, correo, telf, calle, colonia, ciudad, estado, pais, cp, numeroCasa)){
+        if(sql.registrar(nombre, clave, correo, telefono, calle, colonia, ciudad, estado, pais, cp, numeroCasa)){
             System.out.println("Se registro correctamente");
             response.sendRedirect("index2.jsp");
         }else{
