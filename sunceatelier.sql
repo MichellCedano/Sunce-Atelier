@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 12-11-2023 a las 05:19:34
+-- Tiempo de generación: 12-11-2023 a las 06:00:38
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.0.28
 
@@ -48,8 +48,8 @@ CREATE TABLE `direccion` (
 CREATE TABLE `productos` (
   `id_producto` int(11) NOT NULL,
   `nombre` varchar(50) NOT NULL,
-  `img_producto` int(11) NOT NULL,
-  `precio` int(11) NOT NULL,
+  `img_producto` varchar(80) NOT NULL,
+  `precio` float NOT NULL,
   `tipo` varchar(40) NOT NULL,
   `stock` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
