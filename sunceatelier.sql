@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 12-11-2023 a las 05:02:56
+-- Tiempo de generación: 12-11-2023 a las 05:19:34
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.0.28
 
@@ -35,7 +35,8 @@ CREATE TABLE `direccion` (
   `estado` varchar(60) NOT NULL,
   `pais` varchar(50) NOT NULL,
   `codigo_postal` int(11) NOT NULL,
-  `numero_casa` varchar(40) NOT NULL
+  `numero_casa` varchar(40) NOT NULL,
+  `id_usuario` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -65,8 +66,7 @@ CREATE TABLE `usuarios` (
   `pass` varchar(40) NOT NULL,
   `correo` varchar(80) NOT NULL,
   `telefono` int(11) NOT NULL,
-  `tipo` enum('usuario','administrador') NOT NULL,
-  `id_direccion` int(11) NOT NULL
+  `tipo` enum('usuario','administrador') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -77,7 +77,8 @@ CREATE TABLE `usuarios` (
 -- Indices de la tabla `direccion`
 --
 ALTER TABLE `direccion`
-  ADD PRIMARY KEY (`id_direccion`);
+  ADD PRIMARY KEY (`id_direccion`),
+  ADD UNIQUE KEY `idusuario` (`id_usuario`);
 
 --
 -- Indices de la tabla `productos`
@@ -89,8 +90,7 @@ ALTER TABLE `productos`
 -- Indices de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  ADD PRIMARY KEY (`id_usuario`),
-  ADD UNIQUE KEY `iddireccion` (`id_direccion`);
+  ADD PRIMARY KEY (`id_usuario`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
