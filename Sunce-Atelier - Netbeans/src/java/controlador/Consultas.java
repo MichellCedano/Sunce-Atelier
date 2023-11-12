@@ -86,7 +86,8 @@ public class Consultas {
     public boolean registrarDireccion(String  calle, String colonia, String ciudad, String estado, String pais, int codigoP, String numCasa,int idUsuario){
         PreparedStatement pst=null;
         try{
-
+            con=new Conexion();
+            System.out.println("Direccion");
             String consulta="insert into direccion(calle,colonia,ciudad,estado,pais,codigo_postal,numero_casa,id_usuario) values(?,?,?,?,?,?,?,?)";
             pst=con.getConexion().prepareStatement(consulta);
             pst.setString(1, calle);
@@ -119,7 +120,7 @@ public class Consultas {
         PreparedStatement pst=null;
         try{
             
-            
+            System.out.println("Registrar");
             String consulta="insert into usuarios(nombre,pass,correo,telefono,tipo) values(?,?,?,?,?)";
             pst=con.getConexion().prepareStatement(consulta);
             pst.setString(1, nombre);

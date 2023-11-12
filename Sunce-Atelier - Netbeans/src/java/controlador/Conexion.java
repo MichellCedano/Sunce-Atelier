@@ -20,7 +20,7 @@ public class Conexion {
     private String HOST="localhost";
     private String PORT="3307";
     private String DATEBASE="sunceatelier";
-    private String CLASSNAME="com.mysql.cj.jdbc.Driver";
+    private String CLASSNAME="com.mysql.jdbc.Driver";
     private String URL="jdbc:mysql://"+HOST+":"+PORT+"/"+DATEBASE;
     private Connection con;
     
