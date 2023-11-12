@@ -1,3 +1,10 @@
+<%-- 
+    Document   : index
+    Created on : 11/11/2023, 10:23:23 PM
+    Author     : kingu
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -39,7 +46,7 @@
     <nav class="navbar navbar-expand-lg">
       <div class="container">
         <!--  <a class="navbar-brand" href="index.html"><h2>Sixteen <em>Clothing</em></h2></a> -->
-        <a class="navbar-brand logo" href="index.html"><img class="logo" src="assets/images/logooo.png"></a>
+        <a class="navbar-brand logo" href="index.jsp"><img class="logo" src="assets/images/logooo.png"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
           aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -47,18 +54,18 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="index.html">Inicio
+              <a class="nav-link" href="index.jsp">Inicio
                 <span class="sr-only">(current)</span>
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="products.html">Productos</a>
+              <a class="nav-link" href="products.jsp">Productos</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="about.html">Conócenos</a>
+              <a class="nav-link" href="about.jsp">Conócenos</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="contact.html">Contáctanos</a>
+              <a class="nav-link" href="contact.jsp">Contáctanos</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" id="loginButton" href="#" onclick="openLoginForm()">Iniciar Sesion</a>
@@ -71,7 +78,7 @@
               <div class="w3-modal-content">
                 <div class="w3-container">
                   <!-- Modal body -->
-                  <form action="index2.html" method="post">
+                  <form action="index2.jsp" method="post">
                     <h2>Inicio de sesion</h2>
                     <br>
                     <div class="input-group">
@@ -92,7 +99,7 @@
                   </form>
                   <br>
                   <p>No tienes una cuenta? </p>
-                  <a class="nav-link" href="registro.html">Haz click aquí para registrarte</a>
+                  <a class="nav-link" href="registro.jsp">Haz click aquí para registrarte</a>
                   <!-- Modal footer -->
                   <div class="modal-footer">
                     <button type="button" class="btn btn-danger"
@@ -140,7 +147,7 @@
                         <div class="col-md-12">
                           <div class="section-heading">
                             <h2>Productos Recientes</h2>
-                            <a href="products.html">ver todos <i class="fa fa-angle-right"></i></a>
+                            <a href="products.jsp">ver todos <i class="fa fa-angle-right"></i></a>
                           </div>
                         </div>
                         <div class="col-md-4">
@@ -247,7 +254,7 @@
                               y escuchando los comentarios de los clientes. Ofrecemos envíos locales y estamos
                               considerando la expansión a nivel nacional e internacional en el futuro.
                             </p>
-                            <a href="about.html" class="filled-button">Leer más</a>
+                            <a href="about.jsp" class="filled-button">Leer más</a>
                           </div>
                         </div>
                         <div class="col-md-6">

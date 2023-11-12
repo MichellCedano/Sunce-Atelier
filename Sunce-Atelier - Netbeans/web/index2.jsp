@@ -1,3 +1,10 @@
+<%-- 
+    Document   : index2
+    Created on : 11/11/2023, 10:23:40 PM
+    Author     : kingu
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -40,7 +47,7 @@
             <nav class="navbar navbar-expand-lg">
                 <div class="container">
                     <!--  <a class="navbar-brand" href="index.html"><h2>Sixteen <em>Clothing</em></h2></a> -->
-                    <a class="navbar-brand logo" href="index2.html"><img class="logo" src="assets/images/logooo.png"></a>
+                    <a class="navbar-brand logo" href="index2.jsp"><img class="logo" src="assets/images/logooo.png"></a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
                             aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
@@ -48,25 +55,25 @@
                     <div class="collapse navbar-collapse" id="navbarResponsive">
                         <ul class="navbar-nav ml-auto">
                             <li class="nav-item active">
-                                <a class="nav-link" href="index2.html">Inicio
+                                <a class="nav-link" href="index2.jsp">Inicio
                                     <span class="sr-only">(current)</span>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="products2.html">Productos</a>
+                                <a class="nav-link" href="products2.jsp">Productos</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="about2.html">Conócenos</a>
+                                <a class="nav-link" href="about2.jsp">Conócenos</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="contact2.html">Contáctanos</a>
+                                <a class="nav-link" href="contact2.jsp">Contáctanos</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="informacion_usuario.html"">Ver
+                                <a class="nav-link" href="informacion_usuario.jsp"">Ver
                                     información del usuario</a>
                             </li>
                             <li class=" nav-item">
-                                <a class="nav-link" href="index.html">Cerrar Sesion</a>
+                                <a class="nav-link" href="index.jsp">Cerrar Sesion</a>
                             </li>
                         </ul>
                     </div>
@@ -106,7 +113,7 @@
                     <div class="col-md-12">
                         <div class="section-heading">
                             <h2>Productos Recientes</h2>
-                            <a href="products.html">ver todos <i class="fa fa-angle-right"></i></a>
+                            <a href="products.jsp">ver todos <i class="fa fa-angle-right"></i></a>
                         </div>
                     </div>
                     <div class="col-md-4">
@@ -213,7 +220,7 @@
                                                                     y escuchando los comentarios de los clientes. Ofrecemos envíos locales y estamos
                                                                     considerando la expansión a nivel nacional e internacional en el futuro.
                                                                 </p>
-                                                                <a href="about2.html" class="filled-button">Leer más</a>
+                                                                <a href="about2.jsp" class="filled-button">Leer más</a>
                                                             </div>
                                                         </div>
                                                         <div class="col-md-6">

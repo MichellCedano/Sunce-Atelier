@@ -1,3 +1,10 @@
+<%-- 
+    Document   : products2
+    Created on : 11/11/2023, 10:25:24 PM
+    Author     : kingu
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -39,7 +46,7 @@
         <header class="">
             <nav class="navbar navbar-expand-lg">
                 <div class="container">
-                    <a class="navbar-brand logo" href="index2.html"><img class="logo" src="assets/images/logooo.png"></a>
+                    <a class="navbar-brand logo" href="index2.jsp"><img class="logo" src="assets/images/logooo.png"></a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
                             aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
@@ -47,25 +54,25 @@
                     <div class="collapse navbar-collapse" id="navbarResponsive">
                         <ul class="navbar-nav ml-auto">
                             <li class="nav-item">
-                                <a class="nav-link" href="index2.html">Inicio
+                                <a class="nav-link" href="index2.jsp">Inicio
                                     <span class="sr-only">(current)</span>
                                 </a>
                             </li>
                             <li class="nav-item active">
-                                <a class="nav-link" href="products2.html">Productos</a>
+                                <a class="nav-link" href="products2.jsp">Productos</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="about2.html">Conócenos</a>
+                                <a class="nav-link" href="about2.jsp">Conócenos</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="contact2.html">Contáctanos</a>
+                                <a class="nav-link" href="contact2.jsp">Contáctanos</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="informacion_usuario.html"">Ver
+                                <a class="nav-link" href="informacion_usuario.jsp"">Ver
                                     información del usuario</a>
                             </li>
                             <li class=" nav-item">
-                                <a class="nav-link" href="index.html">Cerrar Sesion</a>
+                                <a class="nav-link" href="index.jsp">Cerrar Sesion</a>
                             </li>
                         </ul>
                         <!--Formulario emergente de inicio de sesion-->
@@ -96,7 +103,7 @@
                                         </form>
                                         <br>
                                         <p>No tienes una cuenta? </p>
-                                        <a class="nav-link" href="registro.html">Haz click aquí para registrarte</a>
+                                        <a class="nav-link" href="registro.jsp">Haz click aquí para registrarte</a>
                                         <!-- Modal footer -->
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-danger"
