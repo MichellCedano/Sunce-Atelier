@@ -12,10 +12,10 @@ package modelo;
 public class Producto {
     private int id;
     private String nombre, img, tipo;
-    private double precio;
+    private float precio;
     private int stock;
 
-    public Producto(int id, String nombre, String img, String tipo, double precio, int stock) {
+    public Producto(int id, String nombre, String img, String tipo, float precio, int stock) {
         this.id = id;
         this.nombre = nombre;
         this.img = img;
@@ -56,11 +56,11 @@ public class Producto {
         this.img = img;
     }
 
-    public double getPrecio() {
+    public float getPrecio() {
         return precio;
     }
 
-    public void setPrecio(double precio) {
+    public void setPrecio(float precio) {
         this.precio = precio;
     }
 

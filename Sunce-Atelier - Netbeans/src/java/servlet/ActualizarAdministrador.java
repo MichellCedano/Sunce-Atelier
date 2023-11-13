@@ -13,14 +13,14 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+import modelo.Usuario;
 
 /**
  *
- * @author koine
+ * @author kingu
  */
-@WebServlet(name = "InicioSesion", urlPatterns = {"/iniciarSesion"})
-public class InicioSesion extends HttpServlet {
+@WebServlet(name = "ActualizarAdministrador", urlPatterns = {"/actualizarAdministrador"})
+public class ActualizarAdministrador extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -36,24 +36,23 @@ public class InicioSesion extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
 
+        String nuevoNombre = request.getParameter("nombre");
+        String nuevaPass = request.getParameter("pass");
         String correo = request.getParameter("correo");
-        String clave = request.getParameter("pass");
+        String nuevoTelefono = request.getParameter("telefono");
 
+        // Obtén más parámetros según sea necesario
+
+        // Utiliza la clase Consultas para actualizar la información del usuario
         Consultas sql = new Consultas();
+        Usuario usuario = new Usuario(nuevoNombre, nuevaPass, nuevoTelefono);
+        usuario.setCorreo(correo);
 
-        int res=sql.autenticacion(correo, clave);
-        if (res==1) {
-            HttpSession objSesion = request.getSession(true);
-            objSesion.setAttribute("correo", correo);
-            response.sendRedirect("index2.jsp");
-        } else if(res==2){
-            HttpSession objSesion = request.getSession(true);
-            objSesion.setAttribute("correo", correo);
-            response.sendRedirect("administracion.jsp");
-        } else{
-            response.sendRedirect("index.jsp");
+        if (sql.actualizarUsuario(usuario)) {
+            out.println("Éxito");
+        } else {
+            out.println("Error");
         }
-
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

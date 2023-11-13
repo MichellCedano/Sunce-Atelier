@@ -8,19 +8,19 @@ package servlet;
 import controlador.Consultas;
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
  *
- * @author koine
+ * @author kingu
  */
-@WebServlet(name = "InicioSesion", urlPatterns = {"/iniciarSesion"})
-public class InicioSesion extends HttpServlet {
+@WebServlet(name = "AgregarProducto", urlPatterns = {"/agregarProducto"})
+public class AgregarProducto extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -34,26 +34,27 @@ public class InicioSesion extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        PrintWriter out = response.getWriter();
 
-        String correo = request.getParameter("correo");
-        String clave = request.getParameter("pass");
+        String nombreProducto = request.getParameter("nombreProducto");
+        String img = request.getParameter("img");
+        String precio = request.getParameter("precio");
+        String tipo = request.getParameter("tipo");
+        String stock = request.getParameter("stock");
 
         Consultas sql = new Consultas();
 
-        int res=sql.autenticacion(correo, clave);
-        if (res==1) {
-            HttpSession objSesion = request.getSession(true);
-            objSesion.setAttribute("correo", correo);
-            response.sendRedirect("index2.jsp");
-        } else if(res==2){
-            HttpSession objSesion = request.getSession(true);
-            objSesion.setAttribute("correo", correo);
-            response.sendRedirect("administracion.jsp");
-        } else{
-            response.sendRedirect("index.jsp");
+        float price = Float.parseFloat(precio);
+        int cantidad = Integer.parseInt(stock);
+
+        if (sql.agregarProducto(nombreProducto, img, price, tipo, cantidad)) {
+            // Almacena el mensaje en la sesión
+            request.getSession().setAttribute("mensaje", "Producto registrado correctamente");
+        } else {
+            request.getSession().setAttribute("mensaje", "Error al registrar el producto");
         }
 
+        // Redirige a la misma página para mostrar el mensaje
+        response.sendRedirect("administracion.jsp");
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

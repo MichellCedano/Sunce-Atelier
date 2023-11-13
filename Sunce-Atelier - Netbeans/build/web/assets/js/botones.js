@@ -8,17 +8,37 @@ function closeLoginForm() {
     document.getElementById('id01').style.display = 'none';
 }
 
-function toggleLoginState() {
-    const loginButton = document.getElementById('loginButton');
-    const userInfoLink = document.getElementById('userInfoLink');
-    if (isLoggedIn) {
 
-    } else {
-        // El usuario está iniciando sesión
-        isLoggedIn = true;
-        loginButton.textContent = 'Cerrar Sesión';
-        userInfoLink.style.display = 'inline';
-    }
+function openAgregarProductoForm() {
+    document.getElementById('agregarProducto').style.display = 'block';
+}
+
+function closeAgregarProductoForm() {
+    document.getElementById('agregarProducto').style.display = 'none';
+}
+
+function openActualizarProductoForm() {
+    document.getElementById('actualizarProducto').style.display = 'block';
+}
+
+function closeActualizarProductoForm() {
+    document.getElementById('actualizarProducto').style.display = 'none';
+}
+
+function openEliminarProductoForm() {
+    document.getElementById('eliminarProducto').style.display = 'block';
+}
+
+function closeEliminarProductoForm() {
+    document.getElementById('eliminarProducto').style.display = 'none';
+}
+
+function openEliminarUsuarioForm() {
+    document.getElementById('eliminarUsuario').style.display = 'block';
+}
+
+function closeEliminarUsuarioForm() {
+    document.getElementById('eliminarUsuario').style.display = 'none';
 }
 
 function toggleCloseState() {
@@ -43,16 +63,16 @@ function editarCampo(id) {
     cambiosPendientes = true;
 }
 
-function guardarCambios() {
-    if (cambiosPendientes) {
-        document.getElementById('confirmacion').style.display = 'block';
-    } else {
-        document.getElementById('confirmacion').style.display = 'none';
-    }
-}
 
 function restaurarCambios() {
     const form = document.getElementById('userForm');
+    form.reset();
+    cambiosPendientes = false;
+    document.getElementById('confirmacion').style.display = 'none';
+}
+
+function restaurarCambiosAdministrador() {
+    const form = document.getElementById('adminForm');
     form.reset();
     cambiosPendientes = false;
     document.getElementById('confirmacion').style.display = 'none';
@@ -145,6 +165,48 @@ function guardarCambios() {
         "&pais=" + encodeURIComponent(nuevoPais) +
         "&codigo_postal=" + encodeURIComponent(nuevoCodigo_postal) +
         "&numero_casa=" + encodeURIComponent(nuevoNumero_casa);
+
+console.log("Solicitud AJAX enviada con parámetros: " + params);
+    // Enviar la solicitud
+    xhr.send(params);
+}
+
+function guardarCambiosAdministrador() {
+    // Obtener los valores actualizados de los campos del formulario
+    var nuevoNombre = document.getElementById('nombre').value;
+    var nuevaPass = document.getElementById('pass').value;
+    var nuevoCorreo = document.getElementById('correo').value;
+    var nuevoTelefono = document.getElementById('telefono').value;
+
+    // Agregar impresiones para depuración
+    console.log("Nuevo nombre: " + nuevoNombre);
+    console.log("Nueva contraseña: " + nuevaPass);
+    console.log("Nuevo correo: " + nuevoCorreo);
+    console.log("Nuevo teléfono: " + nuevoTelefono);
+
+    // Realizar una solicitud AJAX al servidor para guardar los cambios
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState == 4) {
+            if (xhr.status == 200) {
+                // Manejar la respuesta del servidor si es necesario
+                alert("Cambios guardados con éxito");
+            } else {
+                // Manejar errores en la respuesta del servidor
+                alert("Error al guardar cambios");
+            }
+        }
+    };
+
+    // Configurar la solicitud
+    xhr.open("POST", "actualizarAdministrador", true);
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+    // Crear los datos a enviar en la solicitud
+    var params = "nombre=" + encodeURIComponent(nuevoNombre) +
+        "&pass=" + encodeURIComponent(nuevaPass) +
+        "&correo=" + encodeURIComponent(nuevoCorreo) +
+        "&telefono=" + encodeURIComponent(nuevoTelefono);
 
 console.log("Solicitud AJAX enviada con parámetros: " + params);
     // Enviar la solicitud

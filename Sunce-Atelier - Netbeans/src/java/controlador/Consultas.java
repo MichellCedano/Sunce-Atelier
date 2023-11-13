@@ -2,6 +2,7 @@ package controlador;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import modelo.Producto;
 import modelo.Usuario;
 
 /*
@@ -20,11 +21,11 @@ public class Consultas {
     public Consultas() {
     }
 
-    public boolean autenticacion(String correo, String clave) {
+    public int autenticacion(String correo, String clave) {
         PreparedStatement pst = null;
         ResultSet rs = null;
         try {
-            String consulta = "select * from usuarios where correo=? and pass=?";
+            String consulta = "select tipo from usuarios where correo=? and pass=?";
             System.out.println("Consulta es " + consulta);
             pst = con.getConexion().prepareStatement(consulta);
             pst.setString(1, correo);
@@ -32,7 +33,12 @@ public class Consultas {
             rs = pst.executeQuery();
 
             if (rs.next()) {
-                return true;
+                String tipo = rs.getString("tipo");
+                if (tipo.equals("usuario")) {
+                    return 1;
+                } else {
+                    return 2;
+                }
             }
 
         } catch (Exception e) {
@@ -52,7 +58,7 @@ public class Consultas {
                 System.out.println("Error en " + e);
             }
         }
-        return false;
+        return 0;
 
     }
 
@@ -229,7 +235,7 @@ public class Consultas {
                 // Obtener el ID del usuario actualizado
                 int id_usuario = this.buscarUsuario(usuario.getCorreo());
 
-                this.con=new Conexion();
+                this.con = new Conexion();
                 // Actualizar información en la tabla de direcciones
                 String consultaDireccion = "UPDATE direccion SET calle=?, colonia=?, ciudad=?, estado=?, pais=?, codigo_postal=?, numero_casa=? WHERE id_usuario=?";
                 pstDireccion = con.getConexion().prepareStatement(consultaDireccion);
@@ -266,5 +272,170 @@ public class Consultas {
         }
         return false;
 
+    }
+
+    public boolean actualizarAdministrador(Usuario usuario) {
+        PreparedStatement pstUsuarios = null;
+
+        try {
+            // Actualizar información en la tabla de usuarios
+            String consultaUsuarios = "UPDATE usuarios SET nombre=?, pass=?, telefono=? WHERE correo=?";
+            pstUsuarios = con.getConexion().prepareStatement(consultaUsuarios);
+            pstUsuarios.setString(1, usuario.getNombre());
+            pstUsuarios.setString(2, usuario.getPass());
+            pstUsuarios.setString(3, usuario.getTelefono());
+            pstUsuarios.setString(4, usuario.getCorreo());
+
+            if (pstUsuarios.executeUpdate() == 1) {
+                // Obtener el ID del usuario actualizado
+                return true;
+            }
+        } catch (Exception e) {
+            System.out.println("Error en: " + e);
+        } finally {
+            try {
+                if (con.getConexion() != null) {
+                    con.getConexion().close();
+                }
+                if (pstUsuarios != null) {
+                    pstUsuarios.close();
+                }
+            } catch (Exception e) {
+                System.out.println("Error en " + e);
+            }
+        }
+        return false;
+    }
+
+    public boolean agregarProducto(String nombre, String img, float precio, String tipo, int stock) {
+        PreparedStatement pst = null;
+        try {
+
+            System.out.println("Agregar");
+            String consulta = "insert into productos(nombre,img_producto,precio,tipo,stock) values(?,?,?,?,?)";
+            pst = con.getConexion().prepareStatement(consulta);
+            pst.setString(1, nombre);
+            pst.setString(2, img);
+            pst.setFloat(3, precio);
+            pst.setString(4, tipo);
+            pst.setInt(5, stock);
+
+            if (pst.executeUpdate() == 1) {
+                return true;
+            }
+
+        } catch (Exception e) {
+            System.out.println("Error en: " + e);
+        } finally {
+            try {
+                if (con.getConexion() != null) {
+                    con.getConexion().close();
+                }
+                if (pst != null) {
+                    pst.close();
+                }
+            } catch (Exception e) {
+                System.out.println("Error en: " + e);
+            }
+        }
+        return false;
+    }
+
+    public boolean eliminarProducto(int id_producto) {
+        PreparedStatement pst = null;
+        try {
+
+            System.out.println("Agregar");
+            String consulta = "DELETE FROM productos WHERE id_producto = ?";
+            pst = con.getConexion().prepareStatement(consulta);
+            pst.setInt(1, id_producto);
+
+            if (pst.executeUpdate() == 1) {
+                return true;
+            }
+
+        } catch (Exception e) {
+            System.out.println("Error en: " + e);
+        } finally {
+            try {
+                if (con.getConexion() != null) {
+                    con.getConexion().close();
+                }
+                if (pst != null) {
+                    pst.close();
+                }
+            } catch (Exception e) {
+                System.out.println("Error en: " + e);
+            }
+        }
+        return false;
+    }
+
+    public boolean eliminarUsuario(int id_usuario) {
+        PreparedStatement pst = null;
+        try {
+
+            String consulta = "DELETE FROM direccion WHERE id_usuario = ?";
+            pst = con.getConexion().prepareStatement(consulta);
+            pst.setInt(1, id_usuario);
+
+            if (pst.executeUpdate() == 1) {
+                consulta = "DELETE FROM usuarios WHERE id_usuario = ?";
+                pst = con.getConexion().prepareStatement(consulta);
+                pst.setInt(1, id_usuario);
+                if(pst.executeUpdate()==1){
+                    return true;
+                }
+            }
+
+        } catch (Exception e) {
+            System.out.println("Error en: " + e);
+        } finally {
+            try {
+                if (con.getConexion() != null) {
+                    con.getConexion().close();
+                }
+                if (pst != null) {
+                    pst.close();
+                }
+            } catch (Exception e) {
+                System.out.println("Error en: " + e);
+            }
+        }
+        return false;
+    }
+
+    public boolean actualizarProducto(Producto producto) {
+        PreparedStatement pstUsuarios = null;
+
+        try {
+            // Actualizar información en la tabla de usuarios
+            String consultaUsuarios = "UPDATE productos SET nombre=?, img_producto=?, precio=?, tipo=?, stock=? WHERE id_producto=?";
+            pstUsuarios = con.getConexion().prepareStatement(consultaUsuarios);
+            pstUsuarios.setString(1, producto.getNombre());
+            pstUsuarios.setString(2, producto.getImg());
+            pstUsuarios.setFloat(3, producto.getPrecio());
+            pstUsuarios.setString(4, producto.getTipo());
+            pstUsuarios.setInt(5, producto.getStock());
+            pstUsuarios.setInt(6, producto.getId());
+
+            if (pstUsuarios.executeUpdate() == 1) {
+                return true;
+            }
+        } catch (Exception e) {
+            System.out.println("Error en: " + e);
+        } finally {
+            try {
+                if (con.getConexion() != null) {
+                    con.getConexion().close();
+                }
+                if (pstUsuarios != null) {
+                    pstUsuarios.close();
+                }
+            } catch (Exception e) {
+                System.out.println("Error en " + e);
+            }
+        }
+        return false;
     }
 }

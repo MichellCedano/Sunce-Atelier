@@ -13,14 +13,13 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
  *
- * @author koine
+ * @author kingu
  */
-@WebServlet(name = "InicioSesion", urlPatterns = {"/iniciarSesion"})
-public class InicioSesion extends HttpServlet {
+@WebServlet(name = "EliminarUsuario", urlPatterns = {"/eliminarUsuario"})
+public class EliminarUsuario extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -34,26 +33,22 @@ public class InicioSesion extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        PrintWriter out = response.getWriter();
-
-        String correo = request.getParameter("correo");
-        String clave = request.getParameter("pass");
-
-        Consultas sql = new Consultas();
-
-        int res=sql.autenticacion(correo, clave);
-        if (res==1) {
-            HttpSession objSesion = request.getSession(true);
-            objSesion.setAttribute("correo", correo);
-            response.sendRedirect("index2.jsp");
-        } else if(res==2){
-            HttpSession objSesion = request.getSession(true);
-            objSesion.setAttribute("correo", correo);
-            response.sendRedirect("administracion.jsp");
-        } else{
-            response.sendRedirect("index.jsp");
+        
+        String idUsuario=request.getParameter("idUsuario");
+        
+        int id_usuario=Integer.parseInt(idUsuario);
+        
+        Consultas sql=new Consultas();
+        
+        if (sql.eliminarUsuario(id_usuario)) {
+            // Almacena el mensaje en la sesión
+            request.getSession().setAttribute("mensaje", "Usuario eliminado correctamente");
+        } else {
+            request.getSession().setAttribute("mensaje", "Error al eliminar el usuario");
         }
 
+        // Redirige a la misma página para mostrar el mensaje
+        response.sendRedirect("administracion.jsp");
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

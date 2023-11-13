@@ -21,11 +21,11 @@ public class ModeloProducto extends Conexion{
         PreparedStatement pst = null;
         ResultSet rs = null;
         try {
-            String sql = "call selectProductos()";
-            pst = getConexion().prepareCall(sql);
+            String sql = "select * from productos";
+            pst = getConexion().prepareStatement(sql);
             rs = pst.executeQuery();
             while (rs.next()) {
-                productos.add(new Producto(rs.getInt("id_producto"), rs.getString("nombre"), rs.getString("img_producto"), rs.getString("tipo"),rs.getDouble("precio"), rs.getInt("stock")));
+                productos.add(new Producto(rs.getInt("id_producto"), rs.getString("nombre"), rs.getString("img_producto"), rs.getString("tipo"),rs.getFloat("precio"), rs.getInt("stock")));
             }
         } catch (Exception e) {
 
@@ -52,12 +52,13 @@ public class ModeloProducto extends Conexion{
         PreparedStatement pst = null;
         ResultSet rs = null;
         try {
-            String sql = "call selectProducto(?)";
-            pst = getConexion().prepareCall(sql);
+            String sql = "select * from productos where id_producto=?";
+            pst = getConexion().prepareStatement(sql);
+            pst.setInt(1, id);
             pst.setInt(1, id);
             rs = pst.executeQuery();
             while (rs.next()) {
-                producto = new Producto(rs.getInt("id_producto"), rs.getString("nombre"), rs.getString("img_producto"), rs.getString("tipo"),rs.getDouble("precio"), rs.getInt("stock"));
+                producto = new Producto(rs.getInt("id_producto"), rs.getString("nombre"), rs.getString("img_producto"), rs.getString("tipo"),rs.getFloat("precio"), rs.getInt("stock"));
             }
         }catch (Exception e){
             

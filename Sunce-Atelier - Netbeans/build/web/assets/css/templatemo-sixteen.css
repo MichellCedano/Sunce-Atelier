@@ -1100,17 +1100,36 @@ footer .inner-content p a {
 	}
 }
 
-#id01 {
+.w3-modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #7DA9CC;
+    color: #fff;
+    padding: 40px; /* Aumentar el espacio interno del modal */
+    border-radius: 5px;
+    width: 70%; /* Ajustar el ancho del modal según tus necesidades */
+    max-width: 600px; /* Establecer un ancho máximo para evitar que el modal sea demasiado ancho */
+}
+
+/* Estilo para los campos de entrada en el modal */
+.w3-modal-content input {
+    width: 100%; /* Hacer que los campos de entrada ocupen el ancho completo del contenedor */
+    margin-bottom: 15px; /* Espacio entre los campos de entrada */
+    padding: 10px; /* Aumentar el espacio interno de los campos de entrada */
+}
+.w3-modal {
     display: none;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.7); /* Fondo semitransparente */
-    z-index: 1; /* Superpuesto a otros elementos */
+    background-color: rgba(0, 0, 0, 0.7); 
+    z-index: 1; 
 }
-
+/*
 .w3-modal-content {
     position: absolute;
     top: 50%;
