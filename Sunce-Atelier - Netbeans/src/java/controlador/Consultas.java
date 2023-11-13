@@ -1,15 +1,14 @@
 package controlador;
 
-
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import modelo.Usuario;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author koine
@@ -17,79 +16,89 @@ import java.sql.ResultSet;
 public class Consultas {
 
     Conexion con = new Conexion();
-    
+
     public Consultas() {
     }
-    
-    public boolean autenticacion(String correo,String clave){
-        PreparedStatement pst=null;
-        ResultSet rs=null;
-        try{
-            String consulta="select * from usuarios where correo=? and pass=?";
+
+    public boolean autenticacion(String correo, String clave) {
+        PreparedStatement pst = null;
+        ResultSet rs = null;
+        try {
+            String consulta = "select * from usuarios where correo=? and pass=?";
             System.out.println("Consulta es " + consulta);
-            pst=con.getConexion().prepareStatement(consulta);
+            pst = con.getConexion().prepareStatement(consulta);
             pst.setString(1, correo);
             pst.setString(2, clave);
-            rs=pst.executeQuery();
-            
-            if(rs.next()){
+            rs = pst.executeQuery();
+
+            if (rs.next()) {
                 return true;
             }
-            
-        }catch(Exception e){
-            System.out.println("Error en: "+e );
-        }finally{
-            try{
-               if(con.getConexion()!=null)
-                   con.getConexion().close();
-               if(pst!=null)pst.close();
-               if(rs!=null)rs.close();
-            }catch(Exception e){
-                System.out.println("Error en "+e);
+
+        } catch (Exception e) {
+            System.out.println("Error en: " + e);
+        } finally {
+            try {
+                if (con.getConexion() != null) {
+                    con.getConexion().close();
+                }
+                if (pst != null) {
+                    pst.close();
+                }
+                if (rs != null) {
+                    rs.close();
+                }
+            } catch (Exception e) {
+                System.out.println("Error en " + e);
             }
         }
         return false;
-        
+
     }
-    
-    public int buscarUsuario(String correo){
-        PreparedStatement pst=null;
-        ResultSet rs=null;
+
+    public int buscarUsuario(String correo) {
+        PreparedStatement pst = null;
+        ResultSet rs = null;
         int idUsuario = 0;
-        try{
-            String consulta="select id_usuario,correo from usuarios where correo=?";
-            System.out.println("Consulta es: "+ consulta);
-            pst= con.getConexion().prepareStatement(consulta);   
+        try {
+            String consulta = "select id_usuario,correo from usuarios where correo=?";
+            System.out.println("Consulta es: " + consulta);
+            pst = con.getConexion().prepareStatement(consulta);
             pst.setString(1, correo);
-            rs=pst.executeQuery();
-            
-            if(rs.next()){
-                return idUsuario=rs.getInt("id_usuario");
+            rs = pst.executeQuery();
+
+            if (rs.next()) {
+                return idUsuario = rs.getInt("id_usuario");
             }
-            
-        }catch(Exception e){
-            System.out.println("Error en: "+e );
-        }finally{
-            try{
-               if(con.getConexion()!=null)
-                   con.getConexion().close();
-               if(pst!=null)pst.close();
-               if(rs!=null)rs.close();
-            }catch(Exception e){
-                System.out.println("Error en "+e);
+
+        } catch (Exception e) {
+            System.out.println("Error en: " + e);
+        } finally {
+            try {
+                if (con.getConexion() != null) {
+                    con.getConexion().close();
+                }
+                if (pst != null) {
+                    pst.close();
+                }
+                if (rs != null) {
+                    rs.close();
+                }
+            } catch (Exception e) {
+                System.out.println("Error en " + e);
             }
         }
         return -1;
-        
+
     }
-    
-    public boolean registrarDireccion(String  calle, String colonia, String ciudad, String estado, String pais, int codigoP, String numCasa,int idUsuario){
-        PreparedStatement pst=null;
-        try{
-            con=new Conexion();
+
+    public boolean registrarDireccion(String calle, String colonia, String ciudad, String estado, String pais, int codigoP, String numCasa, int idUsuario) {
+        PreparedStatement pst = null;
+        try {
+            con = new Conexion();
             System.out.println("Direccion");
-            String consulta="insert into direccion(calle,colonia,ciudad,estado,pais,codigo_postal,numero_casa,id_usuario) values(?,?,?,?,?,?,?,?)";
-            pst=con.getConexion().prepareStatement(consulta);
+            String consulta = "insert into direccion(calle,colonia,ciudad,estado,pais,codigo_postal,numero_casa,id_usuario) values(?,?,?,?,?,?,?,?)";
+            pst = con.getConexion().prepareStatement(consulta);
             pst.setString(1, calle);
             pst.setString(2, colonia);
             pst.setString(3, ciudad);
@@ -98,56 +107,164 @@ public class Consultas {
             pst.setInt(6, codigoP);
             pst.setString(7, numCasa);
             pst.setInt(8, idUsuario);
-            if(pst.executeUpdate()==1){
+            if (pst.executeUpdate() == 1) {
                 return true;
             }
-            
-            
-        }catch(Exception e){
-            System.out.println("Error en: "+e);
-        }finally{
-            try{
-                if(con.getConexion()!=null) con.getConexion().close();
-                if(pst!=null) pst.close();
-            }catch(Exception e){
-                System.out.println("Error en: "+e);
+
+        } catch (Exception e) {
+            System.out.println("Error en: " + e);
+        } finally {
+            try {
+                if (con.getConexion() != null) {
+                    con.getConexion().close();
+                }
+                if (pst != null) {
+                    pst.close();
+                }
+            } catch (Exception e) {
+                System.out.println("Error en: " + e);
             }
         }
         return false;
     }
-    
-    public boolean registrar(String nombre, String clave, String correo, String telefono, String  calle, String colonia, String ciudad, String estado, String pais, int codigoP, String numCasa){
-        PreparedStatement pst=null;
-        try{
-            
+
+    public boolean registrar(String nombre, String clave, String correo, String telefono, String calle, String colonia, String ciudad, String estado, String pais, int codigoP, String numCasa) {
+        PreparedStatement pst = null;
+        try {
+
             System.out.println("Registrar");
-            String consulta="insert into usuarios(nombre,pass,correo,telefono,tipo) values(?,?,?,?,?)";
-            pst=con.getConexion().prepareStatement(consulta);
+            String consulta = "insert into usuarios(nombre,pass,correo,telefono,tipo) values(?,?,?,?,?)";
+            pst = con.getConexion().prepareStatement(consulta);
             pst.setString(1, nombre);
             pst.setString(2, clave);
             pst.setString(3, correo);
             pst.setString(4, telefono);
             pst.setString(5, "usuario");
-            
-            if(pst.executeUpdate()==1){
+
+            if (pst.executeUpdate() == 1) {
                 int idUsuario = buscarUsuario(correo);
-            
-                registrarDireccion(calle,colonia,ciudad,estado,pais,codigoP,numCasa,idUsuario);
-                
+
+                registrarDireccion(calle, colonia, ciudad, estado, pais, codigoP, numCasa, idUsuario);
+
                 return true;
             }
-              
-        }catch(Exception e){
-            System.out.println("Error en: "+e);
-        }finally{
-            try{
-                if(con.getConexion()!=null) con.getConexion().close();
-                if(pst!=null) pst.close();
-            }catch(Exception e){
-                System.out.println("Error en: "+e);
+
+        } catch (Exception e) {
+            System.out.println("Error en: " + e);
+        } finally {
+            try {
+                if (con.getConexion() != null) {
+                    con.getConexion().close();
+                }
+                if (pst != null) {
+                    pst.close();
+                }
+            } catch (Exception e) {
+                System.out.println("Error en: " + e);
             }
         }
         return false;
     }
-    
+
+    public Usuario obtenerUsuario(String correo) {
+        Usuario usuario = null;
+        PreparedStatement pst = null;
+        ResultSet rs = null;
+        try {
+            String consulta = "select * from usuarios where correo=?";
+            System.out.println("Consulta es: " + consulta);
+            pst = con.getConexion().prepareStatement(consulta);
+            pst.setString(1, correo);
+            rs = pst.executeQuery();
+
+            if (rs.next()) {
+                usuario = new Usuario(rs.getInt("id_usuario"), rs.getString("nombre"), rs.getString("pass"), rs.getString("correo"), rs.getString("telefono"), rs.getString("tipo"));
+                String consulta2 = "select calle,colonia,ciudad,estado,pais,codigo_postal,numero_casa from direccion where id_usuario=?";
+                System.out.println("Consulta es: " + consulta);
+                pst = con.getConexion().prepareStatement(consulta2);
+                pst.setInt(1, usuario.getId_usuario());
+                rs = pst.executeQuery();
+
+                if (rs.next()) {
+                    usuario.agregarDireccion(rs.getString("calle"), rs.getString("colonia"), rs.getString("ciudad"), rs.getString("estado"), rs.getString("pais"), rs.getInt("codigo_postal"), rs.getString("numero_casa"));
+                }
+            }
+
+        } catch (Exception e) {
+            System.out.println("Error en: " + e);
+        } finally {
+            try {
+                if (con.getConexion() != null) {
+                    con.getConexion().close();
+                }
+                if (pst != null) {
+                    pst.close();
+                }
+                if (rs != null) {
+                    rs.close();
+                }
+            } catch (Exception e) {
+                System.out.println("Error en " + e);
+            }
+        }
+        return usuario;
+    }
+
+    public boolean actualizarUsuario(Usuario usuario) {
+        PreparedStatement pstUsuarios = null;
+        PreparedStatement pstDireccion = null;
+
+        try {
+            // Actualizar información en la tabla de usuarios
+            String consultaUsuarios = "UPDATE usuarios SET nombre=?, pass=?, telefono=? WHERE correo=?";
+            pstUsuarios = con.getConexion().prepareStatement(consultaUsuarios);
+            pstUsuarios.setString(1, usuario.getNombre());
+            pstUsuarios.setString(2, usuario.getPass());
+            pstUsuarios.setString(3, usuario.getTelefono());
+            pstUsuarios.setString(4, usuario.getCorreo());
+
+            System.out.println(usuario.getCorreo());
+            System.out.println("Aqui tambien llego");
+            if (pstUsuarios.executeUpdate() == 1) {
+                // Obtener el ID del usuario actualizado
+                int id_usuario = this.buscarUsuario(usuario.getCorreo());
+
+                this.con=new Conexion();
+                // Actualizar información en la tabla de direcciones
+                String consultaDireccion = "UPDATE direccion SET calle=?, colonia=?, ciudad=?, estado=?, pais=?, codigo_postal=?, numero_casa=? WHERE id_usuario=?";
+                pstDireccion = con.getConexion().prepareStatement(consultaDireccion);
+                pstDireccion.setString(1, usuario.getCalle());
+                pstDireccion.setString(2, usuario.getColonia());
+                pstDireccion.setString(3, usuario.getCiudad());
+                pstDireccion.setString(4, usuario.getEstado());
+                pstDireccion.setString(5, usuario.getPais());
+                pstDireccion.setInt(6, usuario.getCodigo_postal());
+                pstDireccion.setString(7, usuario.getNumero_casa());
+                pstDireccion.setInt(8, id_usuario);
+                System.out.println("Aqui tambien");
+
+                if (pstDireccion.executeUpdate() == 1) {
+                    return true;
+                }
+            }
+        } catch (Exception e) {
+            System.out.println("Error en: " + e);
+        } finally {
+            try {
+                if (con.getConexion() != null) {
+                    con.getConexion().close();
+                }
+                if (pstUsuarios != null) {
+                    pstUsuarios.close();
+                }
+                if (pstDireccion != null) {
+                    pstDireccion.close();
+                }
+            } catch (Exception e) {
+                System.out.println("Error en " + e);
+            }
+        }
+        return false;
+
+    }
 }

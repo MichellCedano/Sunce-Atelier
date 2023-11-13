@@ -4,8 +4,20 @@
     Author     : kingu
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
+<%
+    HttpSession objSesion = request.getSession(false);
+    String correo = (String) objSesion.getAttribute("correo");
+    if (correo == null || correo.isEmpty()) {
+        // Si el correo no está presente en la sesión, redirige a la página de inicio de sesión
+        response.sendRedirect("index.jsp");
+    }
+    // Aquí puedes utilizar la variable 'correo' para cualquier propósito en tu página
+%>
 <!DOCTYPE html>
+
 <html lang="en">
 
     <head>

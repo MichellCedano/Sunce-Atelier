@@ -5,6 +5,19 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%
+    HttpSession objSesion = request.getSession(false);
+    String correo = (String) objSesion.getAttribute("correo");
+    Usuario usuario=null;
+    if (correo == null || correo.isEmpty()) {
+        // Si el correo no está presente en la sesión, redirige a la página de inicio de sesión
+        response.sendRedirect("index.jsp");
+    }else{
+        usuario = new Consultas().obtenerUsuario(correo);
+    }
+%>
+<%@page import="controlador.Consultas"%>
+<%@page import="modelo.Usuario"%>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -115,41 +128,49 @@
             <h1>Información del Usuario</h1>
             <br>
             <form id="userForm">
-                <label for="email">Correo electrónico:</label>
-                <input type="text" id="email" value="usuario@example.com" disabled>
-                <button type="button" id="editEmail" onclick="editarCampo('email')">Editar</button>
+                <label for="email">Nombre de usuario:</label>
+                <input type="text" id="nombre" name="nombre" value=<%= usuario.getNombre()%> disabled>
+                <button type="button" id="editarNombre" onclick="editarCampo('nombre')">Editar</button>
                 <br>
                 <label for="password">Contraseña:</label>
-                <input type="password" id="password" value="•••••••••" disabled>
-                <button type="button" id="editPassword" onclick="editarCampo('password')">Editar</button>
+                <input type="password" id="pass" nombre="pass" value=<%= usuario.getPass()%> disabled>
+                <button type="button" id="editarPassword" onclick="editarCampo('pass')">Editar</button>
+                <br>
+                <label for="email">Correo electrónico:</label>
+                <input type="text" id="correo" name="correo" value=<%= usuario.getCorreo()%> disabled>
+                <button type="button" id="editarCorreo" onclick="editarCampo('correo')">Editar</button>
                 <br>
                 <label for="phone">Teléfono:</label>
-                <input type="text" id="phone" value="123-456-7890" disabled>
-                <button type="button" id="editPhone" onclick="editarCampo('phone')">Editar</button>
+                <input type="text" id="telefono" name="telefono" value=<%= usuario.getTelefono()%> disabled>
+                <button type="button" id="editarTelefono" onclick="editarCampo('telefono')">Editar</button>
                 <br>
                 <label for="street">Dirección - Calle:</label>
-                <input type="text" id="street" value="123 Main St" disabled>
-                <button type="button" id="editStreet" onclick="editarCampo('street')">Editar</button>
+                <input type="text" id="calle" name="calle" value=<%= usuario.getCalle()%> disabled>
+                <button type="button" id="editarCalle" onclick="editarCampo('calle')">Editar</button>
                 <br>
                 <label for="colonia">Dirección - Colonia:</label>
-                <input type="text" id="colonia" value="Downtown" disabled>
-                <button type="button" id="editColonia" onclick="editarCampo('colonia')">Editar</button>
+                <input type="text" id="colonia" name="colonia" value=<%= usuario.getColonia()%> disabled>
+                <button type="button" id="editarColonia" onclick="editarCampo('colonia')">Editar</button>
                 <br>
                 <label for="city">Dirección - Ciudad:</label>
-                <input type="text" id="city" value="Cityville" disabled>
-                <button type="button" id="editCity" onclick="editarCampo('city')">Editar</button>
+                <input type="text" id="ciudad" name="ciudad" value=<%= usuario.getCiudad()%> disabled>
+                <button type="button" id="editarCiudad" onclick="editarCampo('ciudad')">Editar</button>
                 <br>
                 <label for="state">Dirección - Estado:</label>
-                <input type="text" id="state" value="State" disabled>
-                <button type="button" id="editState" onclick="editarCampo('state')">Editar</button>
+                <input type="text" id="estado" name="estado" value=<%= usuario.getEstado()%> disabled>
+                <button type="button" id="editarEstado" onclick="editarCampo('estado')">Editar</button>
                 <br>
                 <label for="country">Dirección - País:</label>
-                <input type="text" id="country" value="Country" disabled>
-                <button type="button" id="editCountry" onclick="editarCampo('country')">Editar</button>
+                <input type="text" id="pais" name="pais" value=<%= usuario.getPais()%> disabled>
+                <button type="button" id="editarPais" onclick="editarCampo('pais')">Editar</button>
                 <br>
                 <label for="postal">Dirección - Código Postal:</label>
-                <input type="text" id="postal" value="12345" disabled>
-                <button type="button" id="editPostal" onclick="editarCampo('postal')">Editar</button>
+                <input type="text" id="codigo_postal" name="codigo_postal" value=<%= usuario.getCodigo_postal()%> disabled>
+                <button type="button" id="editarPostal" onclick="editarCampo('codigo_postal')">Editar</button>
+                <br>
+                <label for="postal">Dirección - Número de casa:</label>
+                <input type="text" id="numero_casa" name="numero_casa" value=<%= usuario.getNumero_casa()%> disabled>
+                <button type="button" id="editNumero" onclick="editarCampo('numero_casa')">Editar</button>
                 <br>
                 <button type="button" id="guardar" onclick="guardarCambios()">Guardar</button>
                 <br>

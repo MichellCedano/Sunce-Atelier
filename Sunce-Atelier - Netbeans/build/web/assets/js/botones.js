@@ -87,3 +87,66 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 });
+
+function guardarCambios() {
+    // Obtener los valores actualizados de los campos del formulario
+    var nuevoNombre = document.getElementById('nombre').value;
+    var nuevaPass = document.getElementById('pass').value;
+    var nuevoCorreo = document.getElementById('correo').value;
+    var nuevoTelefono = document.getElementById('telefono').value;
+    var nuevaCalle = document.getElementById('calle').value;
+    var nuevaColonia = document.getElementById('colonia').value;
+    var nuevaCiudad = document.getElementById('ciudad').value;
+    var nuevoEstado = document.getElementById('estado').value;
+    var nuevoPais = document.getElementById('pais').value;
+    var nuevoCodigo_postal = document.getElementById('codigo_postal').value;
+    var nuevoNumero_casa = document.getElementById('numero_casa').value;
+
+    // Agregar impresiones para depuración
+    console.log("Nuevo nombre: " + nuevoNombre);
+    console.log("Nueva contraseña: " + nuevaPass);
+    console.log("Nuevo correo: " + nuevoCorreo);
+    console.log("Nuevo teléfono: " + nuevoTelefono);
+    console.log("Nueva calle: " + nuevaCalle);
+    console.log("Nueva colonia: " + nuevaColonia);
+    console.log("Nueva ciudad: " + nuevaCiudad);
+    console.log("Nuevo estado: " + nuevoEstado);
+    console.log("Nuevo país: " + nuevoPais);
+    console.log("Nuevo código postal: " + nuevoCodigo_postal);
+    console.log("Nuevo número de casa: " + nuevoNumero_casa);
+
+    // Realizar una solicitud AJAX al servidor para guardar los cambios
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState == 4) {
+            if (xhr.status == 200) {
+                // Manejar la respuesta del servidor si es necesario
+                alert("Cambios guardados con éxito");
+            } else {
+                // Manejar errores en la respuesta del servidor
+                alert("Error al guardar cambios");
+            }
+        }
+    };
+
+    // Configurar la solicitud
+    xhr.open("POST", "actualizarUsuario", true);
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+    // Crear los datos a enviar en la solicitud
+    var params = "nombre=" + encodeURIComponent(nuevoNombre) +
+        "&pass=" + encodeURIComponent(nuevaPass) +
+        "&correo=" + encodeURIComponent(nuevoCorreo) +
+        "&telefono=" + encodeURIComponent(nuevoTelefono) +
+        "&calle=" + encodeURIComponent(nuevaCalle) +
+        "&colonia=" + encodeURIComponent(nuevaColonia) +
+        "&ciudad=" + encodeURIComponent(nuevaCiudad) +
+        "&estado=" + encodeURIComponent(nuevoEstado) +
+        "&pais=" + encodeURIComponent(nuevoPais) +
+        "&codigo_postal=" + encodeURIComponent(nuevoCodigo_postal) +
+        "&numero_casa=" + encodeURIComponent(nuevoNumero_casa);
+
+console.log("Solicitud AJAX enviada con parámetros: " + params);
+    // Enviar la solicitud
+    xhr.send(params);
+}

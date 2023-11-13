@@ -82,13 +82,6 @@ INSERT INTO `usuarios` (`id_usuario`, `nombre`, `pass`, `correo`, `telefono`, `t
 --
 
 --
--- Indices de la tabla `direccion`
---
-ALTER TABLE `direccion`
-  ADD PRIMARY KEY (`id_direccion`),
-  ADD UNIQUE KEY `idusuario` (`id_usuario`);
-
---
 -- Indices de la tabla `productos`
 --
 ALTER TABLE `productos`
@@ -99,7 +92,12 @@ ALTER TABLE `productos`
 --
 ALTER TABLE `usuarios`
   ADD PRIMARY KEY (`id_usuario`);
-
+--
+-- Indices de la tabla `direccion`
+--
+ALTER TABLE `direccion`
+  ADD PRIMARY KEY (`id_direccion`),
+  ADD FOREIGN KEY (`id_usuario`) REFERENCES `usuarios`(`id_usuario`);
 --
 -- AUTO_INCREMENT de las tablas volcadas
 --
@@ -121,6 +119,16 @@ ALTER TABLE `productos`
 --
 ALTER TABLE `usuarios`
   MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  
+--
+-- Restricciones para tablas volcadas
+--
+
+--
+-- Filtros para la tabla `direccion`
+--
+ALTER TABLE `direccion`
+  ADD CONSTRAINT `direccion_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuarios` (`id_usuario`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
