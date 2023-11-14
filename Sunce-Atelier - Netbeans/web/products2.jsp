@@ -4,6 +4,10 @@
     Author     : kingu
 --%>
 
+<%@page import="modelo.ControladorProducto"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="modelo.Producto"%>
+<%@page import="modelo.ModeloProducto"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
     HttpSession objSesion = request.getSession(false);
@@ -12,7 +16,14 @@
         // Si el correo no está presente en la sesión, redirige a la página de inicio de sesión
         response.sendRedirect("index.jsp");
     }
+    objSesion.setAttribute("correo", correo);
     // Aquí puedes utilizar la variable 'correo' para cualquier propósito en tu página
+%>
+<%
+    ModeloProducto mp = new ModeloProducto();
+    ArrayList<Producto> productos = mp.getAllProductos();
+    System.out.println("Número de productos: " + productos.size());
+    ControladorProducto cp = new ControladorProducto();
 %>
 <!DOCTYPE html>
 <html lang="en">
@@ -80,49 +91,16 @@
                                 <a class="nav-link" href="informacion_usuario.jsp"">Ver
                                     información del usuario</a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="carrito.jsp"">Carrito</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="compras.jsp"">Mis compras</a>
+                            </li>
                             <li class=" nav-item">
                                 <a class="nav-link" href="index.jsp">Cerrar Sesion</a>
                             </li>
                         </ul>
-                        <!--Formulario emergente de inicio de sesion-->
-                        <div class="w3-container">
-
-                            <div id="id01" class="w3-modal" style="display:none">
-                                <div class="w3-modal-content">
-                                    <div class="w3-container">
-                                        <!-- Modal body -->
-                                        <form action="index2.html" method="post">
-                                            <h2>Inicio de sesion</h2>
-                                            <br>
-                                            <div class="input-group">
-                                                <span class="input-group-text"><i class="fa fa-envelope-o" aria-hidden="true"></i></span>
-                                                <input type="email" class="form-control" placeholder="Ingrese su email" required>
-                                            </div>
-                                            <div class="input-group">
-                                                <span class="input-group-text"><i class="fa fa-key" aria-hidden="true"></i></span>
-                                                <input type="password" class="form-control" placeholder="Ingrese su password" required>
-                                            </div>
-                                            <div class="mb-3">
-                                                <label class="form-check-label mb-3">
-                                                    <input class="form-check-input" type="checkbox" name="remember"> Recordarme
-                                                </label>
-                                            </div>
-                                            <button type="submit" class="modalIniciar"><i class="fa fa-user-circle"
-                                                                                          aria-hidden="true"></i>Iniciar Sesion</button>
-                                        </form>
-                                        <br>
-                                        <p>No tienes una cuenta? </p>
-                                        <a class="nav-link" href="registro.jsp">Haz click aquí para registrarte</a>
-                                        <!-- Modal footer -->
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-danger"
-                                                    onclick="document.getElementById('id01').style.display = 'none'"
-                                                    class="w3-button w3-display-topright"">Cerrar</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </nav>
@@ -159,7 +137,7 @@
                     <div class="col-md-12">
                         <div class="filters-content">
                             <div class="row grid">
-                           
+
                                 <div class="col-lg-4 col-md-4 all dev">
                                     <div class="product-item">
                                         <a href="#" class="product-link" data-toggle="modal" data-target="#productModal"
@@ -185,7 +163,7 @@
                                         </div>
                                     </div>
                                 </div>
-                              
+
                                 <div class="col-lg-4 col-md-4 all gra">
                                     <div class="product-item">
                                         <a href="#" class="product-link" data-toggle="modal" data-target="#productModal"
@@ -280,6 +258,12 @@
             </div>
         </div>
 
+        <div class="container-fluid">
+            <div class="row">
+                <%=cp.getProductos()%>
+            </div>
+        </div> 
+
         <footer>
             <div class="container">
                 <div class="row">
@@ -290,73 +274,92 @@
                     </div>
                 </div>
             </div>
+        </footer>
 
-            <footer>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="inner-content">
-                                <p>Copyright &copy; 2023 - Sunce Atelier - Equipo 5
-                            </div>
-                        </div>
+
+        <!-- Bootstrap core JavaScript -->
+        <script src="vendor/jquery/jquery.min.js"></script>
+        <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+
+        <!-- Additional Scripts -->
+        <script src="assets/js/custom.js"></script>
+        <script src="assets/js/owl.js"></script>
+        <script src="assets/js/slick.js"></script>
+        <script src="assets/js/isotope.js"></script>
+        <script src="assets/js/accordions.js"></script>
+
+
+        <script language="text/Javascript">
+            cleared[0] = cleared[1] = cleared[2] = 0; //set a cleared flag for each field
+            function clearField(t) {                   //declaring the array outside of the
+                if (!cleared[t.id]) {                      // function makes it static and global
+                    cleared[t.id] = 1;  // you could use true and false, but that's more typing
+                    t.value = '';         // with more chance of typos
+                    t.style.color = '#fff';
+                }
+            }
+        </script>
+
+        <div class="modal fade" id="productModal" tabindex="-1" role="dialog" aria-labelledby="productModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2 class="modal-title" id="productModalLabel"></h2>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
                     </div>
-                </div>
-            </footer>
-
-
-            <!-- Bootstrap core JavaScript -->
-            <script src="vendor/jquery/jquery.min.js"></script>
-            <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-
-            <!-- Additional Scripts -->
-            <script src="assets/js/custom.js"></script>
-            <script src="assets/js/owl.js"></script>
-            <script src="assets/js/slick.js"></script>
-            <script src="assets/js/isotope.js"></script>
-            <script src="assets/js/accordions.js"></script>
-
-
-            <script language="text/Javascript">
-                                                        cleared[0] = cleared[1] = cleared[2] = 0; //set a cleared flag for each field
-                                                        function clearField(t) {                   //declaring the array outside of the
-                                                            if (!cleared[t.id]) {                      // function makes it static and global
-                                                                cleared[t.id] = 1;  // you could use true and false, but that's more typing
-                                                                t.value = '';         // with more chance of typos
-                                                                t.style.color = '#fff';
-                                                            }
-                                                        }
-            </script>
-
-            <div class="modal fade" id="productModal" tabindex="-1" role="dialog" aria-labelledby="productModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h2 class="modal-title" id="productModalLabel"></h2>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="text-center">
-                                        <img id="productImage" src="" alt="" class="productoVentana img-fluid">
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="text-center">
+                                    <img id="productImage" src="" alt="" class="productoVentana img-fluid">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <h3 id="productDescription"></h3>
+                                <br>
+                                <h2 id="productPrice"></h2>
+                                <form action="agregarCarrito" method="post" id="addToCartForm">
+                                    <!-- Puedes agregar campos ocultos para enviar información al servidor -->
+                                    <input type="hidden" name="idProducto" id="idProducto" value="1">
+                                    <div class="form-group">
+                                        <label for="quantity">Cantidad:</label>
+                                        <input type="number" class="form-control" id="cantidad" name="cantidad" value="1" min="1">
                                     </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <h3 id="productDescription"></h3>
-                                    <br>
-                                    <h2 id="productPrice"></h2>
-                                    <br>
-                                    <button id="addToCartButton" class="agregarCarrito">Agregar al carrito</button>
-                                </div>
+                                    <button type="submit" class="agregarCarrito">Agregar al carrito</button>
+                                </form>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
 
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                var verDetallesButtons = document.querySelectorAll('.ver-detalles');
+
+                verDetallesButtons.forEach(function (button) {
+                    button.addEventListener('click', function (event) {
+                        var idProducto = this.getAttribute('data-idProducto');
+                        var productModal = document.getElementById('productModal');
+                        var addToCartForm = document.getElementById('addToCartForm');
+                        var idProductoInput = document.getElementById('idProducto');
+
+                        // Actualiza el formulario con el ID del producto
+                        idProductoInput.value = idProducto;
+
+                        // Abre el modal
+                        $(productModal).modal('show');
+
+                        // Evita que el enlace realice su acción predeterminada
+                        event.preventDefault();
+                    });
+                });
+            });
+        </script>
     </body>
 
 </html>

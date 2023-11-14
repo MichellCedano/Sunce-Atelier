@@ -2,6 +2,12 @@ package controlador;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+import modelo.Articulo;
+import modelo.Compra;
+import modelo.ControladorProducto;
 import modelo.Producto;
 import modelo.Usuario;
 
@@ -383,7 +389,7 @@ public class Consultas {
                 consulta = "DELETE FROM usuarios WHERE id_usuario = ?";
                 pst = con.getConexion().prepareStatement(consulta);
                 pst.setInt(1, id_usuario);
-                if(pst.executeUpdate()==1){
+                if (pst.executeUpdate() == 1) {
                     return true;
                 }
             }
@@ -437,5 +443,151 @@ public class Consultas {
             }
         }
         return false;
+    }
+
+    public int registrarCompra(int id_usuario, float total) {
+        PreparedStatement pst = null;
+        try {
+
+            String consulta = "insert into compras(id_usuario,total) values(?,?)";
+            pst = con.getConexion().prepareStatement(consulta, Statement.RETURN_GENERATED_KEYS);
+            pst.setInt(1, id_usuario);
+            pst.setFloat(2, total);
+
+            int filasAfectadas = pst.executeUpdate();
+
+            if (filasAfectadas == 1) {
+                // Obtener las claves generadas
+                ResultSet generatedKeys = pst.getGeneratedKeys();
+
+                if (generatedKeys.next()) {
+                    int id_compra = generatedKeys.getInt(1); // Obtener el ID de la compra
+                    return id_compra;
+                } else {
+                    // No se pudo obtener el ID generado
+                }
+            } 
+
+        } catch (Exception e) {
+            System.out.println("Error en: " + e);
+        } finally {
+            try {
+                if (con.getConexion() != null) {
+                    con.getConexion().close();
+                }
+                if (pst != null) {
+                    pst.close();
+                }
+            } catch (Exception e) {
+                System.out.println("Error en: " + e);
+            }
+        }
+        return -1;
+    }
+    
+    public boolean registrarVenta(Articulo articulo, int id_compra){
+        PreparedStatement pst = null;
+        try {
+
+            ControladorProducto cp=new ControladorProducto();
+            Producto producto=cp.getProducto(articulo.getIdProducto());
+            float subtotal=producto.getPrecio()*articulo.getCantidad();
+            String consulta = "insert into compra_producto(cantidad_producto,id_compra,id_producto,subtotal_precio) values(?,?,?,?)";
+            con=new Conexion();
+            pst = con.getConexion().prepareStatement(consulta);
+            pst.setInt(1, articulo.getCantidad());
+            pst.setInt(2, id_compra);
+            pst.setInt(3, articulo.getIdProducto());
+            pst.setFloat(4, subtotal);
+
+            if (pst.executeUpdate() == 1) {
+
+                return true;
+            }
+
+        } catch (Exception e) {
+            System.out.println("Error en: " + e);
+        } finally {
+            try {
+                if (con.getConexion() != null) {
+                    con.getConexion().close();
+                }
+                if (pst != null) {
+                    pst.close();
+                }
+            } catch (Exception e) {
+                System.out.println("Error en: " + e);
+            }
+        }
+        return false;
+    }
+    
+    public ArrayList<Compra> obtenerCompras(String correo){
+        int id_usuario=this.buscarUsuario(correo);
+        con=new Conexion();
+        ArrayList<Compra> compras = new ArrayList<>();
+        PreparedStatement pst = null;
+        ResultSet rs = null;
+        try {
+            String sql = "select * from compras where id_usuario=?";
+            pst = con.getConexion().prepareStatement(sql);
+            pst.setInt(1, id_usuario);
+            rs = pst.executeQuery();
+            while (rs.next()) {
+                compras.add(new Compra(rs.getInt("id_compra"), rs.getInt("id_usuario"), rs.getFloat("total")));
+            }
+        } catch (Exception e) {
+
+        } finally {
+            try {
+                if (rs != null) {
+                    rs.close();
+                }
+                if (pst != null) {
+                    pst.close();
+                }
+                if (con.getConexion() != null) {
+                    con.getConexion().close();
+                }
+            } catch(Exception e){
+                
+            }
+        }
+        return compras;
+    }
+    
+    public ArrayList<Producto> obtenerProductosCompra(int id_compra){
+        ArrayList<Producto> productos = new ArrayList<>();
+        PreparedStatement pst = null;
+        ResultSet rs = null;
+        System.out.println(id_compra);
+        try {
+            con=new Conexion();
+            String sql = "SELECT productos.* FROM productos JOIN compra_producto ON productos.id_producto = compra_producto.id_producto JOIN compras ON compra_producto.id_compra = compras.id_compra WHERE compras.id_compra = ?";
+            System.out.println(sql);
+            pst = con.getConexion().prepareStatement(sql);
+            pst.setInt(1, id_compra);
+            rs = pst.executeQuery();
+            while (rs.next()) {
+                productos.add(new Producto(rs.getInt("id_producto"), rs.getString("nombre"), rs.getString("img_producto"), rs.getString("tipo"),rs.getFloat("precio"), rs.getInt("stock")));
+            }
+        } catch (Exception e) {
+
+        } finally {
+            try {
+                if (rs != null) {
+                    rs.close();
+                }
+                if (pst != null) {
+                    pst.close();
+                }
+                if (con.getConexion() != null) {
+                    con.getConexion().close();
+                }
+            } catch(Exception e){
+                
+            }
+        }
+        return productos;
     }
 }

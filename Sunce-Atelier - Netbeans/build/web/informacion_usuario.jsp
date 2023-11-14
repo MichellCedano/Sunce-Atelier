@@ -8,11 +8,12 @@
 <%
     HttpSession objSesion = request.getSession(false);
     String correo = (String) objSesion.getAttribute("correo");
-    Usuario usuario=null;
+    Usuario usuario = null;
     if (correo == null || correo.isEmpty()) {
         // Si el correo no está presente en la sesión, redirige a la página de inicio de sesión
         response.sendRedirect("index.jsp");
-    }else{
+    } else {
+        objSesion.setAttribute("correo", correo);
         usuario = new Consultas().obtenerUsuario(correo);
     }
 %>
@@ -69,6 +70,12 @@
                         <li class="nav-item active">
                             <a class="nav-link" href="informacion_usuario.jsp"">Ver
                                 información del usuario</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="carrito.jsp"">Carrito</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="compras.jsp"">Mis compras</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="index.jsp">Cerrar Sesion</a>

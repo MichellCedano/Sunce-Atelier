@@ -1,10 +1,16 @@
 <%-- 
-    Document   : about2
-    Created on : 11/11/2023, 10:18:10 PM
+    Document   : index2
+    Created on : 11/11/2023, 10:23:40 PM
     Author     : kingu
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="modelo.Producto"%>
+<%@page import="modelo.Compra"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="controlador.Consultas"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page contentType="text/html" pageEncoding="UTF-8"%>
+
 <%
     HttpSession objSesion = request.getSession(false);
     String correo = (String) objSesion.getAttribute("correo");
@@ -13,9 +19,13 @@
         response.sendRedirect("index.jsp");
     }
     objSesion.setAttribute("correo", correo);
+    Consultas sql=new Consultas();
+    ArrayList<Compra> compras=sql.obtenerCompras(correo);
+    System.out.println(compras.size());
     // Aquí puedes utilizar la variable 'correo' para cualquier propósito en tu página
 %>
 <!DOCTYPE html>
+
 <html lang="en">
 
     <head>
@@ -28,7 +38,7 @@
               rel="stylesheet">
 
         <script src="assets/js/botones.js" type="text/javascript"></script>
-        <title>Sunce Atelier - Conócenos</title>
+        <title>Sunce Atelier - Inicio</title>
 
         <!-- Bootstrap core CSS -->
         <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -38,6 +48,18 @@
         <link rel="stylesheet" href="assets/css/templatemo-sixteen.css">
         <link rel="stylesheet" href="assets/css/owl.css">
 
+        <%
+            String mensaje = (String) request.getSession().getAttribute("mensaje");
+            if (mensaje != null) {
+        %>
+        <script>
+            alert("<%= mensaje%>");
+            // Elimina el mensaje de la sesión después de mostrarlo
+            <% session.removeAttribute("mensaje"); %>
+        </script>
+        <%
+            }
+        %>
     </head>
 
     <body>
@@ -56,6 +78,7 @@
         <header class="">
             <nav class="navbar navbar-expand-lg">
                 <div class="container">
+                    <!--  <a class="navbar-brand" href="index.html"><h2>Sixteen <em>Clothing</em></h2></a> -->
                     <a class="navbar-brand logo" href="index2.jsp"><img class="logo" src="assets/images/logooo.png"></a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
                             aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -63,7 +86,7 @@
                     </button>
                     <div class="collapse navbar-collapse" id="navbarResponsive">
                         <ul class="navbar-nav ml-auto">
-                            <li class="nav-item">
+                            <li class="nav-item active">
                                 <a class="nav-link" href="index2.jsp">Inicio
                                     <span class="sr-only">(current)</span>
                                 </a>
@@ -71,7 +94,7 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="products2.jsp">Productos</a>
                             </li>
-                            <li class="nav-item active">
+                            <li class="nav-item">
                                 <a class="nav-link" href="about2.jsp">Conócenos</a>
                             </li>
                             <li class="nav-item">
@@ -91,93 +114,68 @@
                                 <a class="nav-link" href="index.jsp">Cerrar Sesion</a>
                             </li>
                         </ul>
-
                     </div>
             </nav>
         </header>
 
-        <!-- Page Content -->
-        <div class="page-heading about-heading header-text">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="text-content">
-                            <h4>Conócenos</h4>
-                            <h2>Sobre Sunce Atelier</h2>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <!-- Banner Ends Here -->
 
-        <div class="best-features about-features">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="section-heading">
-                            <h2>¿Quiénes somos?</h2>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="right-image">
-                            <img src="assets/images/logooo.png" alt="">
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="left-content">
-                            <p>
-                                Sunce-atelier
-                            </p>
-                            <p>
-                                Es una empresa pequeña empezada por una sola persona. 
-                            </p>
-                            <p>
-                                Sleepysuny, como su seudónimo en las redes, una artista y diseñadora grafica local de
-                                Ciudad Obregón Sonora, México.
-                            </p>
-                            <p>
-                                La empresa comenzó con sus pedidos a finales del año 2022, pues inicio a a base de las
-                                impresiones propias de Sleepy, quien cansada de comprar en las imprentas de su ciudad, que
-                                trabajaban con mala calidad y no ofrecían el servicio que ella requería, además de sus
-                                altos precios, comenzó su emprendimiento con sus conocidos, ofreciéndoles impresiones de
-                                sus propias ilustraciones, con artistas pequeños que asistían a convenciones o bazares de
-                                la localidad de tema friki.
-                            </p>
-                            <p>
-                                Al ser estudiante de diseño grafico, pudo instruirse mas al respecto de las maquinas que
-                                puede utilizar para distintos productos, decidió ampliar mas su negocio para fuera del
-                                municipio, expandir mas su trabajo, y vender mas variedad de cosas, ofreciendo precios
-                                accesibles para estos según las cantidades ordenadas, pero nunca bajando la calidad de su
-                                trabajo.
-                            </p>
-                            <p>
-                                Pues al ser ella misma un cliente de su propio producto en un inicio, conoce
-                                mejor que nadie la experiencia que quiere llevar un posible cliente, aceptando siempre
-                                comentarios para mejorar sus productos y ofrecer cosas que no son tan sencillas de
-                                conseguir en el entorno local, de la misma manera ofreciendo envíos a todo el municipio y
-                                abriéndose la posibilidad en un futuro a de manera nacional y quizá internacional.
-                            </p>
-                            <ul class="social-icons">
-                                <li><a target="_blank" href="https://www.instagram.com/sunce_atelier/"><i class="fa fa-instagram"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+
+        <%
+            for(Compra compra : compras){
+            int idCompra = compra.getId_compra();
+            ArrayList<Producto> productos = sql.obtenerProductosCompra(idCompra);
+            System.out.println(productos.size());
+        %>
+
+        <h2>Compra ID: <%= idCompra %></h2>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>ID Producto</th>
+                    <th>Nombre Producto</th>
+                    <th>Imagen Producto</th>
+                    <th>Precio Producto</th>
+                    <!-- Agrega más columnas según sea necesario -->
+                </tr>
+            </thead>
+            <tbody>
+                <% for(Producto producto : productos){ %>
+                    <tr>
+                        <td><%= producto.getId() %></td>
+                        <td><%= producto.getNombre() %></td>
+                        <td><%= producto.getImg() %></td>
+                        <td><%= producto.getPrecio() %></td>
+                        <!-- Agrega más columnas según sea necesario -->
+                    </tr>
+                <% } %>
+            </tbody>
+        </table>
+    <% } %>
+
+
 
         <footer>
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
                         <div class="inner-content">
-                            <p>Copyright &copy; 2023 - Sunce Atelier - Equipo 5
+                            <p>Copyright &copy; 2020 Sixteen Clothing Co., Ltd.
+
+                                - Design: <a rel="nofollow noopener" href="https://templatemo.com" target="_blank">TemplateMo</a></p>
                         </div>
                     </div>
                 </div>
             </div>
         </footer>
-
 
         <!-- Bootstrap core JavaScript -->
         <script src="vendor/jquery/jquery.min.js"></script>
@@ -203,7 +201,34 @@
             }
         </script>
 
-
+        <div class="modal fade" id="productModal" tabindex="-1" role="dialog" aria-labelledby="productModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2 class="modal-title" id="productModalLabel"></h2>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="text-center">
+                                    <img id="productImage" src="" alt="" class="productoVentana img-fluid">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <h3 id="productDescription"></h3>
+                                <br>
+                                <h2 id="productPrice"></h2>
+                                <br>
+                                <button id="addToCartButton" class="agregarCarrito">Agregar al carrito</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </body>
 
 </html>

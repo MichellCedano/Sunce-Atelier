@@ -212,3 +212,4 @@ console.log("Solicitud AJAX enviada con parámetros: " + params);
     // Enviar la solicitud
     xhr.send(params);
 }
+

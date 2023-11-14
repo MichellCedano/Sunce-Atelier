@@ -14,6 +14,7 @@
         // Si el correo no está presente en la sesión, redirige a la página de inicio de sesión
         response.sendRedirect("index.jsp");
     }
+    objSesion.setAttribute("correo", correo);
     // Aquí puedes utilizar la variable 'correo' para cualquier propósito en tu página
 %>
 <!DOCTYPE html>
@@ -40,6 +41,18 @@
         <link rel="stylesheet" href="assets/css/templatemo-sixteen.css">
         <link rel="stylesheet" href="assets/css/owl.css">
 
+        <%
+            String mensaje = (String) request.getSession().getAttribute("mensaje");
+            if (mensaje != null) {
+        %>
+        <script>
+            alert("<%= mensaje%>");
+            // Elimina el mensaje de la sesión después de mostrarlo
+            <% session.removeAttribute("mensaje"); %>
+        </script>
+        <%
+            }
+        %>
     </head>
 
     <body>
@@ -83,6 +96,12 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="informacion_usuario.jsp"">Ver
                                     información del usuario</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="carrito.jsp"">Carrito</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="compras.jsp"">Mis compras</a>
                             </li>
                             <li class=" nav-item">
                                 <a class="nav-link" href="index.jsp">Cerrar Sesion</a>
