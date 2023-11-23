@@ -1220,3 +1220,28 @@ footer .inner-content p a {
     object-fit: contain; /* Puedes usar 'contain' en lugar de 'cover' si prefieres ajustar la imagen para que quepa en su contenedor sin recortarla */
     overflow: hidden;
 }
+
+.comprasTable {
+    margin: auto;
+    width: 50%; /* Puedes ajustar el ancho según tus necesidades */
+    border-collapse: collapse;
+}
+
+.comprasTable th, .comprasTable td {
+    border: 1px solid #ffffff; /* Borde blanco entre celdas */
+    padding: 10px; /* Espaciado interno */
+    text-align: left; /* Alineación del texto a la izquierda */
+}
+
+.comprasTable thead {
+    background-color: #3498db; /* Fondo azul para la fila de encabezado */
+    color: #ffffff; /* Texto blanco para la fila de encabezado */
+}
+
+.comprasTable tbody tr:nth-child(even) {
+    background-color: #ecf0f1; /* Fondo gris claro para filas pares */
+}
+
+.comprasTable tbody tr:hover {
+    background-color: #bdc3c7; /* Fondo gris más oscuro al pasar el mouse */
+}

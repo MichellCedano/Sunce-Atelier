@@ -134,6 +134,8 @@
                             </ul>
                         </div>
                     </div>
+                    
+                  <!--
                     <div class="col-md-12">
                         <div class="filters-content">
                             <div class="row grid">
@@ -254,6 +256,7 @@
                             </div>
                         </div>
                     </div>
+                  -->
                 </div>
             </div>
         </div>

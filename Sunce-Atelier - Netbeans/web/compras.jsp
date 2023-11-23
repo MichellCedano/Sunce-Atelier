@@ -136,8 +136,8 @@
             System.out.println(productos.size());
         %>
 
-        <h2>Compra ID: <%= idCompra %></h2>
-        <table border="1">
+        <h2 style="text-align: center;">Compra ID: <%= idCompra %></h2>
+        <table border="1" class="comprasTable">
             <thead>
                 <tr>
                     <th>ID Producto</th>
@@ -152,7 +152,7 @@
                     <tr>
                         <td><%= producto.getId() %></td>
                         <td><%= producto.getNombre() %></td>
-                        <td><%= producto.getImg() %></td>
+                        <td><img src="<%= producto.getImg() %>" alt="" width="100px" height="100px"/></td>
                         <td><%= producto.getPrecio() %></td>
                         <!-- Agrega más columnas según sea necesario -->
                     </tr>

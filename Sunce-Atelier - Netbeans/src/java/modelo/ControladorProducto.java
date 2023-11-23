@@ -18,7 +18,7 @@ public class ControladorProducto {
         htmlcode += "<div class=\"col-sm-4\">\n"
                 + "<div class=\"card\">\n"
                 + "<div class=\"productinfo text-center\">\n"
-                + "<img src=\"img/" + producto.getImg() + "\" alt=\"\" width=\"230\" height=\"230\" />\n"
+                + "<img src=\"" + producto.getImg() + "\" alt=\"\" width=\"230\" height=\"230\" />\n"
                 + "<h2>$" + producto.getPrecio() + "</h2>\n"
                 + "<p>" + producto.getNombre() + "</p>\n"
                 + "<a href=\"#\" class=\"btn btn-default add-to-cart ver-detalles\" "

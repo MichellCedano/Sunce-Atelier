@@ -51,11 +51,11 @@ public class RegistroUsuarios extends HttpServlet {
         Integer cp = Integer.parseInt(codigoP);
         
         if(sql.registrar(nombre, clave, correo, telefono, calle, colonia, ciudad, estado, pais, cp, numeroCasa)){
-            System.out.println("Se registro correctamente");
-            response.sendRedirect("index2.jsp");
-        }else{
-            System.out.println("No se pudo registrar");
+            request.getSession().setAttribute("mensajeRegistro", "Registro exitoso");
             response.sendRedirect("index.jsp");
+        }else{
+            request.getSession().setAttribute("mensajeRegistro", "No se pudo registrar");
+            response.sendRedirect("registro.jsp");
         }
         
         

@@ -64,6 +64,7 @@ public class GuardarCompra extends HttpServlet {
         } else {
             // Si no hubo errores, establece el mensaje de éxito y realiza la redirección
             request.getSession().setAttribute("mensaje", "Compra registrada correctamente");
+            request.getSession().removeAttribute("carrito");
             response.sendRedirect("index2.jsp");
         }
     }

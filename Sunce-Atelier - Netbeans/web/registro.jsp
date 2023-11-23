@@ -19,6 +19,18 @@
         <script src="assets/js/botones.js" type="text/javascript"></script>
         <title>Sunce Atelier - Registro</title>
 
+        <%
+            String mensaje = (String) request.getSession().getAttribute("mensajeRegistro");
+            if (mensaje != null) {
+        %>
+        <script>
+            alert("<%= mensaje%>");
+            // Elimina el mensaje de la sesión después de mostrarlo
+            <% session.removeAttribute("mensaje"); %>
+        </script>
+        <%
+            }
+        %>
         <!-- Bootstrap core CSS -->
         <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
         <!-- Additional CSS Files -->

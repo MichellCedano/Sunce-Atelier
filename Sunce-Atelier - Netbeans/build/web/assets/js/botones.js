@@ -191,6 +191,7 @@ function guardarCambiosAdministrador() {
             if (xhr.status == 200) {
                 // Manejar la respuesta del servidor si es necesario
                 alert("Cambios guardados con éxito");
+                window.location.href = 'administracion.jsp';
             } else {
                 // Manejar errores en la respuesta del servidor
                 alert("Error al guardar cambios");

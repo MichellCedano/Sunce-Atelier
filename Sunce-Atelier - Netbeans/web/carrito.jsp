@@ -139,7 +139,7 @@
                                 %>
                                 <tr>
                                     <td class="cart_product">
-                                        <a href=""><img src="img/<%= producto.getImg()%>" alt="" width="120"></a>
+                                        <a href=""><img src="<%= producto.getImg()%>" alt="" width="120"></a>
                                     </td>
                                     <td class="cart_description">
                                         <h4><a href=""><%= producto.getNombre()%></a></h4>
@@ -185,11 +185,11 @@
                                 </tr>
                                 <tr>
                                     <td>IVA<span></td>
-                                    <td>$ 0.0</span></td>
+                                    <td>$ <%= Math.round(total * 16.0) / 100.0%></span></td>
                                 </tr>
                                 <tr>
                                     <td>Total</td>
-                                    <td><span id="txt-total" name="total">$ <%= Math.round(total * 100.0) / 100.0%></span></td>
+                                    <td><span id="txt-total" name="total">$ <%= Math.round(total * 116.0) / 100.0%></span></td>
                                 </tr>
                             </table>
                         </div>
