@@ -1,4 +1,5 @@
 let isLoggedIn = false;
+var articulos = [];
 
 function openLoginForm() {
     document.getElementById('id01').style.display = 'block';
@@ -109,6 +110,127 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 function guardarCambios() {
+    var formulario = document.getElementById("userForm");
+
+    var nombreUsuario = formulario.nombre.value.trim();
+    var nombreUsuarioRegex = /^[a-zA-Z][a-zA-Z0-9-_]{2,14}$/;
+
+    if (!nombreUsuarioRegex.test(nombreUsuario)) {
+        alert("El nombre de usuario debe comenzar con una letra y tener entre 3 y 15 caracteres, permitiendo letras, números, guiones y guiones bajos.");
+        formulario.nombre.classList.add("invalid-input");
+        return false;
+    } else {
+        formulario.nombre.classList.remove("invalid-input");
+    }
+
+    var contraseña = formulario.pass.value.trim();
+    var contraseñaRegex = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)[A-Za-z]\w{5,14}$/;
+
+    if (!contraseñaRegex.test(contraseña)) {
+        alert("La contraseña debe tener al menos 6 caracteres, incluir al menos una letra mayúscula, una letra minúscula, un número, y el primer carácter debe ser una letra.");
+        formulario.pass.classList.add("invalid-input");
+        return false;
+    } else {
+        formulario.pass.classList.remove("invalid-input");
+    }
+
+    var correo = formulario.correo.value.trim();
+    var correoRegex = /^[a-zA-Z][a-zA-Z0-9_]*(?:\.[a-zA-Z][a-zA-Z0-9_]*)*@[a-zA-Z][a-zA-Z0-9_]*(?:\.[a-zA-Z]+)+$/;
+
+    if (!correoRegex.test(correo)) {
+        alert("Por favor, ingrese un correo electrónico válido.");
+        formulario.correo.classList.add("invalid-input");
+        return false;
+    } else {
+        formulario.correo.classList.remove("invalid-input");
+    }
+    
+    var telefono = formulario.telefono.value.trim();
+    var telefonoRegex = /^\d{10}$/;
+
+    if (!telefonoRegex.test(telefono)) {
+        alert("Por favor, ingrese un número de teléfono válido con 10 dígitos.");
+        formulario.telefono.classList.add("invalid-input");
+        return false;
+    } else {
+        formulario.telefono.classList.remove("invalid-input");
+    }
+
+    var numeroCasa = formulario.numero_casa.value.trim();
+    var numeroCasaRegex = /^[a-zA-Z0-9]+(?:-[a-zA-Z0-9]+)?$/;
+
+    if (!numeroCasaRegex.test(numeroCasa)) {
+        alert("Por favor, ingrese un número de casa válido que puede incluir números, letras y un guion en medio (no al principio ni al final).");
+        formulario.numero_casa.classList.add("invalid-input");
+        return false;
+    } else {
+        formulario.numero_casa.classList.remove("invalid-input");
+    }
+    
+    var calle = formulario.calle.value.trim();
+    var calleRegex = /^[a-zA-Z0-9]+(?:[.-\s][a-zA-Z0-9]+)*$/;
+
+    if (!calleRegex.test(calle)) {
+        alert("Por favor, ingrese una calle válida que puede incluir letras, números, el punto y el guion (con el punto inmediatamente después de una letra y el guion solo en el medio).");
+        formulario.calle.classList.add("invalid-input");
+        return false;
+    } else {
+        formulario.calle.classList.remove("invalid-input");
+    }
+    
+    var colonia = formulario.colonia.value.trim();
+    var coloniaRegex = /^[a-zA-Z0-9]+(?:[.-\s][a-zA-Z0-9]+)*$/;
+
+    if (!coloniaRegex.test(colonia)) {
+        alert("Por favor, ingrese una colonia válida que puede incluir letras, números, el punto y el guion (con el punto inmediatamente después de una letra y el guion solo en el medio).");
+        formulario.colonia.classList.add("invalid-input");
+        return false;
+    } else {
+        formulario.colonia.classList.remove("invalid-input");
+    }
+    
+    var ciudad = formulario.ciudad.value.trim();
+    var ciudadRegex = /^[a-zA-Z\s]+$/;
+
+    if (!ciudadRegex.test(ciudad)) {
+        alert("Por favor, ingrese un nombre de ciudad válido que solo contenga letras.");
+        formulario.ciudad.classList.add("invalid-input");
+        return false;
+    } else {
+        formulario.ciudad.classList.remove("invalid-input");
+    }
+
+    var estado = formulario.estado.value.trim();
+    var estadoRegex = /^[a-zA-Z\s]+$/;
+    if (!estadoRegex.test(estado)) {
+        alert("Por favor, ingrese un nombre de estado válido que solo contenga letras.");
+        formulario.estado.classList.add("invalid-input");
+        return false;
+    } else {
+        formulario.estado.classList.remove("invalid-input");
+    }
+
+    var pais = formulario.pais.value.trim();
+    var paisRegex = /^[a-zA-Z\s]+$/;
+
+    if (!paisRegex.test(pais)) {
+        alert("Por favor, ingrese un nombre de país válido que solo contenga letras.");
+        formulario.pais.classList.add("invalid-input");
+        return false;
+    } else {
+        formulario.pais.classList.remove("invalid-input");
+    }
+    
+    var codigoPostal = formulario.codigo_postal.value.trim();
+    var codigoPostalRegex = /^\d{5}$/;
+
+    if (!codigoPostalRegex.test(codigoPostal)) {
+        alert("Por favor, ingrese un código postal válido que consista en exactamente 5 números.");
+        formulario.codigo_postal.classList.add("invalid-input");
+        return false;
+    } else {
+        formulario.codigo_postal.classList.remove("invalid-input");
+    }
     // Obtener los valores actualizados de los campos del formulario
     var nuevoNombre = document.getElementById('nombre').value;
     var nuevaPass = document.getElementById('pass').value;
@@ -172,6 +294,51 @@ console.log("Solicitud AJAX enviada con parámetros: " + params);
 }
 
 function guardarCambiosAdministrador() {
+    var formulario = document.getElementById("adminForm");
+
+    var nombreUsuario = formulario.nombre.value.trim();
+    var nombreUsuarioRegex = /^[a-zA-Z][a-zA-Z0-9-_]{2,14}$/;
+
+    if (!nombreUsuarioRegex.test(nombreUsuario)) {
+        alert("El nombre de usuario debe comenzar con una letra y tener entre 3 y 15 caracteres, permitiendo letras, números, guiones y guiones bajos.");
+        formulario.nombre.classList.add("invalid-input");
+        return false;
+    } else {
+        formulario.nombre.classList.remove("invalid-input");
+    }
+
+    var contraseña = formulario.pass.value.trim();
+    var contraseñaRegex = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)[A-Za-z]\w{5,14}$/;
+
+    if (!contraseñaRegex.test(contraseña)) {
+        alert("La contraseña debe tener al menos 6 caracteres, incluir al menos una letra mayúscula, una letra minúscula, un número, y el primer carácter debe ser una letra.");
+        formulario.pass.classList.add("invalid-input");
+        return false;
+    } else {
+        formulario.pass.classList.remove("invalid-input");
+    }
+
+    var correo = formulario.correo.value.trim();
+    var correoRegex = /^[a-zA-Z][a-zA-Z0-9_]*(?:\.[a-zA-Z][a-zA-Z0-9_]*)*@[a-zA-Z][a-zA-Z0-9_]*(?:\.[a-zA-Z]+)+$/;
+
+    if (!correoRegex.test(correo)) {
+        alert("Por favor, ingrese un correo electrónico válido.");
+        formulario.correo.classList.add("invalid-input");
+        return false;
+    } else {
+        formulario.correo.classList.remove("invalid-input");
+    }
+    
+    var telefono = formulario.telefono.value.trim();
+    var telefonoRegex = /^\d{10}$/;
+
+    if (!telefonoRegex.test(telefono)) {
+        alert("Por favor, ingrese un número de teléfono válido con 10 dígitos.");
+        formulario.telefono.classList.add("invalid-input");
+        return false;
+    } else {
+        formulario.telefono.classList.remove("invalid-input");
+    }
     // Obtener los valores actualizados de los campos del formulario
     var nuevoNombre = document.getElementById('nombre').value;
     var nuevaPass = document.getElementById('pass').value;
@@ -214,3 +381,206 @@ console.log("Solicitud AJAX enviada con parámetros: " + params);
     xhr.send(params);
 }
 
+function validarFormulario() {
+    var formulario = document.getElementById("registroForm");
+
+    var nombreUsuario = formulario.nombre.value.trim();
+    var nombreUsuarioRegex = /^[a-zA-Z][a-zA-Z0-9-_]{2,14}$/;
+
+    if (!nombreUsuarioRegex.test(nombreUsuario)) {
+        alert("El nombre de usuario debe comenzar con una letra y tener entre 3 y 15 caracteres, permitiendo letras, números, guiones y guiones bajos.");
+        formulario.nombre.classList.add("invalid-input");
+        return false;
+    } else {
+        formulario.nombre.classList.remove("invalid-input");
+    }
+
+    var contraseña = formulario.pass.value.trim();
+    var contraseñaRegex = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)[A-Za-z]\w{5,14}$/;
+
+    if (!contraseñaRegex.test(contraseña)) {
+        alert("La contraseña debe tener al menos 6 caracteres, incluir al menos una letra mayúscula, una letra minúscula, un número, y el primer carácter debe ser una letra.");
+        formulario.pass.classList.add("invalid-input");
+        return false;
+    } else {
+        formulario.pass.classList.remove("invalid-input");
+    }
+
+    var correo = formulario.correo.value.trim();
+    var correoRegex = /^[a-zA-Z][a-zA-Z0-9_]*(?:\.[a-zA-Z][a-zA-Z0-9_]*)*@[a-zA-Z][a-zA-Z0-9_]*(?:\.[a-zA-Z]+)+$/;
+
+    if (!correoRegex.test(correo)) {
+        alert("Por favor, ingrese un correo electrónico válido.");
+        formulario.correo.classList.add("invalid-input");
+        return false;
+    } else {
+        formulario.correo.classList.remove("invalid-input");
+    }
+    
+    var telefono = formulario.telefono.value.trim();
+    var telefonoRegex = /^\d{10}$/;
+
+    if (!telefonoRegex.test(telefono)) {
+        alert("Por favor, ingrese un número de teléfono válido con 10 dígitos.");
+        formulario.telefono.classList.add("invalid-input");
+        return false;
+    } else {
+        formulario.telefono.classList.remove("invalid-input");
+    }
+
+    var numeroCasa = formulario.numero_casa.value.trim();
+    var numeroCasaRegex = /^[a-zA-Z0-9]+(?:-[a-zA-Z0-9]+)?$/;
+
+    if (!numeroCasaRegex.test(numeroCasa)) {
+        alert("Por favor, ingrese un número de casa válido que puede incluir números, letras y un guion en medio (no al principio ni al final).");
+        formulario.numero_casa.classList.add("invalid-input");
+        return false;
+    } else {
+        formulario.numero_casa.classList.remove("invalid-input");
+    }
+    
+    var calle = formulario.calle.value.trim();
+    var calleRegex = /^[a-zA-Z0-9]+(?:[.-\s][a-zA-Z0-9]+)*$/;
+
+    if (!calleRegex.test(calle)) {
+        alert("Por favor, ingrese una calle válida que puede incluir letras, números, el punto y el guion (con el punto inmediatamente después de una letra y el guion solo en el medio).");
+        formulario.calle.classList.add("invalid-input");
+        return false;
+    } else {
+        formulario.calle.classList.remove("invalid-input");
+    }
+    
+    var colonia = formulario.colonia.value.trim();
+    var coloniaRegex = /^[a-zA-Z0-9]+(?:[.-\s][a-zA-Z0-9]+)*$/;
+
+    if (!coloniaRegex.test(colonia)) {
+        alert("Por favor, ingrese una colonia válida que puede incluir letras, números, el punto y el guion (con el punto inmediatamente después de una letra y el guion solo en el medio).");
+        formulario.colonia.classList.add("invalid-input");
+        return false;
+    } else {
+        formulario.colonia.classList.remove("invalid-input");
+    }
+    
+    var ciudad = formulario.ciudad.value.trim();
+    var ciudadRegex = /^[a-zA-Z\s]+$/;
+
+    if (!ciudadRegex.test(ciudad)) {
+        alert("Por favor, ingrese un nombre de ciudad válido que solo contenga letras.");
+        formulario.ciudad.classList.add("invalid-input");
+        return false;
+    } else {
+        formulario.ciudad.classList.remove("invalid-input");
+    }
+
+    var estado = formulario.estado.value.trim();
+    var estadoRegex = /^[a-zA-Z\s]+$/;
+    if (!estadoRegex.test(estado)) {
+        alert("Por favor, ingrese un nombre de estado válido que solo contenga letras.");
+        formulario.estado.classList.add("invalid-input");
+        return false;
+    } else {
+        formulario.estado.classList.remove("invalid-input");
+    }
+
+    var pais = formulario.pais.value.trim();
+    var paisRegex = /^[a-zA-Z\s]+$/;
+
+    if (!paisRegex.test(pais)) {
+        alert("Por favor, ingrese un nombre de país válido que solo contenga letras.");
+        formulario.pais.classList.add("invalid-input");
+        return false;
+    } else {
+        formulario.pais.classList.remove("invalid-input");
+    }
+    
+    var codigoPostal = formulario.codigo_postal.value.trim();
+    var codigoPostalRegex = /^\d{5}$/;
+
+    if (!codigoPostalRegex.test(codigoPostal)) {
+        alert("Por favor, ingrese un código postal válido que consista en exactamente 5 números.");
+        formulario.codigo_postal.classList.add("invalid-input");
+        return false;
+    } else {
+        formulario.codigo_postal.classList.remove("invalid-input");
+    }
+    
+    return true;
+}
+
+function validarNumero(input) {
+    // Si el valor es menor que 0, establece el valor a 0
+    if (input.value < 0 || tieneDecimal(input.value)) {
+        input.value = 0;
+    }
+}
+
+function tieneDecimal(valor) {
+    // Verifica si el valor tiene un punto decimal
+    return valor.includes('.');
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+      // Selecciona todos los elementos con la clase 'cart_quantity_up' y 'cart_quantity_down'
+      var quantityUpButtons = document.querySelectorAll('.cart_quantity_up');
+      var quantityDownButtons = document.querySelectorAll('.cart_quantity_down');
+
+      // Agrega un evento de clic a cada botón de aumento
+      quantityUpButtons.forEach(function (button) {
+         button.addEventListener('click', function () {
+            updateCartItem(button, 1); // Aumenta la cantidad en 1
+         });
+      });
+
+      // Agrega un evento de clic a cada botón de disminución
+      quantityDownButtons.forEach(function (button) {
+         button.addEventListener('click', function () {
+            updateCartItem(button, -1); // Disminuye la cantidad en 1
+         });
+      });
+
+      function updateCartItem(button, change) {
+         // Encuentra la fila asociada al botón clicado
+         var row = button.closest('tr');
+
+         // Obtiene el ID del producto y la cantidad actual de la fila
+         var productId = row.dataset.productid;
+         var currentQuantity = parseInt(row.dataset.cantidad);
+
+         // Calcula la nueva cantidad
+         var newQuantity = currentQuantity + change;
+
+         // Realiza una solicitud Ajax para actualizar la cantidad en el servidor
+         var xhr = new XMLHttpRequest();
+         xhr.onreadystatechange = function () {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+               // Actualiza la cantidad en la fila y recalcula subtotales y totales
+               row.dataset.cantidad = newQuantity;
+               updateSubtotalsAndTotals();
+            }
+         };
+         xhr.open('POST', 'actualizarCantidad', true); // Ajusta la URL según tu configuración
+         xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+         xhr.send('productId=' + productId + '&newQuantity=' + newQuantity);
+      }
+
+      function updateSubtotalsAndTotals() {
+         // Lógica para recorrer las filas y actualizar subtotales y totales
+         // ...
+
+         // Ejemplo:
+         var total = 0;
+         var rows = document.querySelectorAll('tbody tr');
+         rows.forEach(function (row) {
+            var quantity = parseInt(row.dataset.cantidad);
+            var price = parseFloat(row.querySelector('.cart_price p').innerText.substring(1)); // Elimina el signo de dólar
+            var subtotal = quantity * price;
+            total += subtotal;
+
+            // Actualiza el subtotal en la fila
+            row.querySelector('.cart_total_price').innerText = '$' + subtotal.toFixed(2);
+         });
+
+         // Actualiza el total en el pie de página
+         document.getElementById('txt-total').innerText = '$' + total.toFixed(2);
+      }
+   });

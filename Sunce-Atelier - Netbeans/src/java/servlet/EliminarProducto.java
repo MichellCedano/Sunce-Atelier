@@ -36,6 +36,11 @@ public class EliminarProducto extends HttpServlet {
         
         String idProducto=request.getParameter("idProducto");
         
+        int tam=idProducto.lastIndexOf(idProducto);
+        if(idProducto.charAt(tam)=='.'){
+            String newId = idProducto.substring(0, idProducto.length() - 1);
+            idProducto=newId;
+        }
         int id_producto=Integer.parseInt(idProducto);
         
         Consultas sql=new Consultas();

@@ -88,7 +88,6 @@
                         <ul class="navbar-nav ml-auto">
                             <li class="nav-item active">
                                 <a class="nav-link" href="index2.jsp">Inicio
-                                    <span class="sr-only">(current)</span>
                                 </a>
                             </li>
                             <li class="nav-item">
@@ -107,11 +106,12 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="carrito.jsp"">Carrito</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="compras.jsp"">Mis compras</a>
+                            <li class="nav-item active">
+                                <a class="nav-link" href="compras.jsp"">Mis compras
+                                    <span class="sr-only">(current)</span></a>
                             </li>
                             <li class=" nav-item">
-                                <a class="nav-link" href="index.jsp">Cerrar Sesion</a>
+                                <a class="nav-link" href="cerrarSesion">Cerrar Sesion</a>
                             </li>
                         </ul>
                     </div>
@@ -164,18 +164,16 @@
 
 
         <footer>
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="inner-content">
-                            <p>Copyright &copy; 2020 Sixteen Clothing Co., Ltd.
-
-                                - Design: <a rel="nofollow noopener" href="https://templatemo.com" target="_blank">TemplateMo</a></p>
+                    <div class="container">
+                      <div class="row">
+                        <div class="col-md-12">
+                          <div class="inner-content">
+                            <p>Copyright &copy; 2023 - Sunce Atelier - Equipo 5
+                          </div>
                         </div>
+                      </div>
                     </div>
-                </div>
-            </div>
-        </footer>
+                  </footer>
 
         <!-- Bootstrap core JavaScript -->
         <script src="vendor/jquery/jquery.min.js"></script>

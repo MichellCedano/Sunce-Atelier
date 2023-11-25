@@ -73,7 +73,8 @@
                                 <a class="nav-link" href="about2.jsp">Conócenos</a>
                             </li>
                             <li class="nav-item active">
-                                <a class="nav-link" href="contact2.jsp">Contáctanos</a>
+                                <a class="nav-link" href="contact2.jsp">Contáctanos
+                                    <span class="sr-only">(current)</span></a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="informacion_usuario.jsp"">Ver
@@ -86,7 +87,7 @@
                                 <a class="nav-link" href="compras.jsp"">Mis compras</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="index.jsp">Cerrar Sesion</a>
+                                <a class="nav-link" href="cerrarSesion">Cerrar Sesion</a>
                             </li>
                         </ul>
                     </div>

@@ -4,6 +4,7 @@
     Author     : kingu
 --%>
 
+<%@page import="controlador.Consultas"%>
 <%@page import="modelo.Usuario"%>
 <%@page import="modelo.ModeloUsuario"%>
 <%@page import="java.util.ArrayList"%>
@@ -17,6 +18,18 @@
     ModeloUsuario mu = new ModeloUsuario();
     ArrayList<Usuario> usuarios = mu.getAllUsuarios();
 %>
+
+<% request.getSession().removeAttribute("carrito");
+    String correo = (String) request.getSession().getAttribute("correo");
+    if (correo != null) {
+        Usuario usuario = new Consultas().obtenerUsuario(correo);
+        if (usuario.getEstado() != null) {
+            response.sendRedirect("index2.jsp");
+        }
+    } else {
+        response.sendRedirect("index.jsp");
+    }
+%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -28,7 +41,7 @@
         <meta name="author" content="">
         <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap"
               rel="stylesheet">
-
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
         <script src="assets/js/botones.js" type="text/javascript"></script>
         <title>Sunce Atelier - Inicio</title>
 
@@ -46,7 +59,7 @@
         <script>
             alert("<%= mensaje%>");
             // Elimina el mensaje de la sesión después de mostrarlo
-            <% session.removeAttribute("mensaje"); %>
+            <% request.getSession().removeAttribute("mensaje"); %>
         </script>
         <%
             }
@@ -94,7 +107,7 @@
                                 <a class="nav-link" href="informacion_administrador.jsp"">Ver Información</a>
                             </li>
                             <li class=" nav-item">
-                                <a class="nav-link" href="index.jsp">Cerrar Sesion</a>
+                                <a class="nav-link" href="cerrarSesion">Cerrar Sesion</a>
                             </li>
                         </ul>
 
@@ -107,24 +120,30 @@
                                             <h2>Agregar Producto</h2>
                                             <br>
                                             <div class="input-group">
-                                                <span class="input-group-text"><i class="fa fa-envelope-o" aria-hidden="true"></i></span>
+                                                <span class="input-group-text"><i class="fas fa-font"></i></span>
                                                 <input type="text" class="form-control" placeholder="Ingrese el nombre del producto" id="nombreProducto" name="nombreProducto" required>
                                             </div>
                                             <div class="input-group">
-                                                <span class="input-group-text"><i class="fa fa-key" aria-hidden="true"></i></span>
+                                                <span class="input-group-text"><i class="fas fa-image"></i></span>
                                                 <input type="text" class="form-control" placeholder="Ingrese la ruta de la imagen" id="img" name="img" required>
                                             </div>
                                             <div class="input-group">
-                                                <span class="input-group-text"><i class="fa fa-envelope-o" aria-hidden="true"></i></span>
+                                                <span class="input-group-text"><i class="fas fa-dollar-sign"></i></span>
                                                 <input type="text" class="form-control" placeholder="Ingrese el precio" id="precio" name="precio" required>
                                             </div>
                                             <div class="input-group">
-                                                <span class="input-group-text"><i class="fa fa-key" aria-hidden="true"></i></span>
-                                                <input type="text" class="form-control" placeholder="Ingrese el tipo(Sticker, Pin, Libreta)" id="tipo" name="tipo" required>
+                                                <span class="input-group-text"><i class="fas fa-tags"></i></span>
+                                                <select class="form-select" id="tipo" name="tipo" required>
+                                                    <option value="" disabled selected>Selecciona el tipo</option>
+                                                    <option value="Sticker">Sticker</option>
+                                                    <option value="Pin">Pin</option>
+                                                    <option value="Libreta">Libreta</option>
+                                                    <!-- Agrega más opciones según sea necesario -->
+                                                </select>
                                             </div>
                                             <div class="input-group">
-                                                <span class="input-group-text"><i class="fa fa-key" aria-hidden="true"></i></span>
-                                                <input type="text" class="form-control" placeholder="Ingrese el stock" id="stock" name="stock" required>
+                                                <span class="input-group-text"><i class="fas fa-list-ol"></i></span>
+                                                <input type="text" class="form-control" placeholder="Ingrese el stock" id="stock" name="stock" oninput="validarNumero(this)" required>
                                             </div>
                                             <button type="submit" class="modalIniciar"><i class="fa fa-user-circle"
                                                                                           aria-hidden="true"></i>Agregar Producto</button>
@@ -150,31 +169,37 @@
                                             <h2>Actualizar Producto</h2>
                                             <br>
                                             <div class="input-group">
-                                                <span class="input-group-text"><i class="fa fa-envelope-o" aria-hidden="true"></i></span>
-                                                <input type="text" class="form-control" placeholder="Ingrese el id del producto" id="idProducto" name="idProducto" required>
+                                                <span class="input-group-text"><i class="fas fa-hashtag"></i></span>
+                                                <input type="number" class="form-control" placeholder="Ingrese el id del producto" id="idProducto" name="idProducto" oninput="validarNumero(this)" required>
                                             </div>
                                             <div class="input-group">
-                                                <span class="input-group-text"><i class="fa fa-envelope-o" aria-hidden="true"></i></span>
+                                                <span class="input-group-text"><i class="fas fa-font"></i></span>
                                                 <input type="text" class="form-control" placeholder="Ingrese el nombre del producto" id="nombreProducto" name="nombreProducto" required>
                                             </div>
                                             <div class="input-group">
-                                                <span class="input-group-text"><i class="fa fa-key" aria-hidden="true"></i></span>
+                                                <span class="input-group-text"><i class="fas fa-image"></i></span>
                                                 <input type="text" class="form-control" placeholder="Ingrese la ruta de la imagen" id="img" name="img" required>
                                             </div>
                                             <div class="input-group">
-                                                <span class="input-group-text"><i class="fa fa-envelope-o" aria-hidden="true"></i></span>
-                                                <input type="text" class="form-control" placeholder="Ingrese el precio" id="precio" name="precio" required>
+                                                <span class="input-group-text"><i class="fas fa-dollar-sign"></i></span>
+                                                <input type="number" class="form-control" placeholder="Ingrese el precio" id="precio" name="precio" required>
                                             </div>
                                             <div class="input-group">
-                                                <span class="input-group-text"><i class="fa fa-key" aria-hidden="true"></i></span>
-                                                <input type="text" class="form-control" placeholder="Ingrese el tipo(Sticker, Pin, Libreta)" id="tipo" name="tipo" required>
+                                                <span class="input-group-text"><i class="fas fa-tags"></i></span>
+                                                <select class="form-select" id="tipo" name="tipo" required>
+                                                    <option value="" disabled selected>Selecciona el tipo</option>
+                                                    <option value="Sticker">Sticker</option>
+                                                    <option value="Pin">Pin</option>
+                                                    <option value="Libreta">Libreta</option>
+                                                    <!-- Agrega más opciones según sea necesario -->
+                                                </select>
                                             </div>
                                             <div class="input-group">
-                                                <span class="input-group-text"><i class="fa fa-key" aria-hidden="true"></i></span>
-                                                <input type="text" class="form-control" placeholder="Ingrese el stock" id="stock" name="stock" required>
+                                                <span class="input-group-text"><i class="fas fa-list-ol"></i></span>
+                                                <input type="number" class="form-control" placeholder="Ingrese el stock" id="stock" name="stock" oninput="validarNumero(this)" required>
                                             </div>
-                                            <button type="submit" class="modalIniciar"><i class="fa fa-user-circle"
-                                                                                          aria-hidden="true"></i>Actualizar Producto</button>
+                                            <button type="submit"  class="modalIniciar"><i class="fa fa-user-circle"
+                                                                                           aria-hidden="true"></i>Actualizar Producto</button>
                                         </form>
                                         <br>
                                         <!-- Modal footer -->
@@ -197,8 +222,8 @@
                                             <h2>Eliminar Producto</h2>
                                             <br>
                                             <div class="input-group">
-                                                <span class="input-group-text"><i class="fa fa-envelope-o" aria-hidden="true"></i></span>
-                                                <input type="text" class="form-control" placeholder="Ingrese el id del producto" id="idProducto" name="idProducto" required>
+                                                <span class="input-group-text"><i class="fas fa-hashtag"></i></span>
+                                                <input type="number" class="form-control" placeholder="Ingrese el id del producto" id="idProducto" name="idProducto" oninput="validarNumero(this)" required>
                                             </div>
                                             <button type="submit" class="modalIniciar"><i class="fa fa-user-circle"
                                                                                           aria-hidden="true"></i>Eliminar Producto</button>
@@ -224,8 +249,8 @@
                                             <h2>Eliminar Usuario</h2>
                                             <br>
                                             <div class="input-group">
-                                                <span class="input-group-text"><i class="fa fa-envelope-o" aria-hidden="true"></i></span>
-                                                <input type="text" class="form-control" placeholder="Ingrese el id del usuario" id="idProducto" name="idUsuario" required>
+                                                <span class="input-group-text"><i class="fas fa-hashtag"></i></span>
+                                                <input type="number" class="form-control" placeholder="Ingrese el id del usuario" id="idProducto" name="idUsuario" oninput="validarNumero(this)" required>
                                             </div>
                                             <button type="submit" class="modalIniciar"><i class="fa fa-user-circle"
                                                                                           aria-hidden="true"></i>Eliminar Usuario</button>

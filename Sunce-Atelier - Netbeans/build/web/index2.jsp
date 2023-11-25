@@ -104,7 +104,7 @@
                                 <a class="nav-link" href="compras.jsp"">Mis compras</a>
                             </li>
                             <li class=" nav-item">
-                                <a class="nav-link" href="index.jsp">Cerrar Sesion</a>
+                                <a class="nav-link" href="cerrarSesion">Cerrar Sesion</a>
                             </li>
                         </ul>
                     </div>
@@ -264,18 +264,16 @@
                                             </div>
 
                                             <footer>
-                                                <div class="container">
-                                                    <div class="row">
-                                                        <div class="col-md-12">
-                                                            <div class="inner-content">
-                                                                <p>Copyright &copy; 2020 Sixteen Clothing Co., Ltd.
-
-                                                                    - Design: <a rel="nofollow noopener" href="https://templatemo.com" target="_blank">TemplateMo</a></p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </footer>
+                    <div class="container">
+                      <div class="row">
+                        <div class="col-md-12">
+                          <div class="inner-content">
+                            <p>Copyright &copy; 2023 - Sunce Atelier - Equipo 5
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </footer>
 
                                             <!-- Bootstrap core JavaScript -->
                                             <script src="vendor/jquery/jquery.min.js"></script>

@@ -44,9 +44,20 @@ public class ActualizarProducto extends HttpServlet {
 
         Consultas sql = new Consultas();
 
-        float price = Float.parseFloat(precio);
-        int cantidad = Integer.parseInt(stock);
+        int tam=id.lastIndexOf(id);
+        if(id.charAt(tam)=='.'){
+            String newId = id.substring(0, id.length() - 1);
+            id=newId;
+        }
         int id_producto=Integer.parseInt(id);
+        float price = Float.parseFloat(precio);
+        
+        int tam2=stock.lastIndexOf(stock);
+        if(stock.charAt(tam2)=='.'){
+            String newId = stock.substring(0, stock.length() - 1);
+            stock=newId;
+        }
+        int cantidad = Integer.parseInt(stock);
         
         Producto producto=new Producto(id_producto, nombreProducto, img, tipo, price, cantidad);
 

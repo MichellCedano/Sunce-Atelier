@@ -64,15 +64,14 @@
                     <div class="collapse navbar-collapse" id="navbarResponsive">
                         <ul class="navbar-nav ml-auto">
                             <li class="nav-item">
-                                <a class="nav-link" href="index2.jsp">Inicio
-                                    <span class="sr-only">(current)</span>
-                                </a>
+                                <a class="nav-link" href="index2.jsp">Inicio</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="products2.jsp">Productos</a>
                             </li>
                             <li class="nav-item active">
-                                <a class="nav-link" href="about2.jsp">Conócenos</a>
+                                <a class="nav-link" href="about2.jsp">Conócenos
+                                <span class="sr-only">(current)</span></a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="contact2.jsp">Contáctanos</a>
@@ -88,7 +87,7 @@
                                 <a class="nav-link" href="compras.jsp"">Mis compras</a>
                             </li>
                             <li class=" nav-item">
-                                <a class="nav-link" href="index.jsp">Cerrar Sesion</a>
+                                <a class="nav-link" href="cerrarSesion">Cerrar Sesion</a>
                             </li>
                         </ul>
 

@@ -35,7 +35,11 @@ public class EliminarUsuario extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         
         String idUsuario=request.getParameter("idUsuario");
-        
+        int tam=idUsuario.lastIndexOf(idUsuario);
+        if(idUsuario.charAt(tam)=='.'){
+            String newId = idUsuario.substring(0, idUsuario.length() - 1);
+            idUsuario=newId;
+        }
         int id_usuario=Integer.parseInt(idUsuario);
         
         Consultas sql=new Consultas();

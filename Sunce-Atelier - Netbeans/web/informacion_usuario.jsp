@@ -55,7 +55,6 @@
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
                             <a class="nav-link" href="index2.jsp">Inicio
-                                <span class="sr-only">(current)</span>
                             </a>
                         </li>
                         <li class="nav-item">
@@ -69,7 +68,8 @@
                         </li>
                         <li class="nav-item active">
                             <a class="nav-link" href="informacion_usuario.jsp"">Ver
-                                información del usuario</a>
+                                información del usuario
+                                    <span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="carrito.jsp"">Carrito</a>
@@ -78,45 +78,11 @@
                             <a class="nav-link" href="compras.jsp"">Mis compras</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="index.jsp">Cerrar Sesion</a>
+                            <a class="nav-link" href="cerrarSesion">Cerrar Sesion</a>
                         </li>
                     </ul>
                     <!--Formulario emergente de inicio de sesion-->
-                    <div class="w3-container">
-
-                        <div id="id01" class="w3-modal" style="display:none">
-                            <div class="w3-modal-content">
-                                <div class="w3-container">
-                                    <!-- Modal body -->
-                                    <form action="index2.jsp" method="post">
-                                        <h2>Inicio de sesion</h2>
-                                        <br>
-                                        <div class="input-group">
-                                            <span class="input-group-text"><i class="fa fa-envelope-o" aria-hidden="true"></i></span>
-                                            <input type="email" class="form-control" placeholder="Ingrese su email" required>
-                                        </div>
-                                        <div class="input-group">
-                                            <span class="input-group-text"><i class="fa fa-key" aria-hidden="true"></i></span>
-                                            <input type="password" class="form-control" placeholder="Ingrese su password" required>
-                                        </div>
-                                        <div class="mb-3">
-                                            <label class="form-check-label mb-3">
-                                                <input class="form-check-input" type="checkbox" name="remember"> Recordarme
-                                            </label>
-                                        </div>
-                                        <button type="submit" class="modalIniciar"><i class="fa fa-user-circle" aria-hidden="true"></i>Iniciar Sesion</button>
-                                    </form>
-                                    <br>
-                                    <p>No tienes una cuenta? </p>
-                                    <a class="nav-link" href="registro.jsp">Haz click aquí para registrarte</a>
-                                    <!-- Modal footer -->
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-danger" onclick="document.getElementById('id01').style.display = 'none'" class="w3-button w3-display-topright"">Cerrar</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    
                 </div>
             </div>
         </nav>
@@ -137,47 +103,46 @@
             <form id="userForm">
                 <label for="email">Nombre de usuario:</label>
                 <input type="text" id="nombre" name="nombre" value=<%= usuario.getNombre()%> disabled>
-                <button type="button" id="editarNombre" onclick="editarCampo('nombre')">Editar</button>
+                <button type="button" id="editarNombre" onclick="editarCampo('nombre')"><i class="fa fa-pencil" aria-hidden="true"></i></button>
                 <br>
                 <label for="password">Contraseña:</label>
                 <input type="password" id="pass" nombre="pass" value=<%= usuario.getPass()%> disabled>
-                <button type="button" id="editarPassword" onclick="editarCampo('pass')">Editar</button>
+                <button type="button" id="editarPassword" onclick="editarCampo('pass')"><i class="fa fa-pencil" aria-hidden="true"></i></button>
                 <br>
                 <label for="email">Correo electrónico:</label>
                 <input type="text" id="correo" name="correo" value=<%= usuario.getCorreo()%> disabled>
-                <button type="button" id="editarCorreo" onclick="editarCampo('correo')">Editar</button>
                 <br>
                 <label for="phone">Teléfono:</label>
                 <input type="text" id="telefono" name="telefono" value=<%= usuario.getTelefono()%> disabled>
-                <button type="button" id="editarTelefono" onclick="editarCampo('telefono')">Editar</button>
+                <button type="button" id="editarTelefono" onclick="editarCampo('telefono')"><i class="fa fa-pencil" aria-hidden="true"></i></button>
                 <br>
                 <label for="street">Dirección - Calle:</label>
                 <input type="text" id="calle" name="calle" value=<%= usuario.getCalle()%> disabled>
-                <button type="button" id="editarCalle" onclick="editarCampo('calle')">Editar</button>
+                <button type="button" id="editarCalle" onclick="editarCampo('calle')"><i class="fa fa-pencil" aria-hidden="true"></i></button>
                 <br>
                 <label for="colonia">Dirección - Colonia:</label>
                 <input type="text" id="colonia" name="colonia" value=<%= usuario.getColonia()%> disabled>
-                <button type="button" id="editarColonia" onclick="editarCampo('colonia')">Editar</button>
+                <button type="button" id="editarColonia" onclick="editarCampo('colonia')"><i class="fa fa-pencil" aria-hidden="true"></i></button>
                 <br>
                 <label for="city">Dirección - Ciudad:</label>
                 <input type="text" id="ciudad" name="ciudad" value=<%= usuario.getCiudad()%> disabled>
-                <button type="button" id="editarCiudad" onclick="editarCampo('ciudad')">Editar</button>
+                <button type="button" id="editarCiudad" onclick="editarCampo('ciudad')"><i class="fa fa-pencil" aria-hidden="true"></i></button>
                 <br>
                 <label for="state">Dirección - Estado:</label>
                 <input type="text" id="estado" name="estado" value=<%= usuario.getEstado()%> disabled>
-                <button type="button" id="editarEstado" onclick="editarCampo('estado')">Editar</button>
+                <button type="button" id="editarEstado" onclick="editarCampo('estado')"><i class="fa fa-pencil" aria-hidden="true"></i></button>
                 <br>
                 <label for="country">Dirección - País:</label>
                 <input type="text" id="pais" name="pais" value=<%= usuario.getPais()%> disabled>
-                <button type="button" id="editarPais" onclick="editarCampo('pais')">Editar</button>
+                <button type="button" id="editarPais" onclick="editarCampo('pais')"><i class="fa fa-pencil" aria-hidden="true"></i></button>
                 <br>
                 <label for="postal">Dirección - Código Postal:</label>
                 <input type="text" id="codigo_postal" name="codigo_postal" value=<%= usuario.getCodigo_postal()%> disabled>
-                <button type="button" id="editarPostal" onclick="editarCampo('codigo_postal')">Editar</button>
+                <button type="button" id="editarPostal" onclick="editarCampo('codigo_postal')"><i class="fa fa-pencil" aria-hidden="true"></i></button>
                 <br>
                 <label for="postal">Dirección - Número de casa:</label>
                 <input type="text" id="numero_casa" name="numero_casa" value=<%= usuario.getNumero_casa()%> disabled>
-                <button type="button" id="editNumero" onclick="editarCampo('numero_casa')">Editar</button>
+                <button type="button" id="editNumero" onclick="editarCampo('numero_casa')"><i class="fa fa-pencil" aria-hidden="true"></i></button>
                 <br>
                 <button type="button" id="guardar" onclick="guardarCambios()">Guardar</button>
                 <br>

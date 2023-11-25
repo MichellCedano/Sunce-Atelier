@@ -44,6 +44,11 @@ public class AgregarProducto extends HttpServlet {
         Consultas sql = new Consultas();
 
         float price = Float.parseFloat(precio);
+        int tam2=stock.lastIndexOf(stock);
+        if(stock.charAt(tam2)=='.'){
+            String newId = stock.substring(0, stock.length() - 1);
+            stock=newId;
+        }
         int cantidad = Integer.parseInt(stock);
 
         if (sql.agregarProducto(nombreProducto, img, price, tipo, cantidad)) {

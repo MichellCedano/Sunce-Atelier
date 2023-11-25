@@ -140,10 +140,13 @@ public class Consultas {
         return false;
     }
 
-    public boolean registrar(String nombre, String clave, String correo, String telefono, String calle, String colonia, String ciudad, String estado, String pais, int codigoP, String numCasa) {
+    public int registrar(String nombre, String clave, String correo, String telefono, String calle, String colonia, String ciudad, String estado, String pais, int codigoP, String numCasa) {
         PreparedStatement pst = null;
         try {
 
+            if(buscarUsuario(correo)>0){
+                return -1;
+            }
             System.out.println("Registrar");
             String consulta = "insert into usuarios(nombre,pass,correo,telefono,tipo) values(?,?,?,?,?)";
             pst = con.getConexion().prepareStatement(consulta);
@@ -158,7 +161,7 @@ public class Consultas {
 
                 registrarDireccion(calle, colonia, ciudad, estado, pais, codigoP, numCasa, idUsuario);
 
-                return true;
+                return 1;
             }
 
         } catch (Exception e) {
@@ -175,7 +178,7 @@ public class Consultas {
                 System.out.println("Error en: " + e);
             }
         }
-        return false;
+        return 0;
     }
 
     public Usuario obtenerUsuario(String correo) {

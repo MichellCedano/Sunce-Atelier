@@ -4,11 +4,21 @@
     Author     : kingu
 --%>
 
+<%@page import="modelo.Usuario"%>
+<%@page import="controlador.Consultas"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 
 <% request.getSession().removeAttribute("carrito");
-    request.getSession().removeAttribute("correo");
+    String correo=(String)request.getSession().getAttribute("correo");
+    if(correo!=null){
+        Usuario usuario = new Consultas().obtenerUsuario(correo);
+        if(usuario.getEstado()!=null){
+            response.sendRedirect("index2.jsp");
+        }else{
+            response.sendRedirect("administracion.jsp");
+        }
+    }
 %>
 <html lang="en">
 
@@ -92,11 +102,6 @@
                                             <div class="input-group">
                                                 <span class="input-group-text"><i class="fa fa-key" aria-hidden="true"></i></span>
                                                 <input type="password" class="form-control" placeholder="Ingrese su password" id="pass" name="pass" required>
-                                            </div>
-                                            <div class="mb-3">
-                                                <label class="form-check-label mb-3">
-                                                    <input class="form-check-input" type="checkbox" name="remember"> Recordarme
-                                                </label>
                                             </div>
                                             <button type="submit" class="modalIniciar"><i class="fa fa-user-circle"
                                                                                           aria-hidden="true"></i>Iniciar Sesion</button>

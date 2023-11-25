@@ -1245,3 +1245,7 @@ footer .inner-content p a {
 .comprasTable tbody tr:hover {
     background-color: #bdc3c7; /* Fondo gris más oscuro al pasar el mouse */
 }
+
+.invalid-input {
+    border: 1px solid red;
+}

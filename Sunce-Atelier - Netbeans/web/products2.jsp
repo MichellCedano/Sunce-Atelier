@@ -75,11 +75,11 @@
                         <ul class="navbar-nav ml-auto">
                             <li class="nav-item">
                                 <a class="nav-link" href="index2.jsp">Inicio
-                                    <span class="sr-only">(current)</span>
                                 </a>
                             </li>
                             <li class="nav-item active">
-                                <a class="nav-link" href="products2.jsp">Productos</a>
+                                <a class="nav-link" href="products2.jsp">Productos
+                                    <span class="sr-only">(current)</span></a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="about2.jsp">Conócenos</a>
@@ -98,7 +98,7 @@
                                 <a class="nav-link" href="compras.jsp"">Mis compras</a>
                             </li>
                             <li class=" nav-item">
-                                <a class="nav-link" href="index.jsp">Cerrar Sesion</a>
+                                <a class="nav-link" href="cerrarSesion">Cerrar Sesion</a>
                             </li>
                         </ul>
                     </div>

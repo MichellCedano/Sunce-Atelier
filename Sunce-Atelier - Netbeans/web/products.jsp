@@ -4,10 +4,32 @@
     Author     : kingu
 --%>
 
+<%@page import="modelo.ControladorProducto"%>
+<%@page import="modelo.Producto"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="modelo.ModeloProducto"%>
+<%@page import="modelo.Usuario"%>
+<%@page import="controlador.Consultas"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
-
+<% request.getSession().removeAttribute("carrito");
+    String correo=(String)request.getSession().getAttribute("correo");
+    if(correo!=null){
+        Usuario usuario = new Consultas().obtenerUsuario(correo);
+        if(usuario.getEstado()!=null){
+            response.sendRedirect("products2.jsp");
+        }else{
+            response.sendRedirect("administracion.jsp");
+        }
+    }
+%>
+<%
+    ModeloProducto mp = new ModeloProducto();
+    ArrayList<Producto> productos = mp.getAllProductos();
+    System.out.println("Número de productos: " + productos.size());
+    ControladorProducto cp = new ControladorProducto();
+%>
     <head>
 
         <meta charset="utf-8">
@@ -58,7 +80,8 @@
                                 </a>
                             </li>
                             <li class="nav-item active">
-                                <a class="nav-link" href="products.jsp">Productos</a>
+                                <a class="nav-link" href="products.jsp">Productos
+                                    <span class="sr-only">(current)</span></a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="about.jsp">Conócenos</a>
@@ -87,11 +110,6 @@
                     <div class="input-group">
                       <span class="input-group-text"><i class="fa fa-key" aria-hidden="true"></i></span>
                       <input type="password" class="form-control" placeholder="Ingrese su password" id="pass" name="pass" required>
-                    </div>
-                    <div class="mb-3">
-                      <label class="form-check-label mb-3">
-                        <input class="form-check-input" type="checkbox" name="remember"> Recordarme
-                      </label>
                     </div>
                     <button type="submit" class="modalIniciar"><i class="fa fa-user-circle"
                       aria-hidden="true"></i>Iniciar Sesion</button>
@@ -142,6 +160,7 @@
                             </ul>
                         </div>
                     </div>
+                    <!--
                     <div class="col-md-12">
                         <div class="filters-content">
                             <div class="row grid">
@@ -262,10 +281,17 @@
                             </div>
                         </div>
                     </div>
+                    -->
                 </div>
             </div>
         </div>
 
+        <div class="container-fluid">
+            <div class="row">
+                <%=cp.getProductos()%>
+            </div>
+        </div> 
+            
         <footer>
             <div class="container">
                 <div class="row">

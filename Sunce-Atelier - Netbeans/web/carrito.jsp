@@ -75,7 +75,6 @@
                         <ul class="navbar-nav ml-auto">
                             <li class="nav-item active">
                                 <a class="nav-link" href="index2.jsp">Inicio
-                                    <span class="sr-only">(current)</span>
                                 </a>
                             </li>
                             <li class="nav-item">
@@ -91,14 +90,15 @@
                                 <a class="nav-link" href="informacion_usuario.jsp"">Ver
                                     información del usuario</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="carrito.jsp"">Carrito</a>
+                            <li class="nav-item active">
+                                <a class="nav-link" href="carrito.jsp"">Carrito
+                                    <span class="sr-only">(current)</span></a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="compras.jsp"">Mis compras</a>
                             </li>
                             <li class=" nav-item">
-                                <a class="nav-link" href="index.jsp">Cerrar Sesion</a>
+                                <a class="nav-link" href="cerrarSesion">Cerrar Sesion</a>
                             </li>
                         </ul>
                     </div>
@@ -137,7 +137,7 @@
                                             Producto producto = cp.getProducto(a.getIdProducto());
                                             total += a.getCantidad() * producto.getPrecio();
                                 %>
-                                <tr>
+                                <tr data-productid="<%= producto.getId()%>" data-cantidad="<%= a.getCantidad() %>">
                                     <td class="cart_product">
                                         <a href=""><img src="<%= producto.getImg()%>" alt="" width="120"></a>
                                     </td>
@@ -150,14 +150,14 @@
                                     </td>
                                     <td class="cart_quantity">
                                         <div class="cart_quantity_button">
-                                            <a class="cart_quantity_up" href=""> + </a>
+                                            <a href="#" class="cart_quantity_up"> + </a>
                                             <input class="cart_quantity_input" type="text" name="quantity" value="<%= a.getCantidad()%>"
                                                    autocomplete="off" size="2">
-                                            <a class="cart_quantity_down" href=""> - </a>
+                                            <a href="#" class="cart_quantity_down"> - </a>
                                         </div>
                                     </td>
                                     <td class="cart_total">
-                                        <p class="cart_total_price">$<%= Math.round(producto.getPrecio() * a.getCantidad() * 100.0) / 100.0%></p>
+                                        <p class="cart_total_price" name="txt-subtotal">$<%= Math.round(producto.getPrecio() * a.getCantidad() * 100.0) / 100.0%></p>
                                     </td>
                                     <td class="cart_delete">
                                         <span id="idarticulo" style="display: none;"><%= producto.getId()%></span>
@@ -184,7 +184,7 @@
                                     <td>$ <%= Math.round(total * 100.0) / 100.0%></span></td>
                                 </tr>
                                 <tr>
-                                    <td>IVA<span></td>
+                                    <td>IVA<span id="txt-iva"></td>
                                     <td>$ <%= Math.round(total * 16.0) / 100.0%></span></td>
                                 </tr>
                                 <tr>
@@ -214,18 +214,16 @@
 
 
         <footer>
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="inner-content">
-                            <p>Copyright &copy; 2020 Sixteen Clothing Co., Ltd.
-
-                                - Design: <a rel="nofollow noopener" href="https://templatemo.com" target="_blank">TemplateMo</a></p>
+                    <div class="container">
+                      <div class="row">
+                        <div class="col-md-12">
+                          <div class="inner-content">
+                            <p>Copyright &copy; 2023 - Sunce Atelier - Equipo 5
+                          </div>
                         </div>
+                      </div>
                     </div>
-                </div>
-            </div>
-        </footer>
+                  </footer>
 
         <!-- Bootstrap core JavaScript -->
         <script src="vendor/jquery/jquery.min.js"></script>
