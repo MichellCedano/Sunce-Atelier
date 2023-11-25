@@ -132,12 +132,16 @@
                                 <%
                                     ControladorProducto cp = new ControladorProducto();
                                     double total = 0;
+                                    
                                     if (articulos != null) {
                                         for (Articulo a : articulos) {
                                             Producto producto = cp.getProducto(a.getIdProducto());
+                                            if (a.getCantidad() == 0) {
+                                                continue;
+                                            }
                                             total += a.getCantidad() * producto.getPrecio();
                                 %>
-                                <tr data-productid="<%= producto.getId()%>" data-cantidad="<%= a.getCantidad() %>">
+                                <tr data-productid="<%= producto.getId()%>" data-cantidad="<%= a.getCantidad()%>">
                                     <td class="cart_product">
                                         <a href=""><img src="<%= producto.getImg()%>" alt="" width="120"></a>
                                     </td>
@@ -161,7 +165,7 @@
                                     </td>
                                     <td class="cart_delete">
                                         <span id="idarticulo" style="display: none;"><%= producto.getId()%></span>
-                                        <a class="cart_quantity_delete" href="" id="deleteitem"><i class="fa fa-times"></i></a>
+                                        <a class="cart_quantity_delete" href="#" class="deleteitem"><i class="fa fa-times"></i></a>
                                     </td>
                                 </tr>
 
@@ -214,16 +218,16 @@
 
 
         <footer>
-                    <div class="container">
-                      <div class="row">
-                        <div class="col-md-12">
-                          <div class="inner-content">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="inner-content">
                             <p>Copyright &copy; 2023 - Sunce Atelier - Equipo 5
-                          </div>
                         </div>
-                      </div>
                     </div>
-                  </footer>
+                </div>
+            </div>
+        </footer>
 
         <!-- Bootstrap core JavaScript -->
         <script src="vendor/jquery/jquery.min.js"></script>

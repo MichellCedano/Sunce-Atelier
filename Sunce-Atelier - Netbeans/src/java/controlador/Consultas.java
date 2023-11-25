@@ -593,4 +593,42 @@ public class Consultas {
         }
         return productos;
     }
+    
+    public int actualizarCantidad(int id, int cantidad) {
+        PreparedStatement pstUsuarios = null;
+
+        try {
+            // Actualizar información en la tabla de usuarios
+            if(cantidad==0){
+                String consultaUsuarios = "DELETE from articulos WHERE id_producto=?";
+                pstUsuarios = con.getConexion().prepareStatement(consultaUsuarios);
+                pstUsuarios.setInt(1, id);
+                return 0;
+            }else{
+                String consultaUsuarios = "UPDATE productos SET cantidad=? WHERE id_producto=?";
+                pstUsuarios = con.getConexion().prepareStatement(consultaUsuarios);
+                pstUsuarios.setInt(1, cantidad);
+                pstUsuarios.setInt(2, id);
+
+                if (pstUsuarios.executeUpdate() == 1) {
+                    return 1;
+                }
+            }
+                
+        } catch (Exception e) {
+            System.out.println("Error en: " + e);
+        } finally {
+            try {
+                if (con.getConexion() != null) {
+                    con.getConexion().close();
+                }
+                if (pstUsuarios != null) {
+                    pstUsuarios.close();
+                }
+            } catch (Exception e) {
+                System.out.println("Error en " + e);
+            }
+        }
+        return -1;
+    }
 }

@@ -329,7 +329,7 @@
                                     <input type="hidden" name="idProducto" id="idProducto" value="1">
                                     <div class="form-group">
                                         <label for="quantity">Cantidad:</label>
-                                        <input type="number" class="form-control" id="cantidad" name="cantidad" value="1" min="1">
+                                        <input type="number" class="form-control" id="cantidad" name="cantidad" value="1" min="1" oninput="validarNumero(this)" required>
                                     </div>
                                     <button type="submit" class="agregarCarrito">Agregar al carrito</button>
                                 </form>
