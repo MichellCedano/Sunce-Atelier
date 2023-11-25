@@ -156,7 +156,7 @@
                                         <div class="cart_quantity_button">
                                             <a href="#" class="cart_quantity_up"> + </a>
                                             <input class="cart_quantity_input" type="text" name="quantity" value="<%= a.getCantidad()%>"
-                                                   autocomplete="off" size="2" >
+                                                   autocomplete="off" size="2" disabled>
                                             <a href="#" class="cart_quantity_down"> - </a>
                                         </div>
                                     </td>
