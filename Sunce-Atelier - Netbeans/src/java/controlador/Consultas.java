@@ -494,6 +494,8 @@ public class Consultas {
 
             ControladorProducto cp=new ControladorProducto();
             Producto producto=cp.getProducto(articulo.getIdProducto());
+            producto.setStock(producto.getStock()-articulo.getCantidad());
+            this.actualizarProducto(producto);
             float subtotal=producto.getPrecio()*articulo.getCantidad();
             String consulta = "insert into compra_producto(cantidad_producto,id_compra,id_producto,subtotal_precio) values(?,?,?,?)";
             con=new Conexion();

@@ -27,6 +27,7 @@ public class ControladorProducto {
                 + "data-precio=\"" + producto.getPrecio() + "\" "
                 + "data-descripcion=\"" + producto.getNombre() + "\" "
                 + "data-imagen=\"" + producto.getImg() + "\" "
+                + "data-stock=\"" + producto.getStock() + "\" "
                 + "data-idProducto=\"" + producto.getId() + "\">"
                 + "<i class=\"fa fa-shopping-cart\"></i>Ver detalles</a>\n"
                 + "</div>\n"

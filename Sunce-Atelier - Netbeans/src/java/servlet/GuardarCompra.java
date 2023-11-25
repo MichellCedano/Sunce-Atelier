@@ -64,7 +64,8 @@ public class GuardarCompra extends HttpServlet {
 
     // Después del bucle, verifica si hubo errores y realiza la redirección si es necesario
             if (!mensajesError.isEmpty()) {
-                request.getSession().setAttribute("mensajesError", mensajesError);
+                request.getSession().setAttribute("mensaje", "No se pudo realizar la compra");
+                request.getSession().removeAttribute("carrito");
                 response.sendRedirect("index2.jsp");
             } else {
                 // Si no hubo errores, establece el mensaje de éxito y realiza la redirección

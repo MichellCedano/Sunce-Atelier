@@ -87,6 +87,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const productImage = modal.querySelector('#productImage');
     const productDescription = modal.querySelector('#productDescription');
     const addToCartButton = modal.querySelector('#addToCartButton');
+    const productPrice = modal.querySelector('#productPrice');
+    const productStock = modal.querySelector('#stock');
 
     productLinks.forEach(function (productLink) {
         productLink.addEventListener('click', function (e) {
@@ -95,7 +97,8 @@ document.addEventListener("DOMContentLoaded", function () {
             modalTitle.textContent = productLink.getAttribute('data-nombre');
             productImage.src = productLink.getAttribute('data-imagen');
             productDescription.textContent = productLink.getAttribute('data-descripcion');
-            productPrice.textContent = productLink.getAttribute('data-precio');
+            productPrice.textContent ="$ " + productLink.getAttribute('data-precio');
+            productStock.value = productLink.getAttribute('data-stock');
             addToCartButton.addEventListener('click', function () {
                 const nombre = productLink.getAttribute('data-nombre');
                 const precio = parseFloat(productLink.getAttribute('data-precio'));
@@ -623,3 +626,15 @@ document.addEventListener('DOMContentLoaded', function () {
         document.getElementById('txt-total').innerText = '$' + (total + iva).toFixed(2);
     }
 });
+
+function validarCantidad(input, stock) {
+    // Si el valor es menor que 0, establece el valor a 0
+    if (input.value < 0 || tieneDecimal(input.value)) {
+        input.value = 0;
+    }
+
+    var newStock = parseInt(stock);
+    if (input.value > newStock) {
+        input.value = newStock;
+    }
+}

@@ -327,9 +327,10 @@
                                 <form action="agregarCarrito" method="post" id="addToCartForm">
                                     <!-- Puedes agregar campos ocultos para enviar información al servidor -->
                                     <input type="hidden" name="idProducto" id="idProducto" value="1">
+                                    <input type="hidden" name="stock" id="stock">
                                     <div class="form-group">
                                         <label for="quantity">Cantidad:</label>
-                                        <input type="number" class="form-control" id="cantidad" name="cantidad" value="1" min="1" oninput="validarNumero(this)" required>
+                                        <input type="number" class="form-control" id="cantidad" name="cantidad" value="1" min="1" oninput="validarCantidad(this, document.getElementById('stock').value)" required>
                                     </div>
                                     <button type="submit" class="agregarCarrito">Agregar al carrito</button>
                                 </form>
@@ -350,9 +351,11 @@
                         var productModal = document.getElementById('productModal');
                         var addToCartForm = document.getElementById('addToCartForm');
                         var idProductoInput = document.getElementById('idProducto');
+                        var stock = this.getAttribute('data-stock');
 
                         // Actualiza el formulario con el ID del producto
                         idProductoInput.value = idProducto;
+                        stockInput.value=stock;
 
                         // Abre el modal
                         $(productModal).modal('show');

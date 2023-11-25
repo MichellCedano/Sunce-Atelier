@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import modelo.Articulo;
+import modelo.ControladorProducto;
 
 /**
  *
@@ -43,7 +44,11 @@ public class ActualizarCantidad extends HttpServlet {
         ArrayList<Articulo> articulos = (ArrayList<Articulo>) request.getSession().getAttribute("carrito");
         for (int i = 0; i < articulos.size(); i++) {
             if (articulos.get(i).getIdProducto() == id) {
-                articulos.get(i).setCantidad(cantidad);
+                ControladorProducto cp=new ControladorProducto();
+                int stock=cp.getProducto(id).getStock();
+                if(cantidad<=stock){
+                    articulos.get(i).setCantidad(cantidad);
+                }
             }
         }
         request.getSession().removeAttribute("carrito");

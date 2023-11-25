@@ -141,7 +141,7 @@
                                             }
                                             total += a.getCantidad() * producto.getPrecio();
                                 %>
-                                <tr data-productid="<%= producto.getId()%>" data-cantidad="<%= a.getCantidad()%>">
+                                <tr data-productid="<%= producto.getId()%>" data-cantidad="<%= a.getCantidad()%>"  data-stock="<%= producto.getStock()%>">
                                     <td class="cart_product">
                                         <a href=""><img src="<%= producto.getImg()%>" alt="" width="120"></a>
                                     </td>
@@ -156,7 +156,7 @@
                                         <div class="cart_quantity_button">
                                             <a href="#" class="cart_quantity_up"> + </a>
                                             <input class="cart_quantity_input" type="text" name="quantity" value="<%= a.getCantidad()%>"
-                                                   autocomplete="off" size="2">
+                                                   autocomplete="off" size="2" >
                                             <a href="#" class="cart_quantity_down"> - </a>
                                         </div>
                                     </td>
