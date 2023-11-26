@@ -83,7 +83,7 @@
                 <a class="nav-link" id="userInfoLink" href="informacion_usuario.jsp" style="display: none">Ver información del usuario</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" id="loginButton" href="#" onclick="toggleCloseState()">Iniciar Sesion</a>
+                <a class="nav-link" id="loginButton" href="#" onclick="toggleCloseState()">Iniciar Sesión</a>
               </li>
             </ul>
             <!--Formulario emergente de inicio de sesion-->
@@ -105,10 +105,10 @@
                       <input type="password" class="form-control" placeholder="Ingrese su password" id="pass" name="pass" required>
                     </div>
                     <button type="submit" class="modalIniciar"><i class="fa fa-user-circle"
-                      aria-hidden="true"></i>Iniciar Sesion</button>
+                      aria-hidden="true"></i>Iniciar Sesión</button>
                   </form>
                 <br>
-                <p>No tienes una cuenta? </p>
+                <p>¿No tienes una cuenta? </p>
                 <a class="nav-link" href="registro.jsp">Haz click aquí para registrarte</a>
                 <!-- Modal footer -->
                 <div class="modal-footer">
@@ -154,7 +154,7 @@
 <div class="col-md-4">
 <div class="left-content">
   <h4>Sobre nuestro perfil</h4>
-  <p>Mediante este perfil de Instagram puedes contactarte directamente con nosotros mediante dm, además de conocer la variedad de productos que también se ofrecen mediante la red social<br>
+  <p>Mediante este perfil de Instagram puedes contactarte directamente con nosotros mediante DM, además de conocer la variedad de productos que también se ofrecen mediante la red social.<br>
     También se pueden contactar llenando el formulario más abajo en esta página.
   </p>
   <ul class="social-icons">

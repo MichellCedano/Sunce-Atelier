@@ -77,7 +77,7 @@
                                 <a class="nav-link" href="contact.jsp">Contáctanos</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" id="loginButton" href="#" onclick="openLoginForm()">Iniciar Sesion</a>
+                                <a class="nav-link" id="loginButton" href="#" onclick="openLoginForm()">Iniciar Sesión</a>
                             </li>
                         </ul>
                         <!--Formulario emergente de inicio de sesion-->
@@ -88,7 +88,7 @@
                                     <div class="w3-container">
                                         <!-- Modal body -->
                                         <form action="iniciarSesion" method="post">
-                                            <h2>Inicio de sesion</h2>
+                                            <h2>Inicio de sesión</h2>
                                             <br>
                                             <div class="input-group">
                                                 <span class="input-group-text"><i class="fa fa-envelope-o" aria-hidden="true"></i></span>
@@ -99,10 +99,10 @@
                                                 <input type="password" class="form-control" placeholder="Ingrese su password" id="pass" name="pass" required>
                                             </div>
                                             <button type="submit" class="modalIniciar"><i class="fa fa-user-circle"
-                                                                                          aria-hidden="true"></i>Iniciar Sesion</button>
+                                                                                          aria-hidden="true"></i>Iniciar Sesión</button>
                                         </form>
                                         <br>
-                                        <p>No tienes una cuenta? </p>
+                                        <p>¿No tienes una cuenta? </p>
                                         <a class="nav-link" href="registro.jsp">Haz click aquí para registrarte</a>
                                         <!-- Modal footer -->
                                         <div class="modal-footer">

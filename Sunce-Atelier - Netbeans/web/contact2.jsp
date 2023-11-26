@@ -87,7 +87,7 @@
                                 <a class="nav-link" href="compras.jsp"">Mis compras</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="cerrarSesion">Cerrar Sesion</a>
+                                <a class="nav-link" href="cerrarSesion">Cerrar Sesión</a>
                             </li>
                         </ul>
                     </div>
@@ -126,7 +126,7 @@
                     <div class="col-md-4">
                         <div class="left-content">
                             <h4>Sobre nuestro perfil</h4>
-                            <p>Mediante este perfil de Instagram puedes contactarte directamente con nosotros mediante dm, además de conocer la variedad de productos que también se ofrecen mediante la red social<br>
+                            <p>Mediante este perfil de Instagram puedes contactarte directamente con nosotros mediante DM, además de conocer la variedad de productos que también se ofrecen mediante la red social.<br>
                                 También se pueden contactar llenando el formulario más abajo en esta página.
                             </p>
                             <ul class="social-icons">

@@ -82,7 +82,7 @@
                                 <a class="nav-link" href="contact.jsp">Contáctanos</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" id="loginButton" href="#" onclick="openLoginForm()">Iniciar Sesion</a>
+                                <a class="nav-link" id="loginButton" href="#" onclick="openLoginForm()">Iniciar Sesión</a>
                             </li>
                         </ul>
                         <!--Formulario emergente de inicio de sesion-->
@@ -93,7 +93,7 @@
                                     <div class="w3-container">
                                         <!-- Modal body -->
                                         <form action="iniciarSesion" method="post">
-                                            <h2>Inicio de sesion</h2>
+                                            <h2>Inicio de sesión</h2>
                                             <br>
                                             <div class="input-group">
                                                 <span class="input-group-text"><i class="fa fa-envelope-o" aria-hidden="true"></i></span>
@@ -107,7 +107,7 @@
                                                                                           aria-hidden="true"></i>Iniciar Sesion</button>
                                         </form>
                                         <br>
-                                        <p>No tienes una cuenta? </p>
+                                        <p>¿No tienes una cuenta? </p>
                                         <a class="nav-link" href="registro.jsp">Haz click aquí para registrarte</a>
                                         <!-- Modal footer -->
                                         <div class="modal-footer">
@@ -168,7 +168,7 @@
                                     <h4>Plantillas de Stickers<h4>
                                             </a>
                                             <h6>$15.00</h6>
-                                            <p>Pedido mínimo de 8 piezas. Holografico de vidrio roto, pixel, corazones y mariposas.
+                                            <p>Pedido mínimo de 8 piezas. Holográfico de vidrio roto, pixel, corazones y mariposas.
                                             </p>
                                             <ul class="stars">
                                                 <li><i class="fa fa-star"></i></li>
@@ -194,7 +194,7 @@
                                                             <h4>Pines</h4>
                                                         </a>
                                                         <h6>$10.00</h6>
-                                                        <p>Holografico de vidrio roto, pixel, corazones & mariposas. Laminado con acabado glitter/arenilla.
+                                                        <p>Holográfico de vidrio roto, pixel, corazones & mariposas. Laminado con acabado glitter/arenilla.
                                                         </p>
                                                         <ul class="stars">
                                                             <li><i class="fa fa-star"></i></li>

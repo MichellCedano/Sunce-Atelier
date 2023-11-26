@@ -107,7 +107,7 @@
                                 <a class="nav-link" href="informacion_administrador.jsp"">Ver Información</a>
                             </li>
                             <li class=" nav-item">
-                                <a class="nav-link" href="cerrarSesion">Cerrar Sesion</a>
+                                <a class="nav-link" href="cerrarSesion">Cerrar Sesión</a>
                             </li>
                         </ul>
 

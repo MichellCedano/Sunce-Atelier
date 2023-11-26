@@ -87,7 +87,7 @@
                                 <a class="nav-link" href="compras.jsp"">Mis compras</a>
                             </li>
                             <li class=" nav-item">
-                                <a class="nav-link" href="cerrarSesion">Cerrar Sesion</a>
+                                <a class="nav-link" href="cerrarSesion">Cerrar Sesión</a>
                             </li>
                         </ul>
 
@@ -125,36 +125,36 @@
                     <div class="col-md-6">
                         <div class="left-content">
                             <p>
-                                Sunce-atelier
+                              Sunce-atelier
                             </p>
                             <p>
-                                Es una empresa pequeña empezada por una sola persona. 
+                              Es una empresa pequeña empezada por una sola persona. 
                             </p>
                             <p>
-                                Sleepysuny, como su seudónimo en las redes, una artista y diseñadora grafica local de
-                                Ciudad Obregón Sonora, México.
+                              Sleepysuny, como su seudónimo en las redes, una artista y diseñadora grafica local de
+                              Ciudad Obregón Sonora, México.
                             </p>
                             <p>
-                                La empresa comenzó con sus pedidos a finales del año 2022, pues inicio a a base de las
-                                impresiones propias de Sleepy, quien cansada de comprar en las imprentas de su ciudad, que
-                                trabajaban con mala calidad y no ofrecían el servicio que ella requería, además de sus
-                                altos precios, comenzó su emprendimiento con sus conocidos, ofreciéndoles impresiones de
-                                sus propias ilustraciones, con artistas pequeños que asistían a convenciones o bazares de
-                                la localidad de tema friki.
+                              La empresa comenzó con sus pedidos a finales del año 2022, pues inicio a base de las
+                              impresiones propias de Sleepysuny, quien cansada de comprar en las imprentas de su ciudad, que
+                              trabajaban con mala calidad y no ofrecían el servicio que ella requería, además de sus
+                              altos precios, comenzó su emprendimiento con sus conocidos, ofreciéndoles impresiones de
+                              sus propias ilustraciones, con artistas pequeños que asistían a convenciones o bazares de
+                              la localidad de tema friki.
                             </p>
                             <p>
-                                Al ser estudiante de diseño grafico, pudo instruirse mas al respecto de las maquinas que
-                                puede utilizar para distintos productos, decidió ampliar mas su negocio para fuera del
-                                municipio, expandir mas su trabajo, y vender mas variedad de cosas, ofreciendo precios
-                                accesibles para estos según las cantidades ordenadas, pero nunca bajando la calidad de su
-                                trabajo.
+                              Al ser estudiante de diseño gráfico, pudo instruirse más al respecto de las máquinas que
+                              puede utilizar para distintos productos, decidió ampliar más su negocio para fuera del
+                              municipio, expandir más su trabajo, y vender más variedad de cosas, ofreciendo precios
+                              accesibles para estos según las cantidades ordenadas, pero nunca bajando la calidad de su
+                              trabajo.
                             </p>
                             <p>
-                                Pues al ser ella misma un cliente de su propio producto en un inicio, conoce
-                                mejor que nadie la experiencia que quiere llevar un posible cliente, aceptando siempre
-                                comentarios para mejorar sus productos y ofrecer cosas que no son tan sencillas de
-                                conseguir en el entorno local, de la misma manera ofreciendo envíos a todo el municipio y
-                                abriéndose la posibilidad en un futuro a de manera nacional y quizá internacional.
+                              Pues al ser ella misma un cliente de su propio producto en un inicio, conoce
+                              mejor que nadie la experiencia que quiere llevar un posible cliente, aceptando siempre
+                              comentarios para mejorar sus productos y ofrecer cosas que no son tan sencillas de
+                              conseguir en el entorno local, de la misma manera ofreciendo envíos a todo el municipio y
+                              abriéndose la posibilidad en un futuro a de manera nacional y quizá internacional.
                             </p>
                             <ul class="social-icons">
                                 <li><a target="_blank" href="https://www.instagram.com/sunce_atelier/"><i class="fa fa-instagram"></i></a></li>

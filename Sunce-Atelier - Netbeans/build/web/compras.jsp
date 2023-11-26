@@ -111,7 +111,7 @@
                                     <span class="sr-only">(current)</span></a>
                             </li>
                             <li class=" nav-item">
-                                <a class="nav-link" href="cerrarSesion">Cerrar Sesion</a>
+                                <a class="nav-link" href="cerrarSesion">Cerrar Sesión</a>
                             </li>
                         </ul>
                     </div>

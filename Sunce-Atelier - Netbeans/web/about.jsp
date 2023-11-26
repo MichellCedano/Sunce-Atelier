@@ -84,7 +84,7 @@
                 información del usuario</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" id="loginButton" href="#" onclick="toggleCloseState()">Iniciar Sesion</a>
+              <a class="nav-link" id="loginButton" href="#" onclick="toggleCloseState()">Iniciar Sesión</a>
             </li>
           </ul>
           <!--Formulario emergente de inicio de sesion-->
@@ -95,7 +95,7 @@
                 <div class="w3-container">
                   <!-- Modal body -->
                   <form action="iniciarSesion" method="post">
-                    <h2>Inicio de sesion</h2>
+                    <h2>Inicio de sesión</h2>
                     <br>
                     <div class="input-group">
                       <span class="input-group-text"><i class="fa fa-envelope-o" aria-hidden="true"></i></span>
@@ -106,10 +106,10 @@
                       <input type="password" class="form-control" placeholder="Ingrese su password" id="pass" name="pass" required>
                     </div>
                     <button type="submit" class="modalIniciar"><i class="fa fa-user-circle"
-                      aria-hidden="true"></i>Iniciar Sesion</button>
+                      aria-hidden="true"></i>Iniciar Sesión</button>
                   </form>
                   <br>
-                  <p>No tienes una cuenta? </p>
+                  <p>¿No tienes una cuenta? </p>
                   <a class="nav-link" href="registro.jsp">Haz click aquí para registrarte</a>
                   <!-- Modal footer -->
                   <div class="modal-footer">
@@ -167,17 +167,17 @@
                               Ciudad Obregón Sonora, México.
                             </p>
                             <p>
-                              La empresa comenzó con sus pedidos a finales del año 2022, pues inicio a a base de las
-                              impresiones propias de Sleepy, quien cansada de comprar en las imprentas de su ciudad, que
+                              La empresa comenzó con sus pedidos a finales del año 2022, pues inicio a base de las
+                              impresiones propias de Sleepysuny, quien cansada de comprar en las imprentas de su ciudad, que
                               trabajaban con mala calidad y no ofrecían el servicio que ella requería, además de sus
                               altos precios, comenzó su emprendimiento con sus conocidos, ofreciéndoles impresiones de
                               sus propias ilustraciones, con artistas pequeños que asistían a convenciones o bazares de
                               la localidad de tema friki.
                             </p>
                             <p>
-                              Al ser estudiante de diseño grafico, pudo instruirse mas al respecto de las maquinas que
-                              puede utilizar para distintos productos, decidió ampliar mas su negocio para fuera del
-                              municipio, expandir mas su trabajo, y vender mas variedad de cosas, ofreciendo precios
+                              Al ser estudiante de diseño gráfico, pudo instruirse más al respecto de las máquinas que
+                              puede utilizar para distintos productos, decidió ampliar más su negocio para fuera del
+                              municipio, expandir más su trabajo, y vender más variedad de cosas, ofreciendo precios
                               accesibles para estos según las cantidades ordenadas, pero nunca bajando la calidad de su
                               trabajo.
                             </p>

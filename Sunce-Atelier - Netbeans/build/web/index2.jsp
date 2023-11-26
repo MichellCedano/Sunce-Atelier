@@ -104,7 +104,7 @@
                                 <a class="nav-link" href="compras.jsp"">Mis compras</a>
                             </li>
                             <li class=" nav-item">
-                                <a class="nav-link" href="cerrarSesion">Cerrar Sesion</a>
+                                <a class="nav-link" href="cerrarSesion">Cerrar Sesión</a>
                             </li>
                         </ul>
                     </div>
@@ -144,7 +144,7 @@
                     <div class="col-md-12">
                         <div class="section-heading">
                             <h2>Productos Recientes</h2>
-                            <a href="products2.jsp">ver todos <i class="fa fa-angle-right"></i></a>
+                            <a href="products2.jsp">Ver todos<i class="fa fa-angle-right"></i></a>
                         </div>
                     </div>
                     <div class="col-md-4">
@@ -160,7 +160,7 @@
                                     <h4>Plantillas de Stickers<h4>
                                             </a>
                                             <h6>$15.00</h6>
-                                            <p>Pedido mínimo de 8 piezas. Holografico de vidrio roto, pixel, corazones y mariposas.
+                                            <p>Pedido mínimo de 8 piezas. Holográfico de vidrio roto, pixel, corazones y mariposas.
                                             </p>
                                             <ul class="stars">
                                                 <li><i class="fa fa-star"></i></li>
@@ -186,7 +186,7 @@
                                                             <h4>Pines</h4>
                                                         </a>
                                                         <h6>$10.00</h6>
-                                                        <p>Holografico de vidrio roto, pixel, corazones & mariposas. Laminado con acabado glitter/arenilla.
+                                                        <p>Holográfico de vidrio roto, pixel, corazones & mariposas. Laminado con acabado glitter/arenilla.
                                                         </p>
                                                         <ul class="stars">
                                                             <li><i class="fa fa-star"></i></li>
