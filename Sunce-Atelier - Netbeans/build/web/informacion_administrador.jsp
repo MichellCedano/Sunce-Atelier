@@ -94,7 +94,7 @@
                                             </div>
                                             <div class="input-group">
                                                 <span class="input-group-text"><i class="fas fa-dollar-sign"></i></span>
-                                                <input type="text" class="form-control" placeholder="Ingrese el precio" id="precio" name="precio" required>
+                                                <input type="text" class="form-control" placeholder="Ingrese el precio" id="precio" name="precio" oninput="validarPrecio(this)" required>
                                             </div>
                                             <div class="input-group">
                                                 <span class="input-group-text"><i class="fas fa-tags"></i></span>
@@ -147,7 +147,7 @@
                                             </div>
                                             <div class="input-group">
                                                 <span class="input-group-text"><i class="fas fa-dollar-sign"></i></span>
-                                                <input type="number" class="form-control" placeholder="Ingrese el precio" id="precio" name="precio" required>
+                                                <input type="number" class="form-control" placeholder="Ingrese el precio" id="precio" name="precio" oninput="validarPrecio(this)" required>
                                             </div>
                                             <div class="input-group">
                                                 <span class="input-group-text"><i class="fas fa-tags"></i></span>

@@ -510,10 +510,28 @@ function validarFormulario() {
     return true;
 }
 
+function validarPrecio(input) {
+    // Si el valor es menor que 0, establece el valor a 0
+    var patron = /^\d+(\.\d*)?$/;
+    
+    if(!patron.test(input.value)){
+        input.value=1;
+    }
+    if (input.value < 0) {
+        input.value = 1;
+    }
+}
+
 function validarNumero(input) {
     // Si el valor es menor que 0, establece el valor a 0
+    var patron = /^\d+$/;
+    
+    if(!patron.test(input.value)){
+        input.value=1;
+    }
+    
     if (input.value < 0 || tieneDecimal(input.value)) {
-        input.value = 0;
+        input.value = 1;
     }
 }
 
@@ -628,9 +646,14 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 function validarCantidad(input, stock) {
+    var patron = /^\d+$/;
+    
+    if(!patron.test(input.value)){
+        input.value=1;
+    }
     // Si el valor es menor que 0, establece el valor a 0
     if (input.value < 0 || tieneDecimal(input.value)) {
-        input.value = 0;
+        input.value = 1;
     }
 
     var newStock = parseInt(stock);
