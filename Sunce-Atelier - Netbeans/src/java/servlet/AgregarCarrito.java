@@ -38,7 +38,7 @@ public class AgregarCarrito extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
 
         try {
-            // Obtén los parámetros del formulario
+            
             String cantidadString = request.getParameter("cantidad");
             String idProductoString = request.getParameter("idProducto");
 

@@ -661,3 +661,65 @@ function validarCantidad(input, stock) {
         input.value = newStock;
     }
 }
+
+function mostrarAlerta(){
+    alert("Para comprar productos debe iniciar sesión");
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+    var filters = document.querySelectorAll('.filters li');
+    var products = document.querySelectorAll('.product-item');
+
+    filters.forEach(function (filter) {
+        filter.addEventListener('click', function () {
+            // Remover la clase 'active' de todos los filtros
+            filters.forEach(function (f) {
+                f.classList.remove('active');
+            });
+
+            // Agregar la clase 'active' al filtro seleccionado
+            filter.classList.add('active');
+
+            // Obtener el tipo de filtro
+            var filterType = filter.getAttribute('data-filter');
+
+            // Mostrar u ocultar productos según el filtro
+            products.forEach(function (product) {
+                if (filterType === '*' || product.classList.contains(filterType)) {
+                    product.style.display = 'block';
+                } else {
+                    product.style.display = 'none';
+                }
+            });
+        });
+    });
+});
+
+function validarContacto() {
+  // Obtener los valores de los campos
+  var nombre = document.getElementById("name").value;
+  var email = document.getElementById("email").value;
+  var asunto = document.getElementById("subject").value;
+  var mensaje = document.getElementById("message").value;
+
+  // Definir patrones de validación
+  var nombrePattern = /^[a-zA-Z\s]+$/;
+  var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  // Validar cada campo
+  if (!nombrePattern.test(nombre)) {
+    alert("Por favor, introduzca un nombre válido.");
+    return false;
+  }
+
+  if (!emailPattern.test(email)) {
+    alert("Por favor, introduzca una dirección de correo electrónico válida.");
+    return false;
+  }
+
+  // Puedes agregar más validaciones según tus requisitos
+
+  // Si todas las validaciones pasan, mostrar un mensaje de éxito
+  alert("Mensaje enviado correctamente.");
+  return true;
+}

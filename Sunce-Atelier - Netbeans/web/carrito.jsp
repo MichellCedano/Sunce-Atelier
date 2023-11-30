@@ -176,7 +176,7 @@
                         <% if (articulos == null) {%>
                         <h4>No hay articulos en el carrito</h4>
                         <%}%>
-                    </div><a href="javascript:window.history.go(-1);">Seguir comprando</a> 
+                    </div><a href="products2.jsp">Seguir comprando</a> 
                 </div>
                 <div class="col-sm-6">
                     <div class="card">
@@ -252,35 +252,6 @@
                 }
             }
         </script>
-
-        <div class="modal fade" id="productModal" tabindex="-1" role="dialog" aria-labelledby="productModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h2 class="modal-title" id="productModalLabel"></h2>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="text-center">
-                                    <img id="productImage" src="" alt="" class="productoVentana img-fluid">
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <h3 id="productDescription"></h3>
-                                <br>
-                                <h2 id="productPrice"></h2>
-                                <br>
-                                <button id="addToCartButton" class="agregarCarrito">Agregar al carrito</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
     </body>
 
 </html>

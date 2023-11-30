@@ -144,7 +144,7 @@ public class Consultas {
         PreparedStatement pst = null;
         try {
 
-            if(buscarUsuario(correo)>0){
+            if (buscarUsuario(correo) > 0) {
                 return -1;
             }
             System.out.println("Registrar");
@@ -469,7 +469,7 @@ public class Consultas {
                 } else {
                     // No se pudo obtener el ID generado
                 }
-            } 
+            }
 
         } catch (Exception e) {
             System.out.println("Error en: " + e);
@@ -487,18 +487,18 @@ public class Consultas {
         }
         return -1;
     }
-    
-    public boolean registrarVenta(Articulo articulo, int id_compra){
+
+    public boolean registrarVenta(Articulo articulo, int id_compra) {
         PreparedStatement pst = null;
         try {
 
-            ControladorProducto cp=new ControladorProducto();
-            Producto producto=cp.getProducto(articulo.getIdProducto());
-            producto.setStock(producto.getStock()-articulo.getCantidad());
+            ControladorProducto cp = new ControladorProducto();
+            Producto producto = cp.getProducto(articulo.getIdProducto());
+            producto.setStock(producto.getStock() - articulo.getCantidad());
             this.actualizarProducto(producto);
-            float subtotal=producto.getPrecio()*articulo.getCantidad();
+            float subtotal = producto.getPrecio() * articulo.getCantidad();
             String consulta = "insert into compra_producto(cantidad_producto,id_compra,id_producto,subtotal_precio) values(?,?,?,?)";
-            con=new Conexion();
+            con = new Conexion();
             pst = con.getConexion().prepareStatement(consulta);
             pst.setInt(1, articulo.getCantidad());
             pst.setInt(2, id_compra);
@@ -526,10 +526,10 @@ public class Consultas {
         }
         return false;
     }
-    
-    public ArrayList<Compra> obtenerCompras(String correo){
-        int id_usuario=this.buscarUsuario(correo);
-        con=new Conexion();
+
+    public ArrayList<Compra> obtenerCompras(String correo) {
+        int id_usuario = this.buscarUsuario(correo);
+        con = new Conexion();
         ArrayList<Compra> compras = new ArrayList<>();
         PreparedStatement pst = null;
         ResultSet rs = null;
@@ -554,30 +554,43 @@ public class Consultas {
                 if (con.getConexion() != null) {
                     con.getConexion().close();
                 }
-            } catch(Exception e){
-                
+            } catch (Exception e) {
+
             }
         }
         return compras;
     }
-    
-    public ArrayList<Producto> obtenerProductosCompra(int id_compra){
+
+    public ArrayList<Producto> obtenerProductosCompra(int id_compra) {
         ArrayList<Producto> productos = new ArrayList<>();
         PreparedStatement pst = null;
         ResultSet rs = null;
-        System.out.println(id_compra);
+
         try {
-            con=new Conexion();
-            String sql = "SELECT productos.* FROM productos JOIN compra_producto ON productos.id_producto = compra_producto.id_producto JOIN compras ON compra_producto.id_compra = compras.id_compra WHERE compras.id_compra = ?";
-            System.out.println(sql);
+            con = new Conexion();
+            String sql = "SELECT productos.*, compra_producto.cantidad_producto FROM productos "
+                    + "JOIN compra_producto ON productos.id_producto = compra_producto.id_producto "
+                    + "JOIN compras ON compra_producto.id_compra = compras.id_compra "
+                    + "WHERE compras.id_compra = ?";
             pst = con.getConexion().prepareStatement(sql);
             pst.setInt(1, id_compra);
             rs = pst.executeQuery();
+
             while (rs.next()) {
-                productos.add(new Producto(rs.getInt("id_producto"), rs.getString("nombre"), rs.getString("img_producto"), rs.getString("tipo"),rs.getFloat("precio"), rs.getInt("stock")));
+                int idProducto = rs.getInt("id_producto");
+                String nombre = rs.getString("nombre");
+                String imgProducto = rs.getString("img_producto");
+                String tipo = rs.getString("tipo");
+                float precio = rs.getFloat("precio");
+
+                // Obtener la cantidad desde la tabla compra_producto
+                int cantidad = rs.getInt("cantidad_producto");
+
+                // Crear instancia de Producto con la cantidad en lugar de stock
+                productos.add(new Producto(idProducto, nombre, imgProducto, tipo, precio, cantidad));
             }
         } catch (Exception e) {
-
+            e.printStackTrace(); // Manejo básico de excepciones para depuración
         } finally {
             try {
                 if (rs != null) {
@@ -589,24 +602,24 @@ public class Consultas {
                 if (con.getConexion() != null) {
                     con.getConexion().close();
                 }
-            } catch(Exception e){
-                
+            } catch (Exception e) {
+                e.printStackTrace(); // Manejo básico de excepciones para depuración
             }
         }
         return productos;
     }
-    
+
     public int actualizarCantidad(int id, int cantidad) {
         PreparedStatement pstUsuarios = null;
 
         try {
             // Actualizar información en la tabla de usuarios
-            if(cantidad==0){
+            if (cantidad == 0) {
                 String consultaUsuarios = "DELETE from articulos WHERE id_producto=?";
                 pstUsuarios = con.getConexion().prepareStatement(consultaUsuarios);
                 pstUsuarios.setInt(1, id);
                 return 0;
-            }else{
+            } else {
                 String consultaUsuarios = "UPDATE productos SET cantidad=? WHERE id_producto=?";
                 pstUsuarios = con.getConexion().prepareStatement(consultaUsuarios);
                 pstUsuarios.setInt(1, cantidad);
@@ -616,7 +629,7 @@ public class Consultas {
                     return 1;
                 }
             }
-                
+
         } catch (Exception e) {
             System.out.println("Error en: " + e);
         } finally {

@@ -128,135 +128,13 @@
                         <div class="filters">
                             <ul>
                                 <li class="active" data-filter="*">Todos</li>
-                                <li data-filter=".des">Libretas</li>
-                                <li data-filter=".dev">Stickers</li>
-                                <li data-filter=".gra">Pins</li>
+                                <li data-filter="Libreta">Libretas</li>
+                                <li data-filter="Sticker">Stickers</li>
+                                <li data-filter="Pin">Pins</li>
                             </ul>
                         </div>
                     </div>
-                    
-                  <!--
-                    <div class="col-md-12">
-                        <div class="filters-content">
-                            <div class="row grid">
 
-                                <div class="col-lg-4 col-md-4 all dev">
-                                    <div class="product-item">
-                                        <a href="#" class="product-link" data-toggle="modal" data-target="#productModal"
-                                           data-nombre="Plantillas de Stickers" data-precio="15.00" data-descripcion="Pedido mínimo de 8 piezas. Holografico de vidrio roto, pixel, corazones y
-                                           mariposas." data-imagen="assets/images/IMG-20231022-WA0001.jpg">
-                                            <img src="assets/images/IMG-20231022-WA0001.jpg" alt="" id="productImg"></a>
-                                        <div class="down-content">
-                                            <a href="#" class="product-link" data-toggle="modal" data-target="#productModal"
-                                               data-nombre="Plantillas de Stickers" data-precio="15.00" data-descripcion="Pedido mínimo de 8 piezas. Holografico de vidrio roto, pixel, corazones y
-                                               mariposas." data-imagen="assets/images/IMG-20231022-WA0001.jpg">
-                                                <h4>Plantillas de Stickers</h4>
-                                            </a>
-                                            <h6>$15.00</h6>
-                                            <p>Pedido mínimo de 8 piezas. Holografico de vidrio roto, pixel, corazones y
-                                                mariposas.            </p>
-                                            <ul class="stars">
-                                                <li><i class="fa fa-star"></i></li>
-                                                <li><i class="fa fa-star"></i></li>
-                                                <li><i class="fa fa-star"></i></li>
-                                                <li><i class="fa fa-star"></i></li>
-                                                <li><i class="fa fa-star"></i></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-lg-4 col-md-4 all gra">
-                                    <div class="product-item">
-                                        <a href="#" class="product-link" data-toggle="modal" data-target="#productModal"
-                                           data-nombre="Pines" data-precio="10.00" data-descripcion="Holografico de vidrio roto, pixel, corazones & mariposas. Laminado con acabado
-                                           glitter/arenilla." data-imagen="assets/images/IMG-20231022-WA0005.jpg">
-                                            <img src="assets/images/IMG-20231022-WA0005.jpg" alt="" id="productImg"></a>
-                                        <div class="down-content">
-                                            <a href="#" class="product-link" data-toggle="modal" data-target="#productModal"
-                                               data-nombre="Pines" data-precio="10.00" data-descripcion="Holografico de vidrio roto, pixel, corazones & mariposas. Laminado con acabado
-                                               glitter/arenilla." data-imagen="assets/images/IMG-20231022-WA0005.jpg">
-                                                <h4>Pines</h4>
-                                            </a>
-                                            <h6>$10.00</h6>
-                                            <p>Holografico de vidrio roto, pixel, corazones & mariposas. Laminado con acabado
-                                                glitter/arenilla.</p>
-                                            <ul class="stars">
-                                                <li><i class="fa fa-star"></i></li>
-                                                <li><i class="fa fa-star"></i></li>
-                                                <li><i class="fa fa-star"></i></li>
-                                                <li><i class="fa fa-star"></i></li>
-                                                <li><i class="fa fa-star"></i></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 col-md-4 all des">
-                                    <div class="product-item">
-                                        <a href="#" class="product-link" data-toggle="modal" data-target="#productModal"
-                                           data-nombre="Sketchbook" data-precio="80.00"
-                                           data-descripcion="Libretas de hojas blancas personalizables."
-                                           data-imagen="assets/images/IMG-20231022-WA0006.jpg">
-                                            <img src="assets/images/IMG-20231022-WA0006.jpg" alt="" id="productImg"></a>
-                                        <div class="down-content">
-                                            <a href="#" class="product-link" data-toggle="modal" data-target="#productModal"
-                                               data-nombre="Sketchbook" data-precio="80.00"
-                                               data-descripcion="Libretas de hojas blancas personalizables."
-                                               data-imagen="assets/images/IMG-20231022-WA0006.jpg">
-                                                <h4>Sketchbook</h4>
-                                            </a>
-                                            <h6>$80.00</h6>
-                                            <p>Libretas de hojas blancas personalizables.</p>
-                                            <br>
-                                            <ul class="stars">
-                                                <li><i class="fa fa-star"></i></li>
-                                                <li><i class="fa fa-star"></i></li>
-                                                <li><i class="fa fa-star"></i></li>
-                                                <li><i class="fa fa-star"></i></li>
-                                                <li><i class="fa fa-star"></i></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-
-
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-12">
-                        <div class="filters-content">
-                            <div class="row grid">
-                                <div class="col-lg-4 col-md-4 all dev">
-                                    <div class="product-item">
-                                        <a href="#" class="product-link" data-toggle="modal" data-target="#productModal"
-                                           data-nombre="Stickers Holográficos" data-precio="20.00"
-                                           data-descripcion="Colección de stickers holográficos de terror para las fechas."
-                                           data-imagen="assets/images/IMG-20231022-WA0007.jpg">
-                                            <img src="assets/images/IMG-20231022-WA0007.jpg" alt="" id="productImg"></a>
-                                        <div class="down-content">
-                                            <a href="#" class="product-link" data-toggle="modal" data-target="#productModal"
-                                               data-nombre="Stickers Holográficos" data-precio="20.00"
-                                               data-descripcion="Colección de stickers holográficos de terror para las fechas."
-                                               data-imagen="assets/images/IMG-20231022-WA0007.jpg">
-                                                <h4>Stickers Holográficos</h4>
-                                            </a>
-                                            <h6>$20.00</h6>
-                                            <p>Colección de stickers holográficos de terror para las fechas.</p>
-                                            <ul class="stars">
-                                                <li><i class="fa fa-star"></i></li>
-                                                <li><i class="fa fa-star"></i></li>
-                                                <li><i class="fa fa-star"></i></li>
-                                                <li><i class="fa fa-star"></i></li>
-                                                <li><i class="fa fa-star"></i></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                  -->
                 </div>
             </div>
         </div>
@@ -355,7 +233,7 @@
 
                         // Actualiza el formulario con el ID del producto
                         idProductoInput.value = idProducto;
-                        stockInput.value=stock;
+                        stockInput.value = stock;
 
                         // Abre el modal
                         $(productModal).modal('show');

@@ -4,22 +4,32 @@
     Author     : kingu
 --%>
 
+<%@page import="modelo.Producto"%>
+<%@page import="modelo.ControladorProducto"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="modelo.ModeloProducto"%>
 <%@page import="modelo.Usuario"%>
 <%@page import="controlador.Consultas"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 
 <% request.getSession().removeAttribute("carrito");
-    String correo=(String)request.getSession().getAttribute("correo");
-    if(correo!=null){
+    String correo = (String) request.getSession().getAttribute("correo");
+    if (correo != null) {
         Usuario usuario = new Consultas().obtenerUsuario(correo);
-        if(usuario.getEstado()!=null){
+        if (usuario.getEstado() != null) {
             response.sendRedirect("index2.jsp");
-        }else{
+        } else {
             response.sendRedirect("administracion.jsp");
         }
     }
 %>
+<%
+        ModeloProducto mp = new ModeloProducto();
+        ArrayList<Producto> productos = mp.getAllProductos();
+        System.out.println("Número de productos: " + productos.size());
+        ControladorProducto cp = new ControladorProducto();
+    %>
 <html lang="en">
 
     <head>
@@ -155,148 +165,74 @@
                             <a href="products.jsp">ver todos <i class="fa fa-angle-right"></i></a>
                         </div>
                     </div>
-                    <div class="col-md-4">
-                        <div class="product-item">
-                            <a href="#" class="product-link" data-toggle="modal" data-target="#productModal"
-                               data-nombre="Plantillas de Stickers" data-precio="15.00" data-descripcion="Pedido mínimo de 8 piezas. Holografico de vidrio roto, pixel, corazones y
-                               mariposas." data-imagen="assets/images/product_01.jpg">
-                                <img src="assets/images/product_01.jpg" alt=""></a>
-                            <div class="down-content">
-                                <a href="#" class="product-link" data-toggle="modal" data-target="#productModal"
-                                   data-nombre="Plantillas de Stickers" data-precio="15.00" data-descripcion="Pedido mínimo de 8 piezas. Holografico de vidrio roto, pixel, corazones y
-                                   mariposas." data-imagen="assets/images/product_01.jpg">
-                                    <h4>Plantillas de Stickers<h4>
-                                            </a>
-                                            <h6>$15.00</h6>
-                                            <p>Pedido mínimo de 8 piezas. Holográfico de vidrio roto, pixel, corazones y mariposas.
-                                            </p>
-                                            <ul class="stars">
-                                                <li><i class="fa fa-star"></i></li>
-                                                <li><i class="fa fa-star"></i></li>
-                                                <li><i class="fa fa-star"></i></li>
-                                                <li><i class="fa fa-star"></i></li>
-                                                <li><i class="fa fa-star"></i></li>
-                                            </ul>
-                                            <span>Reseñas (24)</span>
-                                            </div>
-                                            </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="product-item">
-                                                    <a href="#" class="product-link" data-toggle="modal" data-target="#productModal"
-                                                       data-nombre="Pines" data-precio="10.00" data-descripcion="Holografico de vidrio roto, pixel, corazones & mariposas. Laminado con acabado
-                                                       glitter/arenilla." data-imagen="assets/images/product_02.jpg">
-                                                        <img src="assets/images/product_02.jpg" alt=""></a>
-                                                    <div class="down-content">
-                                                        <a href="#" class="product-link" data-toggle="modal" data-target="#productModal"
-                                                           data-nombre="Pines" data-precio="10.00" data-descripcion="Holografico de vidrio roto, pixel, corazones & mariposas. Laminado con acabado
-                                                           glitter/arenilla." data-imagen="assets/images/product_02.jpg">
-                                                            <h4>Pines</h4>
-                                                        </a>
-                                                        <h6>$10.00</h6>
-                                                        <p>Holográfico de vidrio roto, pixel, corazones & mariposas. Laminado con acabado glitter/arenilla.
-                                                        </p>
-                                                        <ul class="stars">
-                                                            <li><i class="fa fa-star"></i></li>
-                                                            <li><i class="fa fa-star"></i></li>
-                                                            <li><i class="fa fa-star"></i></li>
-                                                            <li><i class="fa fa-star"></i></li>
-                                                            <li><i class="fa fa-star"></i></li>
-                                                        </ul>
-                                                        <span>Reseñas (21)</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="product-item">
-                                                    <a href="#" class="product-link" data-toggle="modal" data-target="#productModal"
-                                                       data-nombre="Sketchbook" data-precio="80.00"
-                                                       data-descripcion="Libretas de hojas blancas personalizables."
-                                                       data-imagen="assets/images/IMG-20231022-WA0006.jpg">
-                                                        <img src="assets/images/product_03.jpg" alt=""></a>
-                                                    <div class="down-content">
-                                                        <a href="#" class="product-link" data-toggle="modal" data-target="#productModal"
-                                                           data-nombre="Sketchbook" data-precio="80.00"
-                                                           data-descripcion="Libretas de hojas blancas personalizables."
-                                                           data-imagen="assets/images/IMG-20231022-WA0006.jpg">
-                                                            <h4>Sketchbook</h4>
-                                                        </a>
-                                                        <h6>$80.00</h6>
-                                                        <p>Sketchbooks personlizables</p>
-                                                        <ul class="stars">
-                                                            <li><i class="fa fa-star"></i></li>
-                                                            <li><i class="fa fa-star"></i></li>
-                                                            <li><i class="fa fa-star"></i></li>
-                                                            <li><i class="fa fa-star"></i></li>
-                                                            <li><i class="fa fa-star"></i></li>
-                                                        </ul>
-                                                        <span>Reseñas (36)</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            </div>
-                                            </div>
-                                            </div>
+                    <div class="container-fluid">
+                        <div class="row">
+                            <%=cp.obtenerProductos()%>
+                        </div>
+                    </div> 
+                </div>
+            </div>
+        </div>
 
-                                            <div class="best-features">
-                                                <div class="container">
-                                                    <div class="row">
-                                                        <div class="col-md-12">
-                                                            <div class="section-heading">
-                                                                <h2>¿Qué es Sunce Atelier?</h2>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-6">
-                                                            <div class="left-content">
-                                                                <p>
-                                                                    Sunce-atelier es una empresa fundada por Sleepysuny, una artista y diseñadora gráfica de
-                                                                    Ciudad Obregón, Sonora, México. Comenzó en 2022 como respuesta a la necesidad de
-                                                                    impresiones de alta calidad a precios accesibles. 
-                                                                </p>
-                                                                <p>
-                                                                    Sleepysuny, una estudiante de diseño
-                                                                    gráfico, amplió su negocio para servir a una audiencia más amplia, manteniendo la calidad
-                                                                    y escuchando los comentarios de los clientes. Ofrecemos envíos locales y estamos
-                                                                    considerando la expansión a nivel nacional e internacional en el futuro.
-                                                                </p>
-                                                                <a href="about.jsp" class="filled-button">Leer más</a>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-6">
-                                                            <div class="right-image">
-                                                                <img src="assets/images/logooo.png" alt="">
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
+        <div class="best-features">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="section-heading">
+                            <h2>¿Qué es Sunce Atelier?</h2>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="left-content">
+                            <p>
+                                Sunce-atelier es una empresa fundada por Sleepysuny, una artista y diseñadora gráfica de
+                                Ciudad Obregón, Sonora, México. Comenzó en 2022 como respuesta a la necesidad de
+                                impresiones de alta calidad a precios accesibles. 
+                            </p>
+                            <p>
+                                Sleepysuny, una estudiante de diseño
+                                gráfico, amplió su negocio para servir a una audiencia más amplia, manteniendo la calidad
+                                y escuchando los comentarios de los clientes. Ofrecemos envíos locales y estamos
+                                considerando la expansión a nivel nacional e internacional en el futuro.
+                            </p>
+                            <a href="about.jsp" class="filled-button">Leer más</a>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="right-image">
+                            <img src="assets/images/logooo.png" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-                                            <footer>
-                                                <div class="container">
-                                                    <div class="row">
-                                                        <div class="col-md-12">
-                                                            <div class="inner-content">
-                                                                <p>Copyright &copy; 2023 - Sunce Atelier - Equipo 5
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </footer>
+        <footer>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="inner-content">
+                            <p>Copyright &copy; 2023 - Sunce Atelier - Equipo 5
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
 
-                                            <!-- Bootstrap core JavaScript -->
-                                            <script src="vendor/jquery/jquery.min.js"></script>
-                                            <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <!-- Bootstrap core JavaScript -->
+        <script src="vendor/jquery/jquery.min.js"></script>
+        <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 
-                                            <!-- Additional Scripts -->
-                                            <script src="assets/js/custom.js"></script>
-                                            <script src="assets/js/owl.js"></script>
-                                            <script src="assets/js/slick.js"></script>
-                                            <script src="assets/js/isotope.js"></script>
-                                            <script src="assets/js/accordions.js"></script>
+        <!-- Additional Scripts -->
+        <script src="assets/js/custom.js"></script>
+        <script src="assets/js/owl.js"></script>
+        <script src="assets/js/slick.js"></script>
+        <script src="assets/js/isotope.js"></script>
+        <script src="assets/js/accordions.js"></script>
 
 
-                                            <script language="text/Javascript">
+        <script language="text/Javascript">
                                                         cleared[0] = cleared[1] = cleared[2] = 0; //set a cleared flag for each field
                                                         function clearField(t) {                   //declaring the array outside of the
                                                             if (!cleared[t.id]) {                      // function makes it static and global
@@ -305,37 +241,43 @@
                                                                 t.style.color = '#fff';
                                                             }
                                                         }
-                                            </script>
+        </script>
 
-                                            <div class="modal fade" id="productModal" tabindex="-1" role="dialog" aria-labelledby="productModalLabel" aria-hidden="true">
-                                                <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
-                                                    <div class="modal-content">
-                                                        <div class="modal-header">
-                                                            <h2 class="modal-title" id="productModalLabel"></h2>
-                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                <span aria-hidden="true">&times;</span>
-                                                            </button>
-                                                        </div>
-                                                        <div class="modal-body">
-                                                            <div class="row">
-                                                                <div class="col-md-6">
-                                                                    <div class="text-center">
-                                                                        <img id="productImage" src="" alt="" class="productoVentana img-fluid">
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-md-6">
-                                                                    <h3 id="productDescription"></h3>
-                                                                    <br>
-                                                                    <h2 id="productPrice"></h2>
-                                                                    <br>
-                                                                    <button id="addToCartButton" class="agregarCarrito">Agregar al carrito</button>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                             <%
+        <div class="modal fade" id="productModal" tabindex="-1" role="dialog" aria-labelledby="productModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2 class="modal-title" id="productModalLabel"></h2>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="text-center">
+                                    <img id="productImage" src="" alt="" class="productoVentana img-fluid">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <h3 id="productDescription"></h3>
+                                <br>
+                                <h2 id="productPrice"></h2>
+                                <!-- Puedes agregar campos ocultos para enviar información al servidor -->
+                                <input type="hidden" name="idProducto" id="idProducto" value="1">
+                                <input type="hidden" name="stock" id="stock">
+                                <div class="form-group">
+                                    <label for="quantity">Cantidad:</label>
+                                    <input type="number" class="form-control" id="cantidad" name="cantidad" value="1" min="1" oninput="validarCantidad(this, document.getElementById('stock').value)" required>
+                                </div>
+                                <button type="submit" class="agregarCarrito" onclick="mostrarAlerta()">Agregar al carrito</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <%
             String mensaje = (String) request.getSession().getAttribute("mensajeRegistro");
             if (mensaje != null) {
         %>
@@ -347,7 +289,7 @@
         <%
             }
         %>
-                                            </body>
+    </body>
 
-                                            </html>
-                                      
+</html>
+

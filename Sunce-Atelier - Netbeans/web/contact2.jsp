@@ -149,7 +149,7 @@
                     </div>
                     <div class="col-md-8">
                         <div class="contact-form">
-                            <form id="contact" action="" method="post">
+                            <form id="contact" action="index2.jsp" method="post" onsubmit="return validarContacto()">
                                 <div class="row">
                                     <div class="col-lg-12 col-md-12 col-sm-12">
                                         <fieldset>

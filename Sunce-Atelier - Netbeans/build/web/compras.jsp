@@ -132,11 +132,13 @@
         <%
             for(Compra compra : compras){
             int idCompra = compra.getId_compra();
+            float total = compra.getTotal();
             ArrayList<Producto> productos = sql.obtenerProductosCompra(idCompra);
             System.out.println(productos.size());
         %>
 
-        <h2 style="text-align: center;">Compra ID: <%= idCompra %></h2>
+        <h2 style="text-align: center;">ID Compra: <%= idCompra %></h2>
+        <h3 style="text-align: center;">Total Compra: <%= total %></h3>
         <table border="1" class="comprasTable">
             <thead>
                 <tr>
@@ -144,6 +146,8 @@
                     <th>Nombre Producto</th>
                     <th>Imagen Producto</th>
                     <th>Precio Producto</th>
+                    <th>Cantidad Producto</th>
+                    <th>Subtotal Producto</th>
                     <!-- Agrega más columnas según sea necesario -->
                 </tr>
             </thead>
@@ -154,6 +158,8 @@
                         <td><%= producto.getNombre() %></td>
                         <td><img src="<%= producto.getImg() %>" alt="" width="100px" height="100px"/></td>
                         <td><%= producto.getPrecio() %></td>
+                        <td><%= producto.getStock() %></td>
+                        <td><%= Math.round(producto.getPrecio() * producto.getStock() * 100.0) / 100.0%></td>
                         <!-- Agrega más columnas según sea necesario -->
                     </tr>
                 <% } %>
