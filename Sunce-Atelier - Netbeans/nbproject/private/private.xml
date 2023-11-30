@@ -5,6 +5,7 @@
         <group>
             <file>file:/C:/Users/kingu/Documents/GitHub/Sunce-Atelier/Sunce-Atelier%20-%20Netbeans/src/java/servlet/EliminarUsuario.java</file>
             <file>file:/C:/Users/kingu/Documents/GitHub/Sunce-Atelier/Sunce-Atelier%20-%20Netbeans/src/java/servlet/GuardarCompra.java</file>
+            <file>file:/C:/Users/kingu/Documents/GitHub/Sunce-Atelier/Sunce-Atelier%20-%20Netbeans/src/java/modelo/Producto.java</file>
             <file>file:/C:/Users/kingu/Documents/GitHub/Sunce-Atelier/Sunce-Atelier%20-%20Netbeans/src/java/servlet/RegistroUsuarios.java</file>
             <file>file:/C:/Users/kingu/Documents/GitHub/Sunce-Atelier/Sunce-Atelier%20-%20Netbeans/src/java/servlet/ActualizarProducto.java</file>
             <file>file:/C:/Users/kingu/Documents/GitHub/Sunce-Atelier/Sunce-Atelier%20-%20Netbeans/web/registro.jsp</file>
@@ -14,6 +15,7 @@
             <file>file:/C:/Users/kingu/Documents/GitHub/Sunce-Atelier/Sunce-Atelier%20-%20Netbeans/web/carrito.jsp</file>
             <file>file:/C:/Users/kingu/Documents/GitHub/Sunce-Atelier/Sunce-Atelier%20-%20Netbeans/src/java/servlet/EliminarArticulo.java</file>
             <file>file:/C:/Users/kingu/Documents/GitHub/Sunce-Atelier/Sunce-Atelier%20-%20Netbeans/web/products.jsp</file>
+            <file>file:/C:/Users/kingu/Documents/GitHub/Sunce-Atelier/Sunce-Atelier%20-%20Netbeans/src/java/modelo/ModeloProducto.java</file>
             <file>file:/C:/Users/kingu/Documents/GitHub/Sunce-Atelier/Sunce-Atelier%20-%20Netbeans/web/informacion_usuario.jsp</file>
             <file>file:/C:/Users/kingu/Documents/GitHub/Sunce-Atelier/Sunce-Atelier%20-%20Netbeans/web/informacion_administrador.jsp</file>
             <file>file:/C:/Users/kingu/Documents/GitHub/Sunce-Atelier/Sunce-Atelier%20-%20Netbeans/src/java/servlet/EliminarProducto.java</file>
@@ -31,6 +33,7 @@
             <file>file:/C:/Users/kingu/Documents/GitHub/Sunce-Atelier/Sunce-Atelier%20-%20Netbeans/web/contact.jsp</file>
             <file>file:/C:/Users/kingu/Documents/GitHub/Sunce-Atelier/Sunce-Atelier%20-%20Netbeans/web/assets/css/templatemo-sixteen.css</file>
             <file>file:/C:/Users/kingu/Documents/GitHub/Sunce-Atelier/Sunce-Atelier%20-%20Netbeans/web/index2.jsp</file>
+            <file>file:/C:/Users/kingu/Documents/GitHub/Sunce-Atelier/Sunce-Atelier%20-%20Netbeans/src/java/modelo/Compra.java</file>
             <file>file:/C:/Users/kingu/Documents/GitHub/Sunce-Atelier/Sunce-Atelier%20-%20Netbeans/src/java/servlet/AgregarProducto.java</file>
         </group>
     </open-files>

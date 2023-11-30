@@ -49,6 +49,9 @@ public class ActualizarCantidad extends HttpServlet {
                 if(cantidad<=stock){
                     articulos.get(i).setCantidad(cantidad);
                 }
+                if(cantidad==0){
+                    articulos.remove(i);
+                }
             }
         }
         request.getSession().removeAttribute("carrito");
